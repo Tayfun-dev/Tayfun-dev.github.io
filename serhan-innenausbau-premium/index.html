@@ -1,0 +1,1448 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Serhan Innenausbau | Qualität, die man sieht.</title>
+  <meta name="description" content="Serhan Innenausbau – Zuverlässiger Innenausbau für Trockenbau, Spachtelarbeiten, Reparaturen und Silikonarbeiten. Saubere Ausführung, faire Preise und direkte Anfrage per Telefon oder WhatsApp: 0160 7562439" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet" />
+
+  <style>
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --bg:       #F5F3EF;
+      --bg-dark:  #181714;
+      --text:     #1C1A17;
+      --text-mid: #5A5750;
+      --text-light:#8A8680;
+      --gold:     #9C7E50;
+      --gold-lt:  #C4A97A;
+      --line:     rgba(28,26,23,.1);
+      --white:    #FFFFFF;
+      --radius:   3px;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Outfit', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      font-size: 16px;
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+
+    /* ─── SCROLL ANIMATIONS ─── */
+    .reveal {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity .75s cubic-bezier(.22,1,.36,1), transform .75s cubic-bezier(.22,1,.36,1);
+    }
+    .reveal.visible { opacity: 1; transform: none; }
+    .reveal-left  { transform: translateX(-32px); }
+    .reveal-right { transform: translateX(32px); }
+    .reveal-left.visible, .reveal-right.visible { transform: none; }
+
+    /* ─── NAV ─── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 22px 6vw;
+      transition: background .4s, box-shadow .4s, padding .4s;
+    }
+    nav.scrolled {
+      background: rgba(245,243,239,.96);
+      backdrop-filter: blur(12px);
+      box-shadow: 0 1px 0 var(--line);
+      padding: 14px 6vw;
+    }
+
+    .nav-logo {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 500;
+      font-size: 1.2rem;
+      letter-spacing: .06em;
+      color: var(--text);
+      text-decoration: none;
+      line-height: 1.2;
+    }
+    .nav-logo span {
+      display: block;
+      font-family: 'Outfit', sans-serif;
+      font-size: .62rem;
+      font-weight: 400;
+      letter-spacing: .22em;
+      text-transform: uppercase;
+      color: var(--gold);
+    }
+
+    .nav-cta {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .nav-phone {
+      font-size: .85rem;
+      font-weight: 500;
+      color: var(--text);
+      text-decoration: none;
+      letter-spacing: .02em;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .nav-phone svg { width: 15px; height: 15px; flex-shrink: 0; }
+    .btn-nav {
+      background: var(--text);
+      color: var(--white);
+      font-family: 'Outfit', sans-serif;
+      font-size: .75rem;
+      font-weight: 500;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      text-decoration: none;
+      padding: 10px 20px;
+      border-radius: var(--radius);
+      white-space: nowrap;
+      transition: background .25s, color .25s;
+    }
+    .btn-nav:hover { background: var(--gold); }
+
+    /* ─── HERO ─── */
+    #hero {
+      min-height: 100svh;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+      gap: 0;
+      padding: 0 6vw;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-bg-grid {
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(var(--line) 1px, transparent 1px),
+        linear-gradient(90deg, var(--line) 1px, transparent 1px);
+      background-size: 60px 60px;
+      pointer-events: none;
+      opacity: .45;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      padding-top: 100px;
+      padding-bottom: 80px;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: .7rem;
+      font-weight: 500;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 32px;
+    }
+    .hero-badge::before {
+      content: '';
+      width: 28px; height: 1px;
+      background: var(--gold);
+    }
+
+    .hero-headline {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 400;
+      font-size: clamp(2.8rem, 5.5vw, 5rem);
+      line-height: 1.08;
+      letter-spacing: -.01em;
+      color: var(--text);
+      margin-bottom: 28px;
+    }
+    .hero-headline em {
+      font-style: italic;
+      color: var(--gold);
+    }
+
+    .hero-sub {
+      font-size: 1.05rem;
+      font-weight: 300;
+      color: var(--text-mid);
+      max-width: 420px;
+      line-height: 1.75;
+      margin-bottom: 48px;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      align-items: center;
+    }
+
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--text);
+      color: var(--white);
+      font-family: 'Outfit', sans-serif;
+      font-size: .82rem;
+      font-weight: 500;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      text-decoration: none;
+      padding: 16px 30px;
+      border-radius: var(--radius);
+      transition: background .25s, transform .2s;
+    }
+    .btn-primary:hover { background: var(--gold); transform: translateY(-1px); }
+    .btn-primary svg { width: 16px; height: 16px; }
+
+    .btn-ghost {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: transparent;
+      color: var(--text);
+      font-family: 'Outfit', sans-serif;
+      font-size: .82rem;
+      font-weight: 500;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      text-decoration: none;
+      padding: 15px 28px;
+      border-radius: var(--radius);
+      border: 1px solid rgba(28,26,23,.2);
+      transition: border-color .25s, background .25s, transform .2s;
+    }
+    .btn-ghost:hover { border-color: var(--gold); background: rgba(156,126,80,.06); transform: translateY(-1px); }
+    .btn-ghost svg { width: 16px; height: 16px; }
+
+    .hero-visual {
+      position: relative;
+      z-index: 2;
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      padding-top: 100px;
+      padding-bottom: 80px;
+    }
+
+    .hero-card {
+      position: relative;
+      width: 100%;
+      max-width: 440px;
+    }
+
+    .hero-img-box {
+      width: 100%;
+      aspect-ratio: 4/5;
+      background: var(--bg-dark);
+      border-radius: 2px;
+      overflow: hidden;
+      position: relative;
+    }
+
+    /* Elegant abstract illustration for hero */
+    .hero-img-box::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(135deg, #2a2622 0%, #181714 50%, #0f0e0c 100%);
+    }
+    .hero-img-box::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        repeating-linear-gradient(
+          -45deg,
+          transparent,
+          transparent 38px,
+          rgba(156,126,80,.07) 38px,
+          rgba(156,126,80,.07) 39px
+        );
+    }
+
+    .hero-img-inner {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: flex-end;
+      padding: 36px;
+      z-index: 2;
+    }
+
+    .hero-img-text {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 3.5rem;
+      font-weight: 300;
+      color: rgba(255,255,255,.08);
+      line-height: 1;
+      user-select: none;
+      letter-spacing: -.02em;
+    }
+
+    /* Lines decoration */
+    .hero-lines {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%,-50%);
+      width: 70%;
+      height: 70%;
+      z-index: 1;
+    }
+    .hero-lines line {
+      stroke: rgba(196,169,122,.15);
+      stroke-width: 1;
+    }
+
+    .hero-accent-line {
+      position: absolute;
+      left: -24px;
+      top: 48px;
+      bottom: 48px;
+      width: 2px;
+      background: linear-gradient(to bottom, transparent, var(--gold), transparent);
+    }
+
+    .hero-stats {
+      position: absolute;
+      bottom: -28px;
+      right: -28px;
+      background: var(--white);
+      border-radius: 2px;
+      padding: 24px 28px;
+      box-shadow: 0 20px 60px rgba(0,0,0,.12);
+      display: flex;
+      gap: 28px;
+    }
+
+    .stat-item { text-align: center; }
+    .stat-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2rem;
+      font-weight: 500;
+      color: var(--text);
+      line-height: 1;
+    }
+    .stat-label {
+      font-size: .62rem;
+      font-weight: 500;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+      color: var(--text-light);
+      margin-top: 4px;
+    }
+    .stat-sep { width: 1px; background: var(--line); }
+
+    .hero-scroll {
+      position: absolute;
+      bottom: 36px;
+      left: 6vw;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: .65rem;
+      font-weight: 500;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+      color: var(--text-light);
+    }
+    .hero-scroll::before {
+      content: '';
+      width: 1px; height: 36px;
+      background: linear-gradient(to bottom, transparent, var(--text-light));
+      animation: scrollLine 2s infinite;
+    }
+    @keyframes scrollLine {
+      0%, 100% { opacity: .3; transform: scaleY(1); }
+      50%       { opacity: 1;  transform: scaleY(.6); }
+    }
+
+    /* ─── SECTION BASE ─── */
+    section { position: relative; }
+
+    .section-inner {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 100px 6vw;
+    }
+
+    .section-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-size: .68rem;
+      font-weight: 500;
+      letter-spacing: .22em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 20px;
+    }
+    .section-label::before {
+      content: '';
+      width: 22px; height: 1px;
+      background: var(--gold);
+    }
+
+    .section-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 400;
+      font-size: clamp(2rem, 3.5vw, 3rem);
+      line-height: 1.15;
+      color: var(--text);
+      margin-bottom: 16px;
+    }
+    .section-title em {
+      font-style: italic;
+      color: var(--gold);
+    }
+
+    .section-lead {
+      font-size: 1rem;
+      font-weight: 300;
+      color: var(--text-mid);
+      max-width: 520px;
+      line-height: 1.8;
+    }
+
+    /* ─── SERVICES ─── */
+    #leistungen { background: var(--white); }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 2px;
+      margin-top: 64px;
+      border: 2px solid var(--line);
+      border-radius: 4px;
+      overflow: hidden;
+    }
+
+    .service-card {
+      background: var(--white);
+      padding: 44px 36px;
+      border-right: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+      position: relative;
+      overflow: hidden;
+      transition: background .3s;
+    }
+    .service-card:hover { background: #FAFAF8; }
+    .service-card::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 36px; right: 36px;
+      height: 2px;
+      background: var(--gold);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform .4s cubic-bezier(.22,1,.36,1);
+    }
+    .service-card:hover::after { transform: scaleX(1); }
+
+    .service-icon {
+      width: 44px; height: 44px;
+      margin-bottom: 24px;
+      color: var(--gold);
+    }
+
+    .service-num {
+      position: absolute;
+      top: 20px; right: 24px;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1rem;
+      font-weight: 300;
+      color: var(--line);
+      letter-spacing: .08em;
+    }
+
+    .service-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.4rem;
+      font-weight: 500;
+      color: var(--text);
+      margin-bottom: 12px;
+      line-height: 1.25;
+    }
+
+    .service-desc {
+      font-size: .88rem;
+      font-weight: 300;
+      color: var(--text-mid);
+      line-height: 1.75;
+    }
+
+    .service-tag {
+      display: inline-block;
+      margin-top: 18px;
+      font-size: .62rem;
+      font-weight: 500;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+      color: var(--gold);
+      padding: 5px 10px;
+      border: 1px solid rgba(156,126,80,.25);
+      border-radius: 2px;
+    }
+
+    /* ─── WHY US ─── */
+    #vorteile {
+      background: var(--bg);
+    }
+
+    .why-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+      margin-top: 64px;
+    }
+
+    .why-visual {
+      position: relative;
+    }
+
+    .why-big-box {
+      background: var(--bg-dark);
+      border-radius: 2px;
+      aspect-ratio: 1;
+      position: relative;
+      overflow: hidden;
+    }
+    .why-big-box::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, #1C1A17 0%, #0e0d0b 100%);
+    }
+
+    .why-quote {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 48px;
+      text-align: center;
+      z-index: 2;
+    }
+    .why-quote-mark {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 8rem;
+      line-height: .6;
+      color: rgba(156,126,80,.2);
+      margin-bottom: 24px;
+      font-weight: 300;
+    }
+    .why-quote-text {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.5rem;
+      font-weight: 300;
+      font-style: italic;
+      color: rgba(255,255,255,.82);
+      line-height: 1.55;
+    }
+    .why-quote-author {
+      margin-top: 24px;
+      font-size: .68rem;
+      font-weight: 500;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+      color: var(--gold-lt);
+    }
+
+    .why-small-box {
+      position: absolute;
+      bottom: -28px;
+      right: -28px;
+      background: var(--gold);
+      padding: 28px 32px;
+      border-radius: 2px;
+    }
+    .why-small-text {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.8rem;
+      font-weight: 400;
+      color: var(--white);
+      line-height: 1;
+    }
+    .why-small-sub {
+      font-size: .7rem;
+      font-weight: 500;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,.75);
+      margin-top: 6px;
+    }
+
+    .why-points {
+      display: flex;
+      flex-direction: column;
+      gap: 32px;
+    }
+
+    .why-point {
+      display: flex;
+      gap: 20px;
+      align-items: flex-start;
+    }
+
+    .why-point-icon {
+      flex-shrink: 0;
+      width: 44px; height: 44px;
+      background: rgba(156,126,80,.1);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--gold);
+      margin-top: 2px;
+    }
+    .why-point-icon svg { width: 20px; height: 20px; }
+
+    .why-point-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.25rem;
+      font-weight: 500;
+      color: var(--text);
+      margin-bottom: 6px;
+    }
+    .why-point-desc {
+      font-size: .88rem;
+      font-weight: 300;
+      color: var(--text-mid);
+      line-height: 1.75;
+    }
+
+    /* ─── QUALITY PROMISE ─── */
+    #qualitaet {
+      background: var(--bg-dark);
+      color: var(--white);
+    }
+
+    #qualitaet .section-title { color: var(--white); }
+    #qualitaet .section-lead { color: rgba(255,255,255,.55); }
+
+    .quality-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2px;
+      margin-top: 64px;
+    }
+
+    .quality-item {
+      padding: 52px 40px;
+      border: 1px solid rgba(255,255,255,.06);
+      position: relative;
+      transition: border-color .3s, background .3s;
+    }
+    .quality-item:hover {
+      border-color: rgba(156,126,80,.3);
+      background: rgba(156,126,80,.04);
+    }
+
+    .quality-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 4rem;
+      font-weight: 300;
+      color: rgba(156,126,80,.15);
+      line-height: 1;
+      margin-bottom: 20px;
+    }
+
+    .quality-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.4rem;
+      font-weight: 400;
+      color: var(--white);
+      margin-bottom: 12px;
+    }
+
+    .quality-desc {
+      font-size: .88rem;
+      font-weight: 300;
+      color: rgba(255,255,255,.5);
+      line-height: 1.8;
+    }
+
+    /* ─── PROCESS ─── */
+    #ablauf { background: var(--white); }
+
+    .process-steps {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 0;
+      margin-top: 64px;
+      position: relative;
+    }
+    .process-steps::before {
+      content: '';
+      position: absolute;
+      top: 28px;
+      left: 12%;
+      right: 12%;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--gold-lt), transparent);
+    }
+
+    .process-step {
+      padding: 0 24px;
+      text-align: center;
+      position: relative;
+    }
+
+    .process-dot {
+      width: 56px; height: 56px;
+      background: var(--white);
+      border: 2px solid var(--gold);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 28px;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.1rem;
+      font-weight: 500;
+      color: var(--gold);
+      position: relative;
+      z-index: 1;
+    }
+
+    .process-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.2rem;
+      font-weight: 500;
+      color: var(--text);
+      margin-bottom: 10px;
+    }
+
+    .process-desc {
+      font-size: .82rem;
+      font-weight: 300;
+      color: var(--text-mid);
+      line-height: 1.7;
+    }
+
+    /* ─── CONTACT ─── */
+    #kontakt { background: var(--bg); }
+
+    .contact-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+      margin-top: 64px;
+    }
+
+    .contact-left {}
+
+    .contact-info-block {
+      display: flex;
+      flex-direction: column;
+      gap: 28px;
+      margin-top: 40px;
+    }
+
+    .contact-info-item {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+    }
+
+    .contact-info-icon {
+      width: 48px; height: 48px;
+      background: rgba(156,126,80,.1);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      color: var(--gold);
+    }
+    .contact-info-icon svg { width: 22px; height: 22px; }
+
+    .contact-info-label {
+      font-size: .65rem;
+      font-weight: 500;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      color: var(--text-light);
+      margin-bottom: 3px;
+    }
+    .contact-info-value {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.3rem;
+      font-weight: 500;
+      color: var(--text);
+      text-decoration: none;
+      transition: color .2s;
+    }
+    .contact-info-value:hover { color: var(--gold); }
+
+    .contact-right {
+      background: var(--white);
+      border-radius: 4px;
+      padding: 52px 48px;
+      box-shadow: 0 24px 80px rgba(0,0,0,.06);
+    }
+
+    .contact-form-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.8rem;
+      font-weight: 400;
+      color: var(--text);
+      margin-bottom: 8px;
+    }
+    .contact-form-sub {
+      font-size: .85rem;
+      font-weight: 300;
+      color: var(--text-mid);
+      margin-bottom: 32px;
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+    .form-group label {
+      display: block;
+      font-size: .7rem;
+      font-weight: 500;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: var(--text-mid);
+      margin-bottom: 8px;
+    }
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      width: 100%;
+      background: var(--bg);
+      border: 1px solid transparent;
+      border-radius: var(--radius);
+      padding: 13px 16px;
+      font-family: 'Outfit', sans-serif;
+      font-size: .9rem;
+      color: var(--text);
+      outline: none;
+      transition: border-color .2s, background .2s;
+    }
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+      border-color: var(--gold);
+      background: var(--white);
+    }
+    .form-group textarea { resize: vertical; min-height: 90px; }
+
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+
+    .btn-submit {
+      width: 100%;
+      background: var(--text);
+      color: var(--white);
+      border: none;
+      cursor: pointer;
+      font-family: 'Outfit', sans-serif;
+      font-size: .8rem;
+      font-weight: 500;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      padding: 16px;
+      border-radius: var(--radius);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      transition: background .25s, transform .2s;
+      margin-top: 8px;
+    }
+    .btn-submit:hover { background: var(--gold); transform: translateY(-1px); }
+    .btn-submit svg { width: 16px; height: 16px; }
+
+    .form-note {
+      font-size: .72rem;
+      color: var(--text-light);
+      text-align: center;
+      margin-top: 14px;
+    }
+
+    /* ─── FOOTER ─── */
+    footer {
+      background: var(--bg-dark);
+      padding: 48px 6vw;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: 16px;
+    }
+
+    .footer-logo {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.3rem;
+      font-weight: 400;
+      color: rgba(255,255,255,.85);
+      letter-spacing: .04em;
+    }
+    .footer-logo span {
+      display: block;
+      font-family: 'Outfit', sans-serif;
+      font-size: .58rem;
+      font-weight: 400;
+      letter-spacing: .24em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-top: 4px;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 28px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    .footer-links a {
+      font-size: .72rem;
+      font-weight: 400;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,.3);
+      text-decoration: none;
+      transition: color .2s;
+    }
+    .footer-links a:hover { color: var(--gold); }
+
+    .footer-copy {
+      font-size: .72rem;
+      color: rgba(255,255,255,.2);
+    }
+
+    /* ─── STICKY CTA ─── */
+    .sticky-cta {
+      position: fixed;
+      bottom: 28px;
+      right: 24px;
+      z-index: 99;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      opacity: 0;
+      transform: translateY(16px);
+      transition: opacity .4s, transform .4s;
+      pointer-events: none;
+    }
+    .sticky-cta.show { opacity: 1; transform: none; pointer-events: all; }
+
+    .sticky-btn {
+      width: 52px; height: 52px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      box-shadow: 0 4px 24px rgba(0,0,0,.18);
+      transition: transform .2s, box-shadow .2s;
+    }
+    .sticky-btn:hover { transform: scale(1.08); box-shadow: 0 6px 32px rgba(0,0,0,.25); }
+    .sticky-btn svg { width: 22px; height: 22px; }
+
+    .sticky-call { background: var(--text); color: var(--white); }
+    .sticky-wa   { background: #25D366; color: var(--white); }
+
+    /* ─── RESPONSIVE ─── */
+    @media (max-width: 900px) {
+      #hero {
+        grid-template-columns: 1fr;
+        padding-top: 100px;
+      }
+      .hero-visual { display: none; }
+      .hero-content { padding-top: 40px; }
+
+      .why-layout,
+      .contact-layout {
+        grid-template-columns: 1fr;
+        gap: 48px;
+      }
+      .why-visual { display: none; }
+
+      .quality-grid { grid-template-columns: 1fr; }
+      .process-steps { grid-template-columns: 1fr 1fr; }
+      .process-steps::before { display: none; }
+
+      .contact-right { padding: 36px 28px; }
+    }
+
+    @media (max-width: 600px) {
+      .services-grid { grid-template-columns: 1fr; }
+      .process-steps { grid-template-columns: 1fr; }
+      .form-row { grid-template-columns: 1fr; }
+
+      .nav-phone { display: none; }
+
+      .hero-stats { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ─── NAV ─── -->
+<nav id="nav">
+  <a href="#" class="nav-logo">
+    Serhan
+    <span>Innenausbau</span>
+  </a>
+  <div class="nav-cta">
+    <a href="tel:01607562439" class="nav-phone">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.5 2 2 0 0 1 3.6 1.34h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 9a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+      0160 7562439
+    </a>
+    <a href="#kontakt" class="btn-nav">Anfragen</a>
+  </div>
+</nav>
+
+<!-- ─── HERO ─── -->
+<section id="hero">
+  <div class="hero-bg-grid"></div>
+
+  <div class="hero-content">
+    <div class="hero-badge reveal">Serhan Innenausbau</div>
+    <h1 class="hero-headline reveal" style="transition-delay:.1s">
+      Saubere Arbeit.<br><em>Direkt sichtbar.</em>
+    </h1>
+    <p class="hero-sub reveal" style="transition-delay:.2s">
+      Zuverlässiger Innenausbau für Kunden, die saubere Arbeit, termingenaue Ausführung und faire Preise wollen - ganz gleich ob Bad, Küche oder Wohnzimmer.
+    </p>
+    <div class="hero-actions reveal" style="transition-delay:.3s">
+      <a href="tel:01607562439" class="btn-primary">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.5 2 2 0 0 1 3.6 1.34h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 9a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        Jetzt anrufen
+      </a>
+      <a href="#kontakt" class="btn-ghost">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+        Anfrage stellen
+      </a>
+    </div>
+  </div>
+
+  <div class="hero-visual">
+    <div class="hero-card reveal reveal-right" style="transition-delay:.2s">
+      <div class="hero-accent-line"></div>
+      <div class="hero-img-box">
+        <svg class="hero-lines" viewBox="0 0 300 400" xmlns="http://www.w3.org/2000/svg">
+          <line x1="0" y1="0" x2="300" y2="400"/>
+          <line x1="60" y1="0" x2="300" y2="280"/>
+          <line x1="120" y1="0" x2="300" y2="160"/>
+          <line x1="0" y1="80" x2="180" y2="400"/>
+          <line x1="0" y1="180" x2="120" y2="400"/>
+          <line x1="150" y1="0" x2="300" y2="100"/>
+        </svg>
+        <div class="hero-img-inner">
+          <div class="hero-img-text">Trockenbau<br>Präzision.</div>
+        </div>
+      </div>
+      <div class="hero-stats">
+        <div class="stat-item">
+          <div class="stat-num" data-count="10">0</div>
+          <div class="stat-label">Jahre Erfahrung</div>
+        </div>
+        <div class="stat-sep"></div>
+        <div class="stat-item">
+          <div class="stat-num">TOP</div>
+          <div class="stat-label">Preise & Leistung</div>
+        </div>
+        <div class="stat-sep"></div>
+        <div class="stat-item">
+          <div class="stat-num">24h</div>
+          <div class="stat-label">WhatsApp möglich</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="hero-scroll">Scrollen</div>
+</section>
+
+<!-- ─── LEISTUNGEN ─── -->
+<section id="leistungen">
+  <div class="section-inner">
+    <div class="section-label reveal">Leistungen</div>
+    <h2 class="section-title reveal">Alles aus einer Hand –<br><em>präzise ausgeführt.</em></h2>
+    <p class="section-lead reveal">Vom Rohbau bis zur fertigen Oberfläche. Jedes Projekt erhält dieselbe Sorgfalt und Aufmerksamkeit – unabhängig von der Größe.</p>
+
+    <div class="services-grid">
+
+      <div class="service-card reveal">
+        <span class="service-num">01</span>
+        <svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="1"/><path d="M3 9h18M9 21V9"/></svg>
+        <div class="service-title">Trockenbau<br>Wände & Decken</div>
+        <p class="service-desc">Maßgenaue Ständerwände, abgehängte Decken und komplexe Konstruktionen – sauber, stabil und in höchster Verarbeitungsqualität.</p>
+        <span class="service-tag">GK · Metallständer</span>
+      </div>
+
+      <div class="service-card reveal" style="transition-delay:.08s">
+        <span class="service-num">02</span>
+        <svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+        <div class="service-title">Spachtel- & Schleifarbeiten</div>
+        <p class="service-desc">Saubere Oberflächen, präzise Ausführung und ein Ergebnis, das ordentlich wirkt. Für Räume, die fertig statt halb gemacht aussehen sollen.</p>
+        <span class="service-tag">Sauber & glatt</span>
+      </div>
+
+      <div class="service-card reveal" style="transition-delay:.16s">
+        <span class="service-num">03</span>
+        <svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
+        <div class="service-title">Reparaturen &<br>Silikonarbeiten</div>
+        <p class="service-desc">Für saubere Ausbesserungen, Reparaturen und ordentliche Silikonarbeiten in Bad, Küche, Wohnzimmer und weiteren Bereichen.</p>
+        <span class="service-tag">Staubarm · Maschinell</span>
+      </div>
+
+      <div class="service-card reveal" style="transition-delay:.24s">
+        <span class="service-num">04</span>
+        <svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+        <div class="service-title">Dämmung &<br>Schallschutz</div>
+        <p class="service-desc">Klare Einschätzung vor Ort, ehrliche Beratung und eine unverbindliche Besichtigung, damit das Projekt sauber geplant startet.</p>
+        <span class="service-tag">Mineralwolle · WärmeschutzV</span>
+      </div>
+
+      <div class="service-card reveal" style="transition-delay:.32s">
+        <span class="service-num">05</span>
+        <svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22V12m0 0V2m0 10H2m10 0h10"/><circle cx="12" cy="12" r="3"/></svg>
+        <div class="service-title">Saubere Ausführung<br>& faire Preise</div>
+        <p class="service-desc">Saubere Ausführung und faire Preise für Trockenbauarbeiten, die ordentlich geplant und zuverlässig umgesetzt werden.</p>
+        <span class="service-tag">Optional · Komplett</span>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ─── VORTEILE ─── -->
+<section id="vorteile">
+  <div class="section-inner">
+    <div class="section-label reveal">Warum Serhan</div>
+    <h2 class="section-title reveal">Kein Standardbetrieb –<br><em>ein verlässlicher Partner.</em></h2>
+
+    <div class="why-layout">
+      <div class="why-visual reveal reveal-left">
+        <div class="why-big-box">
+          <div class="why-quote">
+            <div class="why-quote-mark">"</div>
+            <div class="why-quote-text">Qualität zeigt sich nicht beim ersten Blick – sie zeigt sich, wenn man genauer hinschaut.</div>
+            <div class="why-quote-author">Serhan Innenausbau</div>
+          </div>
+        </div>
+        <div class="why-small-box">
+          <div class="why-small-text">10+</div>
+          <div class="why-small-sub">Jahre Expertise</div>
+        </div>
+      </div>
+
+      <div class="why-points">
+        <div class="why-point reveal" style="transition-delay:.05s">
+          <div class="why-point-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+          </div>
+          <div>
+            <div class="why-point-title">Präzise Ausführung</div>
+            <p class="why-point-desc">Jeder Winkel sitzt. Jede Fläche ist eben. Wir arbeiten mit dem Auge für Details – und der Erfahrung, die den Unterschied macht.</p>
+          </div>
+        </div>
+
+        <div class="why-point reveal" style="transition-delay:.1s">
+          <div class="why-point-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+          </div>
+          <div>
+            <div class="why-point-title">Termingerecht & zuverlässig</div>
+            <p class="why-point-desc">Abgemachte Termine werden eingehalten. Kein lästiges Warten, kein Verschwinden von der Baustelle. Klare Kommunikation von Anfang bis Ende.</p>
+          </div>
+        </div>
+
+        <div class="why-point reveal" style="transition-delay:.15s">
+          <div class="why-point-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          </div>
+          <div>
+            <div class="why-point-title">Sauberkeit als Standard</div>
+            <p class="why-point-desc">Wir verlassen die Baustelle so, wie wir sie vorgefunden haben – oder sauberer. Staub, Schmutz und Abfall werden täglich entfernt.</p>
+          </div>
+        </div>
+
+        <div class="why-point reveal" style="transition-delay:.2s">
+          <div class="why-point-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          </div>
+          <div>
+            <div class="why-point-title">Persönlicher Ansprechpartner</div>
+            <p class="why-point-desc">Serhan Innenausbau ist direkt für Sie erreichbar – mit klarer Kommunikation, sauberer Ausführung und ohne unnötige Umwege.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── QUALITÄTSVERSPRECHEN ─── -->
+<section id="qualitaet">
+  <div class="section-inner">
+    <div class="section-label reveal">Qualitätsversprechen</div>
+    <h2 class="section-title reveal">Drei Versprechen.<br><em>Gehalten.</em></h2>
+    <p class="section-lead reveal">Nicht weil es im Angebot steht – sondern weil es unser Anspruch ist.</p>
+
+    <div class="quality-grid">
+      <div class="quality-item reveal">
+        <div class="quality-num">01</div>
+        <div class="quality-title">Oberflächen, die halten, was sie versprechen</div>
+        <p class="quality-desc">Spachtelqualität nach VOB – von Q2 bis TOP. Glatte, lichtechte Flächen, die auch bei Streiflicht überzeugen. Kein Nachbessern, kein Ausreden.</p>
+      </div>
+      <div class="quality-item reveal" style="transition-delay:.1s">
+        <div class="quality-num">02</div>
+        <div class="quality-title">Materialien, die dauerhaft funktionieren</div>
+        <p class="quality-desc">Wir setzen ausschließlich auf Materialien namhafter Hersteller. Gipskarton, Dübel, Dämmstoffe – alles erfüllt aktuelle Normen und ist auf Langlebigkeit ausgelegt.</p>
+      </div>
+      <div class="quality-item reveal" style="transition-delay:.2s">
+        <div class="quality-num">03</div>
+        <div class="quality-title">Ein fairer Preis für echte Leistung</div>
+        <p class="quality-desc">Klare Kalkulationen ohne versteckte Kosten. Sie wissen vorher, was es kostet. Keine Nachträge ohne Absprache – Transparenz ist Teil unseres Qualitätsanspruchs.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── ABLAUF ─── -->
+<section id="ablauf">
+  <div class="section-inner">
+    <div class="section-label reveal">So läuft's ab</div>
+    <h2 class="section-title reveal">Einfach. Klar. <em>Ohne Umwege.</em></h2>
+    <p class="section-lead reveal">Vom ersten Anruf bis zur fertigen Fläche – ein reibungsloser Ablauf, der Ihren Alltag nicht belastet.</p>
+
+    <div class="process-steps">
+      <div class="process-step reveal">
+        <div class="process-dot">01</div>
+        <div class="process-title">Erstkontakt</div>
+        <p class="process-desc">Sie rufen an oder schreiben uns – wir melden uns innerhalb von 24 Stunden.</p>
+      </div>
+      <div class="process-step reveal" style="transition-delay:.1s">
+        <div class="process-dot">02</div>
+        <div class="process-title">Besichtigung</div>
+        <p class="process-desc">Kostenloser Ortstermin – wir schauen uns das Projekt genau an und beraten Sie ehrlich.</p>
+      </div>
+      <div class="process-step reveal" style="transition-delay:.2s">
+        <div class="process-dot">03</div>
+        <div class="process-title">Angebot</div>
+        <p class="process-desc">Klares, transparentes Angebot ohne Überraschungen. Sie entscheiden in Ruhe.</p>
+      </div>
+      <div class="process-step reveal" style="transition-delay:.3s">
+        <div class="process-dot">04</div>
+        <div class="process-title">Ausführung</div>
+        <p class="process-desc">Termingerecht, sauber, präzise – bis zur Abnahme bleiben wir in engem Kontakt.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── KONTAKT ─── -->
+<section id="kontakt">
+  <div class="section-inner">
+    <div class="section-label reveal">Kontakt</div>
+    <h2 class="section-title reveal">Bereit für Ihr nächstes<br><em>Projekt?</em></h2>
+
+    <div class="contact-layout">
+      <div class="contact-left reveal reveal-left">
+        <p class="section-lead">Rufen Sie direkt an oder schreiben Sie uns eine kurze Nachricht. Wir melden uns zeitnah – persönlich und verbindlich.</p>
+
+        <div class="contact-info-block">
+          <div class="contact-info-item">
+            <div class="contact-info-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.5 2 2 0 0 1 3.6 1.34h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 9a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            </div>
+            <div>
+              <div class="contact-info-label">Telefon</div>
+              <a href="tel:01607562439" class="contact-info-value">0160 7562439</a>
+            </div>
+          </div>
+
+          <div class="contact-info-item">
+            <div class="contact-info-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+            </div>
+            <div>
+              <div class="contact-info-label">WhatsApp</div>
+              <a href="https://wa.me/491607562439" class="contact-info-value">Nachricht senden</a>
+            </div>
+          </div>
+
+          <div class="contact-info-item">
+            <div class="contact-info-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>
+            </div>
+            <div>
+              <div class="contact-info-label">Ansprechpartner</div>
+              <div class="contact-info-value" style="color:var(--text);cursor:default">Serhan Innenausbau</div>
+            </div>
+          </div>
+        </div>
+
+        <div style="margin-top:40px; display:flex; gap:14px; flex-wrap:wrap;">
+          <a href="tel:01607562439" class="btn-primary">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.5 2 2 0 0 1 3.6 1.34h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 9a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            Jetzt anrufen
+          </a>
+          <a href="https://wa.me/491607562439" class="btn-ghost">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+            WhatsApp
+          </a>
+        </div>
+      </div>
+
+      <div class="contact-right reveal reveal-right">
+        <div class="contact-form-title">Unverbindliche Anfrage</div>
+        <p class="contact-form-sub">Kurze Beschreibung genügt – wir melden uns innerhalb von 24 Stunden.</p>
+
+        <form onsubmit="handleSubmit(event)">
+          <div class="form-row">
+            <div class="form-group">
+              <label>Vorname</label>
+              <input type="text" placeholder="Max" required />
+            </div>
+            <div class="form-group">
+              <label>Nachname</label>
+              <input type="text" placeholder="Mustermann" required />
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Telefon</label>
+            <input type="tel" placeholder="0151 12345678" />
+          </div>
+          <div class="form-group">
+            <label>Leistung</label>
+            <select>
+              <option value="">Bitte wählen …</option>
+              <option>Trockenbau (Wände & Decken)</option>
+              <option>Spachtel- & Schleifarbeiten</option>
+              <option>Schleifen (staubarm)</option>
+              <option>Dämmung & Schallschutz</option>
+              <option>Saubere Ausführung & faire Preise</option>
+              <option>Mehrere Leistungen</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Kurze Projektbeschreibung</label>
+            <textarea placeholder="z.B. Neubau, ca. 80 m², Wände und Decken verspachteln ..."></textarea>
+          </div>
+          <button type="submit" class="btn-submit" id="submitBtn">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+            Jetzt unverbindlich anfragen
+          </button>
+          <p class="form-note" id="formNote">Kostenlos & unverbindlich · Antwort innerhalb von 24 Stunden</p>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── FOOTER ─── -->
+<footer>
+  <div class="footer-logo">
+    Serhan
+    <span>Innenausbau</span>
+  </div>
+  <div class="footer-links">
+    <a href="#leistungen">Leistungen</a>
+    <a href="#vorteile">Über uns</a>
+    <a href="#qualitaet">Qualität</a>
+    <a href="#ablauf">Ablauf</a>
+    <a href="#kontakt">Kontakt</a>
+  </div>
+  <p class="footer-copy">© 2026 Serhan Innenausbau · Alle Rechte vorbehalten</p>
+</footer>
+
+<!-- ─── STICKY CTA ─── -->
+<div class="sticky-cta" id="stickyCta">
+  <a href="https://wa.me/491607562439" class="sticky-btn sticky-wa" title="WhatsApp">
+    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+  </a>
+  <a href="tel:01607562439" class="sticky-btn sticky-call" title="Anrufen">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.5 2 2 0 0 1 3.6 1.34h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 9a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+  </a>
+</div>
+
+<script>
+  /* ── Scroll Reveal ── */
+  const revealEls = document.querySelectorAll('.reveal');
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); } });
+  }, { threshold: .12 });
+  revealEls.forEach(el => io.observe(el));
+
+  /* ── Nav scroll ── */
+  const nav = document.getElementById('nav');
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('scrolled', window.scrollY > 60);
+  });
+
+  /* ── Sticky CTA ── */
+  const stickyCta = document.getElementById('stickyCta');
+  window.addEventListener('scroll', () => {
+    stickyCta.classList.toggle('show', window.scrollY > 400);
+  });
+
+  /* ── Counter animation ── */
+  function animateCounter(el, target, duration = 1600) {
+    let start = null;
+    const step = (ts) => {
+      if (!start) start = ts;
+      const progress = Math.min((ts - start) / duration, 1);
+      const ease = 1 - Math.pow(1 - progress, 3);
+      el.textContent = Math.floor(ease * target) + '+';
+      if (progress < 1) requestAnimationFrame(step);
+    };
+    requestAnimationFrame(step);
+  }
+  const counterEls = document.querySelectorAll('[data-count]');
+  const counterIo = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        animateCounter(e.target, parseInt(e.target.dataset.count));
+        counterIo.unobserve(e.target);
+      }
+    });
+  }, { threshold: .5 });
+  counterEls.forEach(el => counterIo.observe(el));
+
+  /* ── Form ── */
+  function handleSubmit(e) {
+    e.preventDefault();
+    const btn = document.getElementById('submitBtn');
+    const note = document.getElementById('formNote');
+    btn.textContent = '✓ Anfrage gesendet';
+    btn.style.background = 'var(--gold)';
+    note.textContent = 'Wir melden uns bald bei Ihnen – vielen Dank!';
+    btn.disabled = true;
+  }
+</script>
+</body>
+</html>
