@@ -1,0 +1,799 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vladimir Hamburg | Wasserleitungen, Abwasser, Fussbodenheizung & Sanierung</title>
+  <meta name="description" content="Vladimir aus Hamburg fuer Wasserleitungen, Abwasser, Fussbodenheizung, Klempnerarbeiten und Haussanierung. Hohe Qualitaet, Garantie auf Installationen und langlebige Ausfuehrung." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <meta property="og:title" content="Vladimir Hamburg | Wasserleitungen, Abwasser, Fussbodenheizung & Sanierung" />
+  <meta property="og:description" content="Premium-Demo fuer einen Hamburger Betrieb mit Fokus auf Wasserleitungen, Abwasser, Fussbodenheizung, Klempnerarbeiten und Haussanierung." />
+  <meta property="og:type" content="website" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --bg: #f4f1ea;
+      --surface: #fffdfa;
+      --ink: #1b1d21;
+      --muted: #63666d;
+      --line: rgba(27,29,33,.1);
+      --accent: #ad7a3a;
+      --accent-dark: #7a5325;
+      --deep: #16212b;
+      --white: #ffffff;
+      --radius: 4px;
+    }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Outfit', sans-serif;
+      background: var(--bg);
+      color: var(--ink);
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 18px 6vw;
+      background: rgba(244,241,234,.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--line);
+    }
+    .nav-logo {
+      text-decoration: none;
+      color: var(--ink);
+      line-height: 1.05;
+    }
+    .nav-logo strong {
+      display: block;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(1.5rem, 2.5vw, 2rem);
+      letter-spacing: .08em;
+    }
+    .nav-logo span {
+      display: block;
+      font-size: .68rem;
+      text-transform: uppercase;
+      letter-spacing: .24em;
+      color: var(--accent);
+      margin-top: 4px;
+    }
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .nav-link {
+      color: var(--ink);
+      text-decoration: none;
+      font-size: .9rem;
+      font-weight: 500;
+    }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      border-radius: var(--radius);
+      padding: 14px 24px;
+      font-size: .82rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: .12em;
+      transition: .25s ease;
+      border: 1px solid transparent;
+    }
+    .btn-primary {
+      background: var(--ink);
+      color: var(--white);
+    }
+    .btn-primary:hover { background: var(--accent); }
+    .btn-ghost {
+      color: var(--ink);
+      border-color: rgba(27,29,33,.16);
+      background: transparent;
+    }
+    .btn-ghost:hover { border-color: var(--accent); background: rgba(173,122,58,.06); }
+    .hero {
+      min-height: calc(100vh - 82px);
+      display: grid;
+      grid-template-columns: 1.05fr .95fr;
+      gap: 56px;
+      align-items: center;
+      padding: 72px 6vw 84px;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(var(--line) 1px, transparent 1px),
+        linear-gradient(90deg, var(--line) 1px, transparent 1px);
+      background-size: 60px 60px;
+      opacity: .45;
+      pointer-events: none;
+    }
+    .hero-copy, .hero-panel { position: relative; z-index: 1; }
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-size: .72rem;
+      text-transform: uppercase;
+      letter-spacing: .22em;
+      color: var(--accent);
+      margin-bottom: 26px;
+    }
+    .eyebrow::before {
+      content: "";
+      width: 28px;
+      height: 1px;
+      background: var(--accent);
+    }
+    h1, h2, h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 500;
+      line-height: 1.08;
+      color: var(--ink);
+    }
+    h1 {
+      font-size: clamp(3rem, 6vw, 5.4rem);
+      margin-bottom: 24px;
+      max-width: 700px;
+    }
+    .hero-lead {
+      max-width: 560px;
+      color: var(--muted);
+      font-size: 1.05rem;
+      margin-bottom: 34px;
+    }
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-bottom: 34px;
+    }
+    .trust-list {
+      list-style: none;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-bottom: 32px;
+    }
+    .trust-list li {
+      padding: 9px 14px;
+      border: 1px solid rgba(27,29,33,.1);
+      background: rgba(255,255,255,.62);
+      font-size: .78rem;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+    .hero-proof {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0,1fr));
+      gap: 14px;
+    }
+    .proof-box {
+      padding: 20px;
+      background: rgba(255,255,255,.72);
+      border: 1px solid rgba(27,29,33,.08);
+      box-shadow: 0 18px 40px rgba(0,0,0,.06);
+    }
+    .proof-box strong {
+      display: block;
+      font-size: .78rem;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 10px;
+    }
+    .proof-box span {
+      color: var(--muted);
+      font-size: .95rem;
+    }
+    .hero-panel {
+      padding: 34px;
+      background: linear-gradient(155deg, rgba(22,33,43,.98), rgba(18,24,33,.94));
+      color: var(--white);
+      border-radius: 2px;
+      box-shadow: 0 25px 70px rgba(0,0,0,.18);
+    }
+    .hero-panel-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 16px;
+      margin-bottom: 34px;
+    }
+    .hero-panel-top strong {
+      display: block;
+      font-size: .74rem;
+      text-transform: uppercase;
+      letter-spacing: .22em;
+      color: rgba(255,255,255,.68);
+      margin-bottom: 8px;
+    }
+    .hero-panel-top h2 {
+      font-size: clamp(2rem, 3.5vw, 2.8rem);
+      color: var(--white);
+      max-width: 320px;
+    }
+    .status-chip {
+      white-space: nowrap;
+      font-size: .72rem;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      color: #f5cf96;
+      border: 1px solid rgba(245,207,150,.24);
+      padding: 10px 12px;
+    }
+    .hero-panel-grid {
+      display: grid;
+      gap: 14px;
+      margin-bottom: 18px;
+    }
+    .panel-card {
+      background: rgba(255,255,255,.06);
+      border: 1px solid rgba(255,255,255,.08);
+      padding: 18px;
+    }
+    .panel-card span {
+      display: block;
+      font-size: .7rem;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,.62);
+      margin-bottom: 8px;
+    }
+    .panel-card strong {
+      display: block;
+      font-size: 1.12rem;
+      margin-bottom: 8px;
+    }
+    .panel-card p {
+      color: rgba(255,255,255,.76);
+      font-size: .95rem;
+    }
+    .hero-panel-note {
+      border-top: 1px solid rgba(255,255,255,.1);
+      padding-top: 18px;
+      color: rgba(255,255,255,.7);
+      font-size: .92rem;
+    }
+    section { position: relative; }
+    .section-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 96px 6vw;
+    }
+    .section-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-size: .72rem;
+      text-transform: uppercase;
+      letter-spacing: .22em;
+      color: var(--accent);
+      margin-bottom: 18px;
+    }
+    .section-label::before {
+      content: "";
+      width: 22px;
+      height: 1px;
+      background: var(--accent);
+    }
+    .section-title {
+      font-size: clamp(2.2rem, 4vw, 3.4rem);
+      margin-bottom: 16px;
+      max-width: 760px;
+    }
+    .section-lead {
+      color: var(--muted);
+      max-width: 620px;
+      font-size: 1rem;
+    }
+    .services {
+      background: var(--surface);
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+    }
+    .service-grid {
+      margin-top: 46px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 2px;
+      border: 1px solid var(--line);
+      background: var(--line);
+    }
+    .service-card {
+      background: var(--white);
+      padding: 32px 28px;
+      min-height: 220px;
+    }
+    .service-card b {
+      display: inline-block;
+      font-size: .72rem;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 16px;
+    }
+    .service-card h3 {
+      font-size: 1.6rem;
+      margin-bottom: 12px;
+    }
+    .service-card p {
+      color: var(--muted);
+      font-size: .96rem;
+    }
+    .contrast {
+      background: linear-gradient(180deg, #1a222b 0%, #10171f 100%);
+      color: var(--white);
+    }
+    .contrast .section-title, .contrast h3 { color: var(--white); }
+    .contrast .section-lead { color: rgba(255,255,255,.76); }
+    .why-grid {
+      margin-top: 42px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+    }
+    .why-card {
+      padding: 26px;
+      border: 1px solid rgba(255,255,255,.08);
+      background: rgba(255,255,255,.04);
+    }
+    .why-card h3 {
+      font-size: 1.5rem;
+      margin-bottom: 12px;
+    }
+    .why-card p {
+      color: rgba(255,255,255,.76);
+      font-size: .96rem;
+    }
+    .process-grid, .proof-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0,1fr));
+      gap: 20px;
+      margin-top: 42px;
+    }
+    .process-card, .proof-card {
+      padding: 30px 26px;
+      background: rgba(255,255,255,.72);
+      border: 1px solid rgba(27,29,33,.08);
+    }
+    .process-card span, .proof-label {
+      display: inline-block;
+      font-size: .74rem;
+      text-transform: uppercase;
+      letter-spacing: .18em;
+      color: var(--accent);
+      margin-bottom: 14px;
+    }
+    .process-card h3, .proof-card h3 {
+      font-size: 1.5rem;
+      margin-bottom: 12px;
+    }
+    .process-card p, .proof-card p {
+      color: var(--muted);
+      font-size: .96rem;
+    }
+    .contact {
+      background: var(--surface);
+      border-top: 1px solid var(--line);
+    }
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 42px;
+      align-items: start;
+    }
+    .contact-boxes {
+      display: grid;
+      gap: 14px;
+      margin-top: 30px;
+    }
+    .contact-box {
+      padding: 20px;
+      background: rgba(255,255,255,.8);
+      border: 1px solid rgba(27,29,33,.08);
+    }
+    .contact-box span {
+      display: block;
+      font-size: .72rem;
+      text-transform: uppercase;
+      letter-spacing: .18em;
+      color: var(--accent);
+      margin-bottom: 10px;
+    }
+    .contact-box strong {
+      display: block;
+      font-size: 1.18rem;
+      margin-bottom: 6px;
+    }
+    .contact-box p, .contact-box a {
+      color: var(--muted);
+      text-decoration: none;
+    }
+    .contact-card {
+      padding: 30px;
+      background: #131c25;
+      color: var(--white);
+      box-shadow: 0 20px 60px rgba(0,0,0,.14);
+    }
+    .contact-card h3 {
+      color: var(--white);
+      font-size: 2rem;
+      margin-bottom: 12px;
+    }
+    .contact-card p {
+      color: rgba(255,255,255,.74);
+      margin-bottom: 22px;
+    }
+    .contact-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-bottom: 24px;
+    }
+    .contact-card .btn-primary {
+      background: var(--accent);
+    }
+    .contact-card .btn-primary:hover {
+      background: #c48f4a;
+    }
+    .contact-card .btn-ghost {
+      color: var(--white);
+      border-color: rgba(255,255,255,.2);
+    }
+    .contact-card .btn-ghost:hover {
+      background: rgba(255,255,255,.06);
+      border-color: rgba(255,255,255,.35);
+    }
+    .contact-footnote {
+      font-size: .92rem;
+      color: rgba(255,255,255,.65);
+      border-top: 1px solid rgba(255,255,255,.1);
+      padding-top: 16px;
+    }
+    footer {
+      background: #121820;
+      color: rgba(255,255,255,.72);
+      padding: 34px 6vw;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+    .footer-brand strong {
+      display: block;
+      color: var(--white);
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.5rem;
+      letter-spacing: .08em;
+    }
+    .footer-brand span {
+      font-size: .72rem;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+      color: #d4a870;
+    }
+    .sticky-cta {
+      position: fixed;
+      right: 22px;
+      bottom: 22px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      z-index: 30;
+    }
+    .sticky-cta a {
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      color: var(--white);
+      box-shadow: 0 12px 28px rgba(0,0,0,.18);
+      font-size: .68rem;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      text-align: center;
+      line-height: 1.2;
+      padding: 6px;
+    }
+    .sticky-phone { background: var(--ink); }
+    .sticky-form { background: var(--accent); }
+    @media (max-width: 980px) {
+      .hero,
+      .contact-grid,
+      .why-grid,
+      .process-grid,
+      .proof-grid {
+        grid-template-columns: 1fr;
+      }
+      .hero {
+        min-height: auto;
+        padding-top: 44px;
+      }
+      .hero-proof { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 680px) {
+      nav { padding: 16px 5vw; }
+      .nav-link { display: none; }
+      .hero, .section-inner { padding-left: 5vw; padding-right: 5vw; }
+      .nav-actions .btn { padding: 12px 16px; font-size: .74rem; }
+      h1 { font-size: 2.7rem; }
+      .trust-list { gap: 8px; }
+      .trust-list li { width: 100%; }
+      .sticky-cta a { width: 50px; height: 50px; font-size: .62rem; }
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <a class="nav-logo" href="#top">
+      <strong>Vladimir</strong>
+      <span>Hamburg Installation & Sanierung</span>
+    </a>
+    <div class="nav-actions">
+      <a class="nav-link" href="#leistungen">Leistungen</a>
+      <a class="nav-link" href="#warum">Warum wir</a>
+      <a class="nav-link" href="#kontakt">Kontakt</a>
+      <a class="btn btn-primary" href="#kontakt">Anfragen</a>
+    </div>
+  </nav>
+
+  <section class="hero" id="top">
+    <div class="hero-copy">
+      <div class="eyebrow">Hamburg & Umgebung</div>
+      <h1>Installationen und Sanierung, bei denen Kunden auf Qualitaet und Vertrauen achten.</h1>
+      <p class="hero-lead">
+        Vladimir bietet Dienstleistungen in den Bereichen Wasserleitungen, Abwasser,
+        Fussbodenheizung, Klempnerarbeiten und Haussanierung an. Die Positionierung
+        ist klar: hohe Qualitaet, Garantie auf Installationen und eine Ausfuehrung,
+        die ueber Jahrzehnte Bestand haben soll.
+      </p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="#kontakt">Faires Angebot anfragen</a>
+        <a class="btn btn-ghost" href="#leistungen">Leistungen ansehen</a>
+      </div>
+      <ul class="trust-list" aria-label="Vorteile">
+        <li>hohe Qualitaet</li>
+        <li>Garantie auf Installationen</li>
+        <li>langlebige Ausfuehrung</li>
+        <li>faire Angebote</li>
+        <li>Hamburg und Umgebung</li>
+      </ul>
+      <div class="hero-proof">
+        <div class="proof-box">
+          <strong>Typische Themen</strong>
+          <span>Wasserleitungen, Abwasser, Fussbodenheizung, Klempnerarbeiten und Haussanierung.</span>
+        </div>
+        <div class="proof-box">
+          <strong>Warum das wirkt</strong>
+          <span>Die Seite verkauft nicht nur Leistung, sondern Sicherheit, Vertrauen und saubere Ausfuehrung.</span>
+        </div>
+      </div>
+    </div>
+
+    <aside class="hero-panel">
+      <div class="hero-panel-top">
+        <div>
+          <strong>Premium-Auftritt</strong>
+          <h2>Vladimir als Betrieb, dem man sein Projekt anvertraut.</h2>
+        </div>
+        <div class="status-chip">Lokal in Hamburg</div>
+      </div>
+      <div class="hero-panel-grid">
+        <div class="panel-card">
+          <span>Wasser & Abwasser</span>
+          <strong>Saubere Installationen statt spaeterer Probleme</strong>
+          <p>Genau bei Leitungen und Anschluessen wollen Kunden wissen, dass es fachgerecht und dauerhaft geloest wird.</p>
+        </div>
+        <div class="panel-card">
+          <span>Fussbodenheizung</span>
+          <strong>Komfort, Effizienz und vernuenftige Ausfuehrung</strong>
+          <p>Ein Thema, bei dem Vertrauen, Planung und handwerkliche Sauberkeit besonders stark wirken.</p>
+        </div>
+        <div class="panel-card">
+          <span>Haussanierung</span>
+          <strong>Mehr als nur ein Gewerk</strong>
+          <p>Wenn mehrere Arbeiten zusammenspielen muessen, macht ein professioneller Aussenauftritt den Unterschied.</p>
+        </div>
+      </div>
+      <div class="hero-panel-note">
+        Diese Demo ist bewusst auf Vertrauen, Qualitaet und langlebige Ausfuehrung gebaut, weil genau diese Argumente bei diesem Gewerk stark ziehen.
+      </div>
+    </aside>
+  </section>
+
+  <section class="services" id="leistungen">
+    <div class="section-inner">
+      <div class="section-label">Leistungen</div>
+      <h2 class="section-title">Die wichtigsten Leistungen direkt und vertrauensstark auf den Punkt gebracht.</h2>
+      <p class="section-lead">
+        Besucher sollen in wenigen Sekunden verstehen, ob Vladimir zu ihrem Projekt passt.
+        Deshalb sind die Leistungen klar, hochwertig und ohne unnötiges Gerede dargestellt.
+      </p>
+      <div class="service-grid">
+        <article class="service-card">
+          <b>01</b>
+          <h3>Wasserleitungen</h3>
+          <p>Installation und Erneuerung von Wasserleitungen fuer Wohnhaeuser, Wohnungen und Sanierungsprojekte mit Fokus auf Qualitaet und Langlebigkeit.</p>
+        </article>
+        <article class="service-card">
+          <b>02</b>
+          <h3>Abwasser</h3>
+          <p>Saubere und fachgerechte Loesungen fuer Abwasser, Anschluesse und Installationen, damit spaeter nichts improvisiert werden muss.</p>
+        </article>
+        <article class="service-card">
+          <b>03</b>
+          <h3>Fussbodenheizung</h3>
+          <p>Einbau und Sanierungsloesungen fuer moderne Waermeverteilung mit Komfort, Effizienz und sauberer handwerklicher Umsetzung.</p>
+        </article>
+        <article class="service-card">
+          <b>04</b>
+          <h3>Klempnerarbeiten</h3>
+          <p>Klassische Klempner- und Installationsarbeiten, klar abgestimmt und professionell ausgefuehrt.</p>
+        </article>
+        <article class="service-card">
+          <b>05</b>
+          <h3>Haussanierung</h3>
+          <p>Sanierungsarbeiten fuer Kunden, die nicht nur schnell, sondern sauber, sicher und dauerhaft umgesetzt haben wollen.</p>
+        </article>
+        <article class="service-card">
+          <b>06</b>
+          <h3>Faire Angebote</h3>
+          <p>Verstaendliche Einschaetzung, klare Kommunikation und ein Angebot, das professionell statt undurchsichtig wirkt.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="contrast" id="warum">
+    <div class="section-inner">
+      <div class="section-label">Warum Vladimir</div>
+      <h2 class="section-title">Menschen kaufen bei diesem Gewerk nicht nur Arbeit. Sie kaufen Sicherheit.</h2>
+      <p class="section-lead">
+        Bei Wasser, Abwasser und Heizung will niemand experimentieren. Kunden entscheiden
+        hier stark nach Vertrauen, Professionalitaet und dem Gefuehl, dass die Arbeit
+        sauber und dauerhaft ausgefuehrt wird.
+      </p>
+      <div class="why-grid">
+        <article class="why-card">
+          <h3>Hohe Qualitaet</h3>
+          <p>Der Auftritt stellt direkt klar, dass hier nicht auf billig und schnell, sondern auf solide und saubere Ausfuehrung gesetzt wird.</p>
+        </article>
+        <article class="why-card">
+          <h3>Garantie</h3>
+          <p>Garantie auf Installationen ist ein starkes Vertrauenssignal und nimmt potenziellen Kunden direkt Unsicherheit raus.</p>
+        </article>
+        <article class="why-card">
+          <h3>Langlebige Ausfuehrung</h3>
+          <p>Gerade bei Installationen und Sanierung wirkt das Argument stark, dass die Arbeit ueber Jahre Bestand haben soll.</p>
+        </article>
+        <article class="why-card">
+          <h3>Lokal in Hamburg</h3>
+          <p>Hamburg und Umgebung als klares Einsatzgebiet machen die Anfrage leichter und den Betrieb greifbarer.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-inner">
+      <div class="section-label">Ablauf</div>
+      <h2 class="section-title">So fuehrt die Seite Besucher sauber zur Anfrage.</h2>
+      <p class="section-lead">Direkt, klar und ohne Reibung. Genau so, wie lokale Handwerkerseiten konvertieren sollen.</p>
+      <div class="process-grid">
+        <article class="process-card">
+          <span>01</span>
+          <h3>Problem erkennen</h3>
+          <p>Der Besucher sieht sofort, ob Wasserleitung, Abwasser, Fussbodenheizung oder Sanierung zum eigenen Projekt passt.</p>
+        </article>
+        <article class="process-card">
+          <span>02</span>
+          <h3>Vertrauen aufbauen</h3>
+          <p>Qualitaet, Garantie und langlebige Ausfuehrung schaffen in Sekunden einen deutlich staerkeren Eindruck.</p>
+        </article>
+        <article class="process-card">
+          <span>03</span>
+          <h3>Anfrage starten</h3>
+          <p>Ueber den Kontaktbereich kann direkt der naechste Schritt ausgeloest werden: Angebot, Rueckruf oder weitere Abstimmung.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="services">
+    <div class="section-inner">
+      <div class="section-label">Typische Projekte</div>
+      <h2 class="section-title">Die Seite spricht genau die Themen an, bei denen Vertrauen den Unterschied macht.</h2>
+      <p class="section-lead">Keine technische Ueberladung. Nur die Themen, die Besucher direkt mit ihrem Bedarf verbinden koennen.</p>
+      <div class="proof-grid">
+        <article class="proof-card">
+          <span class="proof-label">Wasser</span>
+          <h3>Leitungen und Anschluesse</h3>
+          <p>Fuer Kunden, die Installationen sauber, sicher und dauerhaft geloest haben wollen.</p>
+        </article>
+        <article class="proof-card">
+          <span class="proof-label">Waerme</span>
+          <h3>Fussbodenheizung</h3>
+          <p>Fuer Projekte, bei denen Komfort, moderne Technik und professionelle Umsetzung zusammenkommen muessen.</p>
+        </article>
+        <article class="proof-card">
+          <span class="proof-label">Sanierung</span>
+          <h3>Klempnerarbeiten & Haussanierung</h3>
+          <p>Fuer Eigentuemer, die einen Betrieb suchen, der nicht improvisiert, sondern sauber und hochwertig arbeitet.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="contact" id="kontakt">
+    <div class="section-inner contact-grid">
+      <div>
+        <div class="section-label">Kontakt</div>
+        <h2 class="section-title">Starker Auftritt jetzt, finaler Kontaktweg als naechster Schritt.</h2>
+        <p class="section-lead">
+          Aktuell liegt nur der Betriebstext vor. Die Seite ist deshalb schon als starke Demo gebaut
+          und kann im letzten Schritt direkt mit Telefonnummer, WhatsApp oder finalem Anfrageziel belegt werden.
+        </p>
+        <div class="contact-boxes">
+          <div class="contact-box">
+            <span>Betrieb</span>
+            <strong>Vladimir</strong>
+            <p>Wasserleitungen, Abwasser, Fussbodenheizung, Klempnerarbeiten und Haussanierung.</p>
+          </div>
+          <div class="contact-box">
+            <span>Einsatzgebiet</span>
+            <strong>Hamburg & Umgebung</strong>
+            <p>Lokal genug fuer Vertrauen, breit genug fuer hochwertige Sanierungs- und Installationsanfragen.</p>
+          </div>
+          <div class="contact-box">
+            <span>Positionierung</span>
+            <strong>Qualitaet, Garantie, langlebige Ausfuehrung</strong>
+            <p>Genau diese drei Punkte sind online die staerksten Verkaufsargumente fuer diesen Betrieb.</p>
+          </div>
+        </div>
+      </div>
+      <div class="contact-card">
+        <h3>Faires Angebot fuer Ihr Projekt</h3>
+        <p>Diese Demo zeigt bereits, wie Vladimir online professioneller und vertrauenswuerdiger auftreten kann. Als naechstes werden nur noch die finalen Kontaktdaten hinterlegt.</p>
+        <div class="contact-actions">
+          <a class="btn btn-primary" href="#top">Demo ansehen</a>
+          <a class="btn btn-ghost" href="#leistungen">Leistungen</a>
+        </div>
+        <div class="contact-footnote">
+          Sobald Telefonnummer oder WhatsApp feststehen, wird die Demo in Minuten zur echten Live-Seite fuer direkte Kundenanfragen.
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-brand">
+      <strong>Vladimir</strong>
+      <span>Hamburg Installation & Sanierung</span>
+    </div>
+    <div>Premium-Demo fuer Wasserleitungen, Abwasser, Fussbodenheizung und Haussanierung.</div>
+  </footer>
+
+  <div class="sticky-cta" aria-label="Schnellnavigation">
+    <a class="sticky-phone" href="#kontakt">Kontakt</a>
+    <a class="sticky-form" href="#leistungen">Info</a>
+  </div>
+</body>
+</html>
