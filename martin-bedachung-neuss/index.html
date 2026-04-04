@@ -934,34 +934,6 @@
       padding: 52px 48px;
       box-shadow: 0 24px 80px rgba(0,0,0,.06);
     }
-    .contact-right.is-muted {
-      background: rgba(255,255,255,.78);
-      border: 1px solid rgba(28,26,23,.08);
-      box-shadow: 0 12px 36px rgba(0,0,0,.03);
-    }
-
-    .form-status-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      font-size: .68rem;
-      font-weight: 600;
-      letter-spacing: .16em;
-      text-transform: uppercase;
-      color: var(--text);
-      background: rgba(28,26,23,.06);
-      border: 1px solid rgba(28,26,23,.1);
-      border-radius: 999px;
-      padding: 8px 12px;
-      margin-bottom: 18px;
-    }
-    .form-status-badge::before {
-      content: '';
-      width: 8px;
-      height: 8px;
-      border-radius: 50%;
-      background: var(--gold);
-    }
 
     .contact-form-title {
       font-family: 'Cormorant Garamond', serif;
@@ -1011,19 +983,6 @@
     }
     .form-group textarea { resize: vertical; min-height: 90px; }
 
-    .contact-form-preview {
-      opacity: .68;
-    }
-
-    .form-group input:disabled,
-    .form-group select:disabled,
-    .form-group textarea:disabled {
-      cursor: not-allowed;
-      color: rgba(28,26,23,.58);
-      background: rgba(244,240,232,.85);
-      border-color: rgba(28,26,23,.06);
-    }
-
     .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
 
     .btn-submit {
@@ -1047,16 +1006,20 @@
       margin-top: 8px;
     }
     .btn-submit:hover { background: var(--gold); transform: translateY(-1px); }
-    .btn-submit:disabled {
-      background: rgba(28,26,23,.34);
-      cursor: not-allowed;
-      opacity: .76;
-    }
-    .btn-submit:disabled:hover {
-      background: rgba(28,26,23,.34);
-      transform: none;
-    }
     .btn-submit svg { width: 16px; height: 16px; }
+
+    .form-success {
+      display: none;
+      margin-bottom: 24px;
+      padding: 14px 16px;
+      border-radius: var(--radius);
+      background: rgba(67, 122, 86, .12);
+      border: 1px solid rgba(67, 122, 86, .22);
+      color: #2f5f42;
+      font-size: .86rem;
+      line-height: 1.6;
+    }
+    .form-success.show { display: block; }
 
     .form-note {
       font-size: .72rem;
@@ -1563,31 +1526,33 @@
         </div>
       </div>
 
-      <div class="contact-right is-muted reveal reveal-right">
-        <div class="form-status-badge">Online-Formular noch nicht aktiv</div>
-        <div class="contact-form-title">Formular wird vorbereitet</div>
-        <p class="contact-form-sub">Das Online-Formular versendet aktuell noch keine E-Mails. Am schnellsten erreichen Sie uns telefonisch oder per WhatsApp.</p>
+      <div class="contact-right reveal reveal-right">
+        <div class="contact-form-title">Online-Anfrage senden</div>
+        <p class="contact-form-sub">Schicken Sie uns Ihre Anfrage direkt über das Formular. Für eine schnelle Rückmeldung bleiben Telefon und WhatsApp der direkteste Weg.</p>
 
-        <form id="contactForm" class="contact-form-preview" method="POST" data-form-provider="formspree" data-formspree-endpoint="" aria-disabled="true">
+        <div class="form-success" id="formSuccess">Vielen Dank. Ihre Anfrage wurde erfolgreich gesendet.</div>
+
+        <form id="contactForm" action="https://formspree.io/f/FORM_ID" method="POST">
           <input type="hidden" name="_subject" value="Neue Anfrage ueber martin-bedachung-neuss" />
           <input type="hidden" name="_captcha" value="false" />
+          <input type="hidden" name="_next" id="formNext" value="" />
           <div class="form-row">
             <div class="form-group">
               <label>Vorname</label>
-              <input type="text" name="first_name" placeholder="Max" autocomplete="given-name" disabled />
+              <input type="text" name="first_name" placeholder="Max" autocomplete="given-name" required />
             </div>
             <div class="form-group">
               <label>Nachname</label>
-              <input type="text" name="last_name" placeholder="Mustermann" autocomplete="family-name" disabled />
+              <input type="text" name="last_name" placeholder="Mustermann" autocomplete="family-name" />
             </div>
           </div>
           <div class="form-group">
             <label>Telefon</label>
-            <input type="tel" name="phone" placeholder="0151 12345678" autocomplete="tel" disabled />
+            <input type="tel" name="phone" placeholder="0151 12345678" autocomplete="tel" required />
           </div>
           <div class="form-group">
             <label>Leistung</label>
-            <select name="service" disabled>
+            <select name="service">
               <option value="">Bitte wählen …</option>
               <option>Sanierung und Neueindeckung</option>
               <option>Dachreparatur</option>
@@ -1599,11 +1564,11 @@
           </div>
           <div class="form-group">
             <label>Kurze Projektbeschreibung</label>
-            <textarea name="message" placeholder="z.B. Undichtigkeit am Flachdach, Dachsanierung oder Reparatur nach Sturm ..." disabled></textarea>
+            <textarea name="message" placeholder="z.B. Undichtigkeit am Flachdach, Dachsanierung oder Reparatur nach Sturm ..." required></textarea>
           </div>
-          <button type="button" class="btn-submit" disabled>
+          <button type="submit" class="btn-submit">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
-            Formular wird vorbereitet
+            Anfrage senden
           </button>
           <p class="form-note">Am schnellsten erreichen Sie uns <a href="tel:015778764140">telefonisch unter 01577 8764140</a> oder per <a href="https://wa.me/4915778764140">WhatsApp</a>.</p>
         </form>
@@ -1657,6 +1622,16 @@
   window.addEventListener('scroll', () => {
     stickyCta.classList.toggle('show', window.scrollY > 400);
   });
+
+  /* ── Formspree return state ── */
+  const formNext = document.getElementById('formNext');
+  if (formNext) {
+    formNext.value = window.location.origin + window.location.pathname + '?submitted=1#kontakt';
+  }
+  if (window.location.search.indexOf('submitted=1') !== -1) {
+    const formSuccess = document.getElementById('formSuccess');
+    if (formSuccess) formSuccess.classList.add('show');
+  }
 
   /* ── Counter animation ── */
   function animateCounter(el, target, duration = 1600) {
