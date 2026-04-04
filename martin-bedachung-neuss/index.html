@@ -329,13 +329,25 @@
       border: 1px solid rgba(28,26,23,.08);
       box-shadow: inset 0 1px 0 rgba(255,255,255,.75);
     }
+    .hero-photo {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      z-index: 0;
+      filter: saturate(.95) contrast(1.02);
+    }
 
     .hero-img-box::before {
       content: '';
       position: absolute;
       inset: 0;
       background:
-        radial-gradient(circle at top left, rgba(196,169,122,.22), transparent 42%);
+        linear-gradient(180deg, rgba(24,23,20,.12), rgba(24,23,20,.38)),
+        radial-gradient(circle at top left, rgba(196,169,122,.18), transparent 42%);
+      z-index: 1;
     }
     .hero-img-box::after {
       content: '';
@@ -349,6 +361,7 @@
           rgba(156,126,80,.05) 52px,
           rgba(156,126,80,.05) 53px
         );
+      z-index: 1;
     }
 
     .hero-img-inner {
@@ -539,7 +552,7 @@
 
     .service-card {
       background: var(--white);
-      padding: 44px 36px;
+      padding: 0 36px 44px;
       border-right: 1px solid var(--line);
       border-bottom: 1px solid var(--line);
       position: relative;
@@ -558,6 +571,22 @@
       transition: transform .4s cubic-bezier(.22,1,.36,1);
     }
     .service-card:hover::after { transform: scaleX(1); }
+
+    .service-card-media {
+      margin: 0 -36px 28px;
+      aspect-ratio: 16/9;
+      overflow: hidden;
+      border-bottom: 1px solid var(--line);
+      background: #ece7df;
+    }
+    .service-card-media img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform .5s ease;
+    }
+    .service-card:hover .service-card-media img { transform: scale(1.04); }
 
     .service-icon {
       width: 44px; height: 44px;
@@ -628,11 +657,20 @@
       position: relative;
       overflow: hidden;
     }
+    .why-photo {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
     .why-big-box::before {
       content: '';
       position: absolute;
       inset: 0;
-      background: linear-gradient(135deg, #1C1A17 0%, #0e0d0b 100%);
+      background: linear-gradient(135deg, rgba(28,26,23,.28) 0%, rgba(14,13,11,.7) 100%);
+      z-index: 1;
     }
 
     .why-quote {
@@ -1152,6 +1190,8 @@
       }
 
       .hero-stats { display: none; }
+      .service-card { padding: 0 24px 32px; }
+      .service-card-media { margin: 0 -24px 24px; }
     }
   </style>
 </head>
@@ -1213,6 +1253,7 @@
     <div class="hero-card reveal reveal-right" style="transition-delay:.2s">
       <div class="hero-accent-line"></div>
       <div class="hero-img-box">
+        <img src="./assets/images/hero-steildach-rot.jpg" alt="Steildach mit roten Dachziegeln" class="hero-photo" />
         <svg class="hero-lines" viewBox="0 0 300 400" xmlns="http://www.w3.org/2000/svg">
           <line x1="0" y1="0" x2="300" y2="400"/>
           <line x1="60" y1="0" x2="300" y2="280"/>
@@ -1262,6 +1303,9 @@
 
       <div class="service-card reveal">
         <span class="service-num">01</span>
+        <div class="service-card-media">
+          <img src="./assets/images/dachsanierung-blau.jpg" alt="Dachsanierung mit freigelegter Dachflaeche und neuen Ziegeln" />
+        </div>
         <svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="1"/><path d="M3 9h18M9 21V9"/></svg>
         <div class="service-title">Sanierung und<br>Neueindeckung</div>
         <p class="service-desc">Für ältere oder beschädigte Dächer, die neu aufgebaut oder umfassend saniert werden sollen. So bleibt Ihr Dach langfristig geschützt.</p>
@@ -1270,6 +1314,9 @@
 
       <div class="service-card reveal" style="transition-delay:.08s">
         <span class="service-num">02</span>
+        <div class="service-card-media">
+          <img src="./assets/images/flachdach-modern-kies.jpg" alt="Modernes Flachdach mit Kiesflaeche" />
+        </div>
         <svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
         <div class="service-title">Flachdacharbeiten<br>und Abdichtungen</div>
         <p class="service-desc">Für Garagen, Anbauten, Hallen und Wohnhäuser. Wir kümmern uns um Dachpappe, Abdichtung und den passenden Schutz gegen Feuchtigkeit.</p>
@@ -1278,6 +1325,9 @@
 
       <div class="service-card reveal" style="transition-delay:.16s">
         <span class="service-num">03</span>
+        <div class="service-card-media">
+          <img src="./assets/images/detail-ziegeldach-rot.jpg" alt="Sauber eingedecktes rotes Ziegeldach im Detail" />
+        </div>
         <svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
         <div class="service-title">Dachreparaturen bei<br>Schäden und Undichtigkeiten</div>
         <p class="service-desc">Wenn das Dach beschädigt ist oder Feuchtigkeit eindringt, kümmern wir uns um eine schnelle und fachgerechte Reparatur.</p>
@@ -1286,6 +1336,9 @@
 
       <div class="service-card reveal" style="transition-delay:.24s">
         <span class="service-num">04</span>
+        <div class="service-card-media">
+          <img src="./assets/images/flachdach-schwarz-modern.jpg" alt="Schwarz abgedichtetes modernes Flachdach" />
+        </div>
         <svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
         <div class="service-title">Abdichtungen<br>und Isolierungen</div>
         <p class="service-desc">Für Dächer, die dauerhaft dicht bleiben sollen. Eine saubere Abdichtung und passende Isolierung helfen, Folgeschäden zu vermeiden.</p>
@@ -1294,6 +1347,9 @@
 
       <div class="service-card reveal" style="transition-delay:.32s">
         <span class="service-num">05</span>
+        <div class="service-card-media">
+          <img src="./assets/images/detail-graues-dach.jpg" alt="Graues Dach im Detail mit sauber verlegter Dachflaeche" />
+        </div>
         <svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22V12m0 0V2m0 10H2m10 0h10"/><circle cx="12" cy="12" r="3"/></svg>
         <div class="service-title">Flach- und<br>Steildacharbeiten</div>
         <p class="service-desc">Egal ob Flachdach oder Steildach: Wir finden die passende Lösung für Ihr Objekt und führen die Arbeiten sauber und fachgerecht aus.</p>
@@ -1313,6 +1369,7 @@
     <div class="why-layout">
       <div class="why-visual reveal reveal-left">
         <div class="why-big-box">
+          <img src="./assets/images/referenz-rotes-dachhaus.jpg" alt="Referenzhaus mit rotem Dach" class="why-photo" />
           <div class="why-quote">
             <div class="why-quote-mark">"</div>
             <div class="why-quote-text">Saubere Arbeit am Dach ist wichtig, damit Schäden vermieden werden und Ihr Haus langfristig geschützt bleibt.</div>
