@@ -7,793 +7,1518 @@
   <meta name="description" content="Vladimir aus Hamburg fuer Wasserleitungen, Abwasser, Fussbodenheizung, Klempnerarbeiten und Haussanierung. Hohe Qualitaet, Garantie auf Installationen und langlebige Ausfuehrung." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet" />
-  <meta property="og:title" content="Vladimir Hamburg | Wasserleitungen, Abwasser, Fussbodenheizung & Sanierung" />
-  <meta property="og:description" content="Premium-Demo fuer einen Hamburger Betrieb mit Fokus auf Wasserleitungen, Abwasser, Fussbodenheizung, Klempnerarbeiten und Haussanierung." />
-  <meta property="og:type" content="website" />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet" />
+
   <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    :root {
-      --bg: #f4f1ea;
-      --surface: #fffdfa;
-      --ink: #1b1d21;
-      --muted: #63666d;
-      --line: rgba(27,29,33,.1);
-      --accent: #ad7a3a;
-      --accent-dark: #7a5325;
-      --deep: #16212b;
-      --white: #ffffff;
-      --radius: 4px;
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
     }
+
+    :root {
+      --bg:       #F5F3EF;
+      --bg-dark:  #181714;
+      --text:     #1C1A17;
+      --text-mid: #5A5750;
+      --text-light:#8A8680;
+      --gold:     #9C7E50;
+      --gold-lt:  #C4A97A;
+      --line:     rgba(28,26,23,.1);
+      --white:    #FFFFFF;
+      --radius:   3px;
+    }
+
     html { scroll-behavior: smooth; }
+
     body {
       font-family: 'Outfit', sans-serif;
       background: var(--bg);
-      color: var(--ink);
+      color: var(--text);
+      font-size: 16px;
       line-height: 1.7;
       -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
     }
+
+    /* ─── SCROLL ANIMATIONS ─── */
+    .reveal {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity .75s cubic-bezier(.22,1,.36,1), transform .75s cubic-bezier(.22,1,.36,1);
+    }
+    .reveal.visible { opacity: 1; transform: none; }
+    .reveal-left  { transform: translateX(-32px); }
+    .reveal-right { transform: translateX(32px); }
+    .reveal-left.visible, .reveal-right.visible { transform: none; }
+
+    /* ─── NAV ─── */
     nav {
-      position: sticky;
-      top: 0;
-      z-index: 20;
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 18px 6vw;
-      background: rgba(244,241,234,.92);
-      backdrop-filter: blur(12px);
-      border-bottom: 1px solid var(--line);
+      padding: 22px 6vw;
+      transition: background .4s, box-shadow .4s, padding .4s;
     }
+    nav.scrolled {
+      background: rgba(245,243,239,.96);
+      backdrop-filter: blur(12px);
+      box-shadow: 0 1px 0 var(--line);
+      padding: 14px 6vw;
+    }
+
     .nav-logo {
+      display: inline-flex;
+      align-items: center;
       text-decoration: none;
-      color: var(--ink);
-      line-height: 1.05;
+      line-height: 1.1;
     }
     .nav-logo strong {
-      display: block;
       font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(1.5rem, 2.5vw, 2rem);
+      font-size: clamp(1.4rem, 2.4vw, 2rem);
       letter-spacing: .08em;
+      color: var(--text);
+      display: block;
     }
     .nav-logo span {
       display: block;
-      font-size: .68rem;
-      text-transform: uppercase;
-      letter-spacing: .24em;
-      color: var(--accent);
       margin-top: 4px;
+      font-size: .62rem;
+      font-weight: 500;
+      letter-spacing: .24em;
+      text-transform: uppercase;
+      color: var(--gold);
     }
-    .nav-actions {
+
+    .nav-cta {
       display: flex;
       align-items: center;
       gap: 12px;
     }
-    .nav-link {
-      color: var(--ink);
-      text-decoration: none;
-      font-size: .9rem;
+    .nav-phone {
+      font-size: .85rem;
       font-weight: 500;
-    }
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
+      color: var(--text);
       text-decoration: none;
-      border-radius: var(--radius);
-      padding: 14px 24px;
-      font-size: .82rem;
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: .12em;
-      transition: .25s ease;
-      border: 1px solid transparent;
-    }
-    .btn-primary {
-      background: var(--ink);
-      color: var(--white);
-    }
-    .btn-primary:hover { background: var(--accent); }
-    .btn-ghost {
-      color: var(--ink);
-      border-color: rgba(27,29,33,.16);
-      background: transparent;
-    }
-    .btn-ghost:hover { border-color: var(--accent); background: rgba(173,122,58,.06); }
-    .hero {
-      min-height: calc(100vh - 82px);
-      display: grid;
-      grid-template-columns: 1.05fr .95fr;
-      gap: 56px;
+      letter-spacing: .02em;
+      display: flex;
       align-items: center;
-      padding: 72px 6vw 84px;
+      gap: 6px;
+    }
+    .nav-phone svg { width: 15px; height: 15px; flex-shrink: 0; }
+    .btn-nav {
+      background: var(--text);
+      color: var(--white);
+      font-family: 'Outfit', sans-serif;
+      font-size: .75rem;
+      font-weight: 500;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      text-decoration: none;
+      padding: 10px 20px;
+      border-radius: var(--radius);
+      white-space: nowrap;
+      transition: background .25s, color .25s;
+    }
+    .btn-nav:hover { background: var(--gold); }
+
+    /* ─── HERO ─── */
+    #hero {
+      min-height: 100svh;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+      gap: 0;
+      padding: 0 6vw;
       position: relative;
       overflow: hidden;
     }
-    .hero::before {
-      content: "";
+
+    .hero-bg-grid {
       position: absolute;
       inset: 0;
       background-image:
         linear-gradient(var(--line) 1px, transparent 1px),
         linear-gradient(90deg, var(--line) 1px, transparent 1px);
       background-size: 60px 60px;
-      opacity: .45;
       pointer-events: none;
+      opacity: .45;
     }
-    .hero-copy, .hero-panel { position: relative; z-index: 1; }
-    .eyebrow {
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      padding-top: 100px;
+      padding-bottom: 80px;
+    }
+
+    .hero-badge {
       display: inline-flex;
       align-items: center;
-      gap: 10px;
-      font-size: .72rem;
-      text-transform: uppercase;
-      letter-spacing: .22em;
-      color: var(--accent);
-      margin-bottom: 26px;
-    }
-    .eyebrow::before {
-      content: "";
-      width: 28px;
-      height: 1px;
-      background: var(--accent);
-    }
-    h1, h2, h3 {
-      font-family: 'Cormorant Garamond', serif;
+      gap: 8px;
+      font-size: .7rem;
       font-weight: 500;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 32px;
+    }
+    .hero-badge::before {
+      content: '';
+      width: 28px; height: 1px;
+      background: var(--gold);
+    }
+
+    .hero-logo {
+      display: inline-flex;
+      flex-direction: column;
+      gap: 8px;
+      margin-bottom: 32px;
+      padding: 18px 22px;
+      background: rgba(255,255,255,.72);
+      border: 1px solid rgba(28,26,23,.08);
+      border-radius: 2px;
+      backdrop-filter: blur(10px);
+      box-shadow: 0 18px 40px rgba(0,0,0,.08);
+    }
+    .hero-logo strong {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(1.8rem, 4vw, 2.6rem);
+      line-height: .95;
+      letter-spacing: .08em;
+      color: var(--text);
+    }
+    .hero-logo span {
+      font-size: .7rem;
+      font-weight: 500;
+      letter-spacing: .22em;
+      text-transform: uppercase;
+      color: var(--gold);
+    }
+
+    .hero-headline {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 400;
+      font-size: clamp(2.8rem, 5.5vw, 5rem);
       line-height: 1.08;
-      color: var(--ink);
+      letter-spacing: -.01em;
+      color: var(--text);
+      margin-bottom: 28px;
     }
-    h1 {
-      font-size: clamp(3rem, 6vw, 5.4rem);
-      margin-bottom: 24px;
-      max-width: 700px;
+    .hero-headline em {
+      font-style: italic;
+      color: var(--gold);
     }
-    .hero-lead {
-      max-width: 560px;
-      color: var(--muted);
+
+    .hero-sub {
       font-size: 1.05rem;
-      margin-bottom: 34px;
+      font-weight: 300;
+      color: var(--text-mid);
+      max-width: 420px;
+      line-height: 1.75;
+      margin-bottom: 48px;
     }
+
     .hero-actions {
       display: flex;
       flex-wrap: wrap;
       gap: 14px;
-      margin-bottom: 34px;
+      align-items: center;
     }
-    .trust-list {
-      list-style: none;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-      margin-bottom: 32px;
-    }
-    .trust-list li {
-      padding: 9px 14px;
-      border: 1px solid rgba(27,29,33,.1);
-      background: rgba(255,255,255,.62);
-      font-size: .78rem;
-      letter-spacing: .08em;
-      text-transform: uppercase;
-    }
-    .hero-proof {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0,1fr));
-      gap: 14px;
-    }
-    .proof-box {
-      padding: 20px;
-      background: rgba(255,255,255,.72);
-      border: 1px solid rgba(27,29,33,.08);
-      box-shadow: 0 18px 40px rgba(0,0,0,.06);
-    }
-    .proof-box strong {
-      display: block;
-      font-size: .78rem;
-      letter-spacing: .18em;
-      text-transform: uppercase;
-      color: var(--accent);
-      margin-bottom: 10px;
-    }
-    .proof-box span {
-      color: var(--muted);
-      font-size: .95rem;
-    }
-    .hero-panel {
-      padding: 34px;
-      background: linear-gradient(155deg, rgba(22,33,43,.98), rgba(18,24,33,.94));
+
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--text);
       color: var(--white);
+      font-family: 'Outfit', sans-serif;
+      font-size: .82rem;
+      font-weight: 500;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      text-decoration: none;
+      padding: 16px 30px;
+      border-radius: var(--radius);
+      transition: background .25s, transform .2s;
+    }
+    .btn-primary:hover { background: var(--gold); transform: translateY(-1px); }
+    .btn-primary svg { width: 16px; height: 16px; }
+
+    .btn-ghost {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: transparent;
+      color: var(--text);
+      font-family: 'Outfit', sans-serif;
+      font-size: .82rem;
+      font-weight: 500;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      text-decoration: none;
+      padding: 15px 28px;
+      border-radius: var(--radius);
+      border: 1px solid rgba(28,26,23,.2);
+      transition: border-color .25s, background .25s, transform .2s;
+    }
+    .btn-ghost:hover { border-color: var(--gold); background: rgba(156,126,80,.06); transform: translateY(-1px); }
+    .btn-ghost svg { width: 16px; height: 16px; }
+
+    .hero-visual {
+      position: relative;
+      z-index: 2;
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      padding-top: 100px;
+      padding-bottom: 80px;
+    }
+
+    .hero-card {
+      position: relative;
+      width: 100%;
+      max-width: 440px;
+    }
+
+    .hero-img-box {
+      width: 100%;
+      aspect-ratio: 4/5;
+      background: linear-gradient(145deg, #f9f7f3 0%, #f1ede4 100%);
       border-radius: 2px;
-      box-shadow: 0 25px 70px rgba(0,0,0,.18);
+      overflow: hidden;
+      position: relative;
+      border: 1px solid rgba(28,26,23,.08);
+      box-shadow: inset 0 1px 0 rgba(255,255,255,.75);
     }
-    .hero-panel-top {
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-start;
-      gap: 16px;
-      margin-bottom: 34px;
+
+    .hero-img-box::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(circle at top left, rgba(196,169,122,.22), transparent 42%);
     }
-    .hero-panel-top strong {
-      display: block;
-      font-size: .74rem;
-      text-transform: uppercase;
-      letter-spacing: .22em;
-      color: rgba(255,255,255,.68);
-      margin-bottom: 8px;
+    .hero-img-box::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        repeating-linear-gradient(
+          -45deg,
+          transparent,
+          transparent 52px,
+          rgba(156,126,80,.05) 52px,
+          rgba(156,126,80,.05) 53px
+        );
     }
-    .hero-panel-top h2 {
-      font-size: clamp(2rem, 3.5vw, 2.8rem);
-      color: var(--white);
-      max-width: 320px;
-    }
-    .status-chip {
-      white-space: nowrap;
-      font-size: .72rem;
-      letter-spacing: .18em;
-      text-transform: uppercase;
-      color: #f5cf96;
-      border: 1px solid rgba(245,207,150,.24);
-      padding: 10px 12px;
-    }
-    .hero-panel-grid {
+
+    .hero-img-inner {
+      position: absolute;
+      inset: 0;
       display: grid;
-      gap: 14px;
-      margin-bottom: 18px;
+      place-items: center;
+      padding: 32px;
+      z-index: 2;
     }
-    .panel-card {
-      background: rgba(255,255,255,.06);
-      border: 1px solid rgba(255,255,255,.08);
-      padding: 18px;
+
+    .hero-brand-card {
+      width: min(100%, 360px);
+      padding: 26px;
+      background: rgba(255,255,255,.92);
+      border-radius: 2px;
+      box-shadow: 0 20px 50px rgba(0,0,0,.12);
+      border: 1px solid rgba(28,26,23,.08);
     }
-    .panel-card span {
+    .hero-brand-card strong {
       display: block;
-      font-size: .7rem;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2.4rem, 4vw, 3.4rem);
+      line-height: .95;
+      letter-spacing: .08em;
+      color: var(--text);
+      text-align: center;
+    }
+    .hero-brand-card span {
+      display: block;
+      margin-top: 10px;
+      font-size: .82rem;
+      font-weight: 500;
+      letter-spacing: .24em;
+      text-transform: uppercase;
+      color: var(--gold);
+      text-align: center;
+    }
+    .hero-brand-note {
+      margin-top: 18px;
+      padding-top: 16px;
+      border-top: 1px solid rgba(28,26,23,.08);
+      font-size: .72rem;
+      font-weight: 500;
       letter-spacing: .18em;
       text-transform: uppercase;
-      color: rgba(255,255,255,.62);
-      margin-bottom: 8px;
+      color: var(--text-light);
+      text-align: center;
     }
-    .panel-card strong {
-      display: block;
-      font-size: 1.12rem;
-      margin-bottom: 8px;
+
+    /* Lines decoration */
+    .hero-lines {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%,-50%);
+      width: 70%;
+      height: 70%;
+      z-index: 1;
     }
-    .panel-card p {
-      color: rgba(255,255,255,.76);
-      font-size: .95rem;
+    .hero-lines line {
+      stroke: rgba(196,169,122,.15);
+      stroke-width: 1;
     }
-    .hero-panel-note {
-      border-top: 1px solid rgba(255,255,255,.1);
-      padding-top: 18px;
-      color: rgba(255,255,255,.7);
-      font-size: .92rem;
+
+    .hero-accent-line {
+      position: absolute;
+      left: -24px;
+      top: 48px;
+      bottom: 48px;
+      width: 2px;
+      background: linear-gradient(to bottom, transparent, var(--gold), transparent);
     }
+
+    .hero-stats {
+      position: absolute;
+      bottom: -28px;
+      right: -28px;
+      background: var(--white);
+      border-radius: 2px;
+      padding: 24px 28px;
+      box-shadow: 0 20px 60px rgba(0,0,0,.12);
+      display: flex;
+      gap: 28px;
+    }
+
+    .stat-item { text-align: center; }
+    .stat-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2rem;
+      font-weight: 500;
+      color: var(--text);
+      line-height: 1;
+    }
+    .stat-label {
+      font-size: .62rem;
+      font-weight: 500;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+      color: var(--text-light);
+      margin-top: 4px;
+    }
+    .stat-sep { width: 1px; background: var(--line); }
+
+    .hero-scroll {
+      position: absolute;
+      bottom: 36px;
+      left: 6vw;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: .65rem;
+      font-weight: 500;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+      color: var(--text-light);
+    }
+    .hero-scroll::before {
+      content: '';
+      width: 1px; height: 36px;
+      background: linear-gradient(to bottom, transparent, var(--text-light));
+      animation: scrollLine 2s infinite;
+    }
+    @keyframes scrollLine {
+      0%, 100% { opacity: .3; transform: scaleY(1); }
+      50%       { opacity: 1;  transform: scaleY(.6); }
+    }
+
+    /* ─── SECTION BASE ─── */
     section { position: relative; }
+
     .section-inner {
-      max-width: 1200px;
+      max-width: 1180px;
       margin: 0 auto;
-      padding: 96px 6vw;
+      padding: 100px 6vw;
     }
+
     .section-label {
       display: inline-flex;
       align-items: center;
       gap: 10px;
-      font-size: .72rem;
-      text-transform: uppercase;
+      font-size: .68rem;
+      font-weight: 500;
       letter-spacing: .22em;
-      color: var(--accent);
-      margin-bottom: 18px;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 20px;
     }
     .section-label::before {
-      content: "";
-      width: 22px;
-      height: 1px;
-      background: var(--accent);
+      content: '';
+      width: 22px; height: 1px;
+      background: var(--gold);
     }
+
     .section-title {
-      font-size: clamp(2.2rem, 4vw, 3.4rem);
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 400;
+      font-size: clamp(2rem, 3.5vw, 3rem);
+      line-height: 1.15;
+      color: var(--text);
       margin-bottom: 16px;
-      max-width: 760px;
     }
+    .section-title em {
+      font-style: italic;
+      color: var(--gold);
+    }
+
     .section-lead {
-      color: var(--muted);
-      max-width: 620px;
       font-size: 1rem;
+      font-weight: 300;
+      color: var(--text-mid);
+      max-width: 520px;
+      line-height: 1.8;
     }
-    .services {
-      background: var(--surface);
-      border-top: 1px solid var(--line);
-      border-bottom: 1px solid var(--line);
-    }
-    .service-grid {
-      margin-top: 46px;
+
+    /* ─── SERVICES ─── */
+    #leistungen { background: var(--white); }
+
+    .services-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
       gap: 2px;
-      border: 1px solid var(--line);
-      background: var(--line);
+      margin-top: 64px;
+      border: 2px solid var(--line);
+      border-radius: 4px;
+      overflow: hidden;
     }
+
     .service-card {
       background: var(--white);
-      padding: 32px 28px;
-      min-height: 220px;
+      padding: 44px 36px;
+      border-right: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+      position: relative;
+      overflow: hidden;
+      transition: background .3s;
     }
-    .service-card b {
-      display: inline-block;
-      font-size: .72rem;
-      letter-spacing: .18em;
-      text-transform: uppercase;
-      color: var(--accent);
-      margin-bottom: 16px;
+    .service-card:hover { background: #FAFAF8; }
+    .service-card::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 36px; right: 36px;
+      height: 2px;
+      background: var(--gold);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform .4s cubic-bezier(.22,1,.36,1);
     }
-    .service-card h3 {
-      font-size: 1.6rem;
-      margin-bottom: 12px;
-    }
-    .service-card p {
-      color: var(--muted);
-      font-size: .96rem;
-    }
-    .contrast {
-      background: linear-gradient(180deg, #1a222b 0%, #10171f 100%);
-      color: var(--white);
-    }
-    .contrast .section-title, .contrast h3 { color: var(--white); }
-    .contrast .section-lead { color: rgba(255,255,255,.76); }
-    .why-grid {
-      margin-top: 42px;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 18px;
-    }
-    .why-card {
-      padding: 26px;
-      border: 1px solid rgba(255,255,255,.08);
-      background: rgba(255,255,255,.04);
-    }
-    .why-card h3 {
-      font-size: 1.5rem;
-      margin-bottom: 12px;
-    }
-    .why-card p {
-      color: rgba(255,255,255,.76);
-      font-size: .96rem;
-    }
-    .process-grid, .proof-grid {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0,1fr));
-      gap: 20px;
-      margin-top: 42px;
-    }
-    .process-card, .proof-card {
-      padding: 30px 26px;
-      background: rgba(255,255,255,.72);
-      border: 1px solid rgba(27,29,33,.08);
-    }
-    .process-card span, .proof-label {
-      display: inline-block;
-      font-size: .74rem;
-      text-transform: uppercase;
-      letter-spacing: .18em;
-      color: var(--accent);
-      margin-bottom: 14px;
-    }
-    .process-card h3, .proof-card h3 {
-      font-size: 1.5rem;
-      margin-bottom: 12px;
-    }
-    .process-card p, .proof-card p {
-      color: var(--muted);
-      font-size: .96rem;
-    }
-    .contact {
-      background: var(--surface);
-      border-top: 1px solid var(--line);
-    }
-    .contact-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 42px;
-      align-items: start;
-    }
-    .contact-boxes {
-      display: grid;
-      gap: 14px;
-      margin-top: 30px;
-    }
-    .contact-box {
-      padding: 20px;
-      background: rgba(255,255,255,.8);
-      border: 1px solid rgba(27,29,33,.08);
-    }
-    .contact-box span {
-      display: block;
-      font-size: .72rem;
-      text-transform: uppercase;
-      letter-spacing: .18em;
-      color: var(--accent);
-      margin-bottom: 10px;
-    }
-    .contact-box strong {
-      display: block;
-      font-size: 1.18rem;
-      margin-bottom: 6px;
-    }
-    .contact-box p, .contact-box a {
-      color: var(--muted);
-      text-decoration: none;
-    }
-    .contact-card {
-      padding: 30px;
-      background: #131c25;
-      color: var(--white);
-      box-shadow: 0 20px 60px rgba(0,0,0,.14);
-    }
-    .contact-card h3 {
-      color: var(--white);
-      font-size: 2rem;
-      margin-bottom: 12px;
-    }
-    .contact-card p {
-      color: rgba(255,255,255,.74);
-      margin-bottom: 22px;
-    }
-    .contact-actions {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
+    .service-card:hover::after { transform: scaleX(1); }
+
+    .service-icon {
+      width: 44px; height: 44px;
       margin-bottom: 24px;
+      color: var(--gold);
     }
-    .contact-card .btn-primary {
-      background: var(--accent);
-    }
-    .contact-card .btn-primary:hover {
-      background: #c48f4a;
-    }
-    .contact-card .btn-ghost {
-      color: var(--white);
-      border-color: rgba(255,255,255,.2);
-    }
-    .contact-card .btn-ghost:hover {
-      background: rgba(255,255,255,.06);
-      border-color: rgba(255,255,255,.35);
-    }
-    .contact-footnote {
-      font-size: .92rem;
-      color: rgba(255,255,255,.65);
-      border-top: 1px solid rgba(255,255,255,.1);
-      padding-top: 16px;
-    }
-    footer {
-      background: #121820;
-      color: rgba(255,255,255,.72);
-      padding: 34px 6vw;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 20px;
-      flex-wrap: wrap;
-    }
-    .footer-brand strong {
-      display: block;
-      color: var(--white);
+
+    .service-num {
+      position: absolute;
+      top: 20px; right: 24px;
       font-family: 'Cormorant Garamond', serif;
-      font-size: 1.5rem;
+      font-size: 1rem;
+      font-weight: 300;
+      color: var(--line);
       letter-spacing: .08em;
     }
-    .footer-brand span {
-      font-size: .72rem;
+
+    .service-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.4rem;
+      font-weight: 500;
+      color: var(--text);
+      margin-bottom: 12px;
+      line-height: 1.25;
+    }
+
+    .service-desc {
+      font-size: .88rem;
+      font-weight: 300;
+      color: var(--text-mid);
+      line-height: 1.75;
+    }
+
+    .service-tag {
+      display: inline-block;
+      margin-top: 18px;
+      font-size: .62rem;
+      font-weight: 500;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+      color: var(--gold);
+      padding: 5px 10px;
+      border: 1px solid rgba(156,126,80,.25);
+      border-radius: 2px;
+    }
+
+    /* ─── WHY US ─── */
+    #vorteile {
+      background: var(--bg);
+    }
+
+    .why-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+      margin-top: 64px;
+    }
+
+    .why-visual {
+      position: relative;
+    }
+
+    .why-big-box {
+      background: var(--bg-dark);
+      border-radius: 2px;
+      aspect-ratio: 1;
+      position: relative;
+      overflow: hidden;
+    }
+    .why-big-box::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, #1C1A17 0%, #0e0d0b 100%);
+    }
+
+    .why-quote {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 48px;
+      text-align: center;
+      z-index: 2;
+    }
+    .why-quote-mark {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 8rem;
+      line-height: .6;
+      color: rgba(156,126,80,.2);
+      margin-bottom: 24px;
+      font-weight: 300;
+    }
+    .why-quote-text {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.5rem;
+      font-weight: 300;
+      font-style: italic;
+      color: rgba(255,255,255,.82);
+      line-height: 1.55;
+    }
+    .why-quote-author {
+      margin-top: 24px;
+      font-size: .68rem;
+      font-weight: 500;
       letter-spacing: .2em;
       text-transform: uppercase;
-      color: #d4a870;
+      color: var(--gold-lt);
     }
+
+    .why-small-box {
+      position: absolute;
+      bottom: -28px;
+      right: -28px;
+      background: var(--gold);
+      padding: 28px 32px;
+      border-radius: 2px;
+    }
+    .why-small-text {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.8rem;
+      font-weight: 400;
+      color: var(--white);
+      line-height: 1;
+    }
+    .why-small-sub {
+      font-size: .7rem;
+      font-weight: 500;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,.75);
+      margin-top: 6px;
+    }
+
+    .why-points {
+      display: flex;
+      flex-direction: column;
+      gap: 32px;
+    }
+
+    .why-point {
+      display: flex;
+      gap: 20px;
+      align-items: flex-start;
+    }
+
+    .why-point-icon {
+      flex-shrink: 0;
+      width: 44px; height: 44px;
+      background: rgba(156,126,80,.1);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--gold);
+      margin-top: 2px;
+    }
+    .why-point-icon svg { width: 20px; height: 20px; }
+
+    .why-point-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.25rem;
+      font-weight: 500;
+      color: var(--text);
+      margin-bottom: 6px;
+    }
+    .why-point-desc {
+      font-size: .88rem;
+      font-weight: 300;
+      color: var(--text-mid);
+      line-height: 1.75;
+    }
+
+    /* ─── QUALITY PROMISE ─── */
+    #qualitaet {
+      background: var(--bg-dark);
+      color: var(--white);
+    }
+
+    #qualitaet .section-title { color: var(--white); }
+    #qualitaet .section-lead { color: rgba(255,255,255,.55); }
+
+    .quality-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2px;
+      margin-top: 64px;
+    }
+
+    .quality-item {
+      padding: 52px 40px;
+      border: 1px solid rgba(255,255,255,.06);
+      position: relative;
+      transition: border-color .3s, background .3s;
+    }
+    .quality-item:hover {
+      border-color: rgba(156,126,80,.3);
+      background: rgba(156,126,80,.04);
+    }
+
+    .quality-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 4rem;
+      font-weight: 300;
+      color: rgba(156,126,80,.15);
+      line-height: 1;
+      margin-bottom: 20px;
+    }
+
+    .quality-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.4rem;
+      font-weight: 400;
+      color: var(--white);
+      margin-bottom: 12px;
+    }
+
+    .quality-desc {
+      font-size: .88rem;
+      font-weight: 300;
+      color: rgba(255,255,255,.5);
+      line-height: 1.8;
+    }
+
+    /* ─── PROCESS ─── */
+    #ablauf { background: var(--white); }
+
+    .process-steps {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 0;
+      margin-top: 64px;
+      position: relative;
+    }
+    .process-steps::before {
+      content: '';
+      position: absolute;
+      top: 28px;
+      left: 12%;
+      right: 12%;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--gold-lt), transparent);
+    }
+
+    .process-step {
+      padding: 0 24px;
+      text-align: center;
+      position: relative;
+    }
+
+    .process-dot {
+      width: 56px; height: 56px;
+      background: var(--white);
+      border: 2px solid var(--gold);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 28px;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.1rem;
+      font-weight: 500;
+      color: var(--gold);
+      position: relative;
+      z-index: 1;
+    }
+
+    .process-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.2rem;
+      font-weight: 500;
+      color: var(--text);
+      margin-bottom: 10px;
+    }
+
+    .process-desc {
+      font-size: .82rem;
+      font-weight: 300;
+      color: var(--text-mid);
+      line-height: 1.7;
+    }
+
+    /* ─── CONTACT ─── */
+    #kontakt { background: var(--bg); }
+
+    .contact-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+      margin-top: 64px;
+    }
+
+    .contact-left {}
+
+    .contact-info-block {
+      display: flex;
+      flex-direction: column;
+      gap: 28px;
+      margin-top: 40px;
+    }
+
+    .contact-info-item {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+    }
+
+    .contact-info-icon {
+      width: 48px; height: 48px;
+      background: rgba(156,126,80,.1);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      color: var(--gold);
+    }
+    .contact-info-icon svg { width: 22px; height: 22px; }
+
+    .contact-info-label {
+      font-size: .65rem;
+      font-weight: 500;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      color: var(--text-light);
+      margin-bottom: 3px;
+    }
+    .contact-info-value {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.3rem;
+      font-weight: 500;
+      color: var(--text);
+      text-decoration: none;
+      transition: color .2s;
+    }
+    .contact-info-value:hover { color: var(--gold); }
+
+    .contact-right {
+      background: var(--white);
+      border-radius: 4px;
+      padding: 52px 48px;
+      box-shadow: 0 24px 80px rgba(0,0,0,.06);
+    }
+
+    .contact-form-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.8rem;
+      font-weight: 400;
+      color: var(--text);
+      margin-bottom: 8px;
+    }
+    .contact-form-sub {
+      font-size: .85rem;
+      font-weight: 300;
+      color: var(--text-mid);
+      margin-bottom: 32px;
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+    .form-group label {
+      display: block;
+      font-size: .7rem;
+      font-weight: 500;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: var(--text-mid);
+      margin-bottom: 8px;
+    }
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      width: 100%;
+      background: var(--bg);
+      border: 1px solid transparent;
+      border-radius: var(--radius);
+      padding: 13px 16px;
+      font-family: 'Outfit', sans-serif;
+      font-size: .9rem;
+      color: var(--text);
+      outline: none;
+      transition: border-color .2s, background .2s;
+    }
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+      border-color: var(--gold);
+      background: var(--white);
+    }
+    .form-group textarea { resize: vertical; min-height: 90px; }
+
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+
+    .btn-submit {
+      width: 100%;
+      background: var(--text);
+      color: var(--white);
+      border: none;
+      cursor: pointer;
+      font-family: 'Outfit', sans-serif;
+      font-size: .8rem;
+      font-weight: 500;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      padding: 16px;
+      border-radius: var(--radius);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      transition: background .25s, transform .2s;
+      margin-top: 8px;
+    }
+    .btn-submit:hover { background: var(--gold); transform: translateY(-1px); }
+    .btn-submit svg { width: 16px; height: 16px; }
+
+    .form-note {
+      font-size: .72rem;
+      color: var(--text-light);
+      text-align: center;
+      margin-top: 14px;
+    }
+
+    /* ─── FOOTER ─── */
+    footer {
+      background: var(--bg-dark);
+      padding: 48px 6vw;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: 16px;
+    }
+
+    .footer-logo {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.3rem;
+      font-weight: 400;
+      color: rgba(255,255,255,.85);
+      letter-spacing: .04em;
+    }
+    .footer-logo span {
+      display: block;
+      font-family: 'Outfit', sans-serif;
+      font-size: .58rem;
+      font-weight: 400;
+      letter-spacing: .24em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-top: 4px;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 28px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    .footer-links a {
+      font-size: .72rem;
+      font-weight: 400;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,.3);
+      text-decoration: none;
+      transition: color .2s;
+    }
+    .footer-links a:hover { color: var(--gold); }
+
+    .footer-copy {
+      font-size: .72rem;
+      color: rgba(255,255,255,.2);
+    }
+
+    /* ─── STICKY CTA ─── */
     .sticky-cta {
       position: fixed;
-      right: 22px;
-      bottom: 22px;
+      bottom: 28px;
+      right: 24px;
+      z-index: 99;
       display: flex;
       flex-direction: column;
       gap: 10px;
-      z-index: 30;
+      opacity: 0;
+      transform: translateY(16px);
+      transition: opacity .4s, transform .4s;
+      pointer-events: none;
     }
-    .sticky-cta a {
-      width: 56px;
-      height: 56px;
+    .sticky-cta.show { opacity: 1; transform: none; pointer-events: all; }
+
+    .sticky-btn {
+      width: 52px; height: 52px;
       border-radius: 50%;
       display: flex;
       align-items: center;
       justify-content: center;
       text-decoration: none;
-      color: var(--white);
-      box-shadow: 0 12px 28px rgba(0,0,0,.18);
-      font-size: .68rem;
-      letter-spacing: .08em;
-      text-transform: uppercase;
-      text-align: center;
-      line-height: 1.2;
-      padding: 6px;
+      box-shadow: 0 4px 24px rgba(0,0,0,.18);
+      transition: transform .2s, box-shadow .2s;
     }
-    .sticky-phone { background: var(--ink); }
-    .sticky-form { background: var(--accent); }
-    @media (max-width: 980px) {
-      .hero,
-      .contact-grid,
-      .why-grid,
-      .process-grid,
-      .proof-grid {
+    .sticky-btn:hover { transform: scale(1.08); box-shadow: 0 6px 32px rgba(0,0,0,.25); }
+    .sticky-btn svg { width: 22px; height: 22px; }
+
+    .sticky-call { background: var(--text); color: var(--white); }
+    .sticky-wa   { background: #25D366; color: var(--white); }
+
+    /* ─── RESPONSIVE ─── */
+    @media (max-width: 900px) {
+      #hero {
         grid-template-columns: 1fr;
+        padding-top: 100px;
       }
-      .hero {
-        min-height: auto;
-        padding-top: 44px;
+      .hero-visual { display: none; }
+      .hero-content { padding-top: 40px; }
+
+      .why-layout,
+      .contact-layout {
+        grid-template-columns: 1fr;
+        gap: 48px;
       }
-      .hero-proof { grid-template-columns: 1fr; }
+      .why-visual { display: none; }
+
+      .quality-grid { grid-template-columns: 1fr; }
+      .process-steps { grid-template-columns: 1fr 1fr; }
+      .process-steps::before { display: none; }
+
+      .contact-right { padding: 36px 28px; }
     }
-    @media (max-width: 680px) {
-      nav { padding: 16px 5vw; }
-      .nav-link { display: none; }
-      .hero, .section-inner { padding-left: 5vw; padding-right: 5vw; }
-      .nav-actions .btn { padding: 12px 16px; font-size: .74rem; }
-      h1 { font-size: 2.7rem; }
-      .trust-list { gap: 8px; }
-      .trust-list li { width: 100%; }
-      .sticky-cta a { width: 50px; height: 50px; font-size: .62rem; }
+
+    @media (max-width: 600px) {
+      .services-grid { grid-template-columns: 1fr; }
+      .process-steps { grid-template-columns: 1fr; }
+      .form-row { grid-template-columns: 1fr; }
+
+      .nav-phone { display: none; }
+      .hero-logo {
+        margin-bottom: 24px;
+        padding: 12px 14px;
+      }
+
+      .hero-stats { display: none; }
     }
   </style>
 </head>
 <body>
-  <nav>
-    <a class="nav-logo" href="#top">
+
+<!-- ─── NAV ─── -->
+<nav id="nav">
+  <a href="#" class="nav-logo">
+    <div>
       <strong>Vladimir</strong>
-      <span>Hamburg Installation & Sanierung</span>
+      <span>Hamburg · Installation · Sanierung</span>
+    </div>
+  </a>
+  <div class="nav-cta">
+    <a href="#kontakt" class="nav-phone">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.5 2 2 0 0 1 3.6 1.34h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 9a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+      Hamburg & Umgebung
     </a>
-    <div class="nav-actions">
-      <a class="nav-link" href="#leistungen">Leistungen</a>
-      <a class="nav-link" href="#warum">Warum wir</a>
-      <a class="nav-link" href="#kontakt">Kontakt</a>
-      <a class="btn btn-primary" href="#kontakt">Anfragen</a>
-    </div>
-  </nav>
-
-  <section class="hero" id="top">
-    <div class="hero-copy">
-      <div class="eyebrow">Hamburg & Umgebung</div>
-      <h1>Installationen und Sanierung, bei denen Kunden auf Qualitaet und Vertrauen achten.</h1>
-      <p class="hero-lead">
-        Vladimir bietet Dienstleistungen in den Bereichen Wasserleitungen, Abwasser,
-        Fussbodenheizung, Klempnerarbeiten und Haussanierung an. Die Positionierung
-        ist klar: hohe Qualitaet, Garantie auf Installationen und eine Ausfuehrung,
-        die ueber Jahrzehnte Bestand haben soll.
-      </p>
-      <div class="hero-actions">
-        <a class="btn btn-primary" href="#kontakt">Faires Angebot anfragen</a>
-        <a class="btn btn-ghost" href="#leistungen">Leistungen ansehen</a>
-      </div>
-      <ul class="trust-list" aria-label="Vorteile">
-        <li>hohe Qualitaet</li>
-        <li>Garantie auf Installationen</li>
-        <li>langlebige Ausfuehrung</li>
-        <li>faire Angebote</li>
-        <li>Hamburg und Umgebung</li>
-      </ul>
-      <div class="hero-proof">
-        <div class="proof-box">
-          <strong>Typische Themen</strong>
-          <span>Wasserleitungen, Abwasser, Fussbodenheizung, Klempnerarbeiten und Haussanierung.</span>
-        </div>
-        <div class="proof-box">
-          <strong>Warum das wirkt</strong>
-          <span>Die Seite verkauft nicht nur Leistung, sondern Sicherheit, Vertrauen und saubere Ausfuehrung.</span>
-        </div>
-      </div>
-    </div>
-
-    <aside class="hero-panel">
-      <div class="hero-panel-top">
-        <div>
-          <strong>Premium-Auftritt</strong>
-          <h2>Vladimir als Betrieb, dem man sein Projekt anvertraut.</h2>
-        </div>
-        <div class="status-chip">Lokal in Hamburg</div>
-      </div>
-      <div class="hero-panel-grid">
-        <div class="panel-card">
-          <span>Wasser & Abwasser</span>
-          <strong>Saubere Installationen statt spaeterer Probleme</strong>
-          <p>Genau bei Leitungen und Anschluessen wollen Kunden wissen, dass es fachgerecht und dauerhaft geloest wird.</p>
-        </div>
-        <div class="panel-card">
-          <span>Fussbodenheizung</span>
-          <strong>Komfort, Effizienz und vernuenftige Ausfuehrung</strong>
-          <p>Ein Thema, bei dem Vertrauen, Planung und handwerkliche Sauberkeit besonders stark wirken.</p>
-        </div>
-        <div class="panel-card">
-          <span>Haussanierung</span>
-          <strong>Mehr als nur ein Gewerk</strong>
-          <p>Wenn mehrere Arbeiten zusammenspielen muessen, macht ein professioneller Aussenauftritt den Unterschied.</p>
-        </div>
-      </div>
-      <div class="hero-panel-note">
-        Diese Demo ist bewusst auf Vertrauen, Qualitaet und langlebige Ausfuehrung gebaut, weil genau diese Argumente bei diesem Gewerk stark ziehen.
-      </div>
-    </aside>
-  </section>
-
-  <section class="services" id="leistungen">
-    <div class="section-inner">
-      <div class="section-label">Leistungen</div>
-      <h2 class="section-title">Die wichtigsten Leistungen direkt und vertrauensstark auf den Punkt gebracht.</h2>
-      <p class="section-lead">
-        Besucher sollen in wenigen Sekunden verstehen, ob Vladimir zu ihrem Projekt passt.
-        Deshalb sind die Leistungen klar, hochwertig und ohne unnötiges Gerede dargestellt.
-      </p>
-      <div class="service-grid">
-        <article class="service-card">
-          <b>01</b>
-          <h3>Wasserleitungen</h3>
-          <p>Installation und Erneuerung von Wasserleitungen fuer Wohnhaeuser, Wohnungen und Sanierungsprojekte mit Fokus auf Qualitaet und Langlebigkeit.</p>
-        </article>
-        <article class="service-card">
-          <b>02</b>
-          <h3>Abwasser</h3>
-          <p>Saubere und fachgerechte Loesungen fuer Abwasser, Anschluesse und Installationen, damit spaeter nichts improvisiert werden muss.</p>
-        </article>
-        <article class="service-card">
-          <b>03</b>
-          <h3>Fussbodenheizung</h3>
-          <p>Einbau und Sanierungsloesungen fuer moderne Waermeverteilung mit Komfort, Effizienz und sauberer handwerklicher Umsetzung.</p>
-        </article>
-        <article class="service-card">
-          <b>04</b>
-          <h3>Klempnerarbeiten</h3>
-          <p>Klassische Klempner- und Installationsarbeiten, klar abgestimmt und professionell ausgefuehrt.</p>
-        </article>
-        <article class="service-card">
-          <b>05</b>
-          <h3>Haussanierung</h3>
-          <p>Sanierungsarbeiten fuer Kunden, die nicht nur schnell, sondern sauber, sicher und dauerhaft umgesetzt haben wollen.</p>
-        </article>
-        <article class="service-card">
-          <b>06</b>
-          <h3>Faire Angebote</h3>
-          <p>Verstaendliche Einschaetzung, klare Kommunikation und ein Angebot, das professionell statt undurchsichtig wirkt.</p>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <section class="contrast" id="warum">
-    <div class="section-inner">
-      <div class="section-label">Warum Vladimir</div>
-      <h2 class="section-title">Menschen kaufen bei diesem Gewerk nicht nur Arbeit. Sie kaufen Sicherheit.</h2>
-      <p class="section-lead">
-        Bei Wasser, Abwasser und Heizung will niemand experimentieren. Kunden entscheiden
-        hier stark nach Vertrauen, Professionalitaet und dem Gefuehl, dass die Arbeit
-        sauber und dauerhaft ausgefuehrt wird.
-      </p>
-      <div class="why-grid">
-        <article class="why-card">
-          <h3>Hohe Qualitaet</h3>
-          <p>Der Auftritt stellt direkt klar, dass hier nicht auf billig und schnell, sondern auf solide und saubere Ausfuehrung gesetzt wird.</p>
-        </article>
-        <article class="why-card">
-          <h3>Garantie</h3>
-          <p>Garantie auf Installationen ist ein starkes Vertrauenssignal und nimmt potenziellen Kunden direkt Unsicherheit raus.</p>
-        </article>
-        <article class="why-card">
-          <h3>Langlebige Ausfuehrung</h3>
-          <p>Gerade bei Installationen und Sanierung wirkt das Argument stark, dass die Arbeit ueber Jahre Bestand haben soll.</p>
-        </article>
-        <article class="why-card">
-          <h3>Lokal in Hamburg</h3>
-          <p>Hamburg und Umgebung als klares Einsatzgebiet machen die Anfrage leichter und den Betrieb greifbarer.</p>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <section>
-    <div class="section-inner">
-      <div class="section-label">Ablauf</div>
-      <h2 class="section-title">So fuehrt die Seite Besucher sauber zur Anfrage.</h2>
-      <p class="section-lead">Direkt, klar und ohne Reibung. Genau so, wie lokale Handwerkerseiten konvertieren sollen.</p>
-      <div class="process-grid">
-        <article class="process-card">
-          <span>01</span>
-          <h3>Problem erkennen</h3>
-          <p>Der Besucher sieht sofort, ob Wasserleitung, Abwasser, Fussbodenheizung oder Sanierung zum eigenen Projekt passt.</p>
-        </article>
-        <article class="process-card">
-          <span>02</span>
-          <h3>Vertrauen aufbauen</h3>
-          <p>Qualitaet, Garantie und langlebige Ausfuehrung schaffen in Sekunden einen deutlich staerkeren Eindruck.</p>
-        </article>
-        <article class="process-card">
-          <span>03</span>
-          <h3>Anfrage starten</h3>
-          <p>Ueber den Kontaktbereich kann direkt der naechste Schritt ausgeloest werden: Angebot, Rueckruf oder weitere Abstimmung.</p>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <section class="services">
-    <div class="section-inner">
-      <div class="section-label">Typische Projekte</div>
-      <h2 class="section-title">Die Seite spricht genau die Themen an, bei denen Vertrauen den Unterschied macht.</h2>
-      <p class="section-lead">Keine technische Ueberladung. Nur die Themen, die Besucher direkt mit ihrem Bedarf verbinden koennen.</p>
-      <div class="proof-grid">
-        <article class="proof-card">
-          <span class="proof-label">Wasser</span>
-          <h3>Leitungen und Anschluesse</h3>
-          <p>Fuer Kunden, die Installationen sauber, sicher und dauerhaft geloest haben wollen.</p>
-        </article>
-        <article class="proof-card">
-          <span class="proof-label">Waerme</span>
-          <h3>Fussbodenheizung</h3>
-          <p>Fuer Projekte, bei denen Komfort, moderne Technik und professionelle Umsetzung zusammenkommen muessen.</p>
-        </article>
-        <article class="proof-card">
-          <span class="proof-label">Sanierung</span>
-          <h3>Klempnerarbeiten & Haussanierung</h3>
-          <p>Fuer Eigentuemer, die einen Betrieb suchen, der nicht improvisiert, sondern sauber und hochwertig arbeitet.</p>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <section class="contact" id="kontakt">
-    <div class="section-inner contact-grid">
-      <div>
-        <div class="section-label">Kontakt</div>
-        <h2 class="section-title">Starker Auftritt jetzt, finaler Kontaktweg als naechster Schritt.</h2>
-        <p class="section-lead">
-          Aktuell liegt nur der Betriebstext vor. Die Seite ist deshalb schon als starke Demo gebaut
-          und kann im letzten Schritt direkt mit Telefonnummer, WhatsApp oder finalem Anfrageziel belegt werden.
-        </p>
-        <div class="contact-boxes">
-          <div class="contact-box">
-            <span>Betrieb</span>
-            <strong>Vladimir</strong>
-            <p>Wasserleitungen, Abwasser, Fussbodenheizung, Klempnerarbeiten und Haussanierung.</p>
-          </div>
-          <div class="contact-box">
-            <span>Einsatzgebiet</span>
-            <strong>Hamburg & Umgebung</strong>
-            <p>Lokal genug fuer Vertrauen, breit genug fuer hochwertige Sanierungs- und Installationsanfragen.</p>
-          </div>
-          <div class="contact-box">
-            <span>Positionierung</span>
-            <strong>Qualitaet, Garantie, langlebige Ausfuehrung</strong>
-            <p>Genau diese drei Punkte sind online die staerksten Verkaufsargumente fuer diesen Betrieb.</p>
-          </div>
-        </div>
-      </div>
-      <div class="contact-card">
-        <h3>Faires Angebot fuer Ihr Projekt</h3>
-        <p>Diese Demo zeigt bereits, wie Vladimir online professioneller und vertrauenswuerdiger auftreten kann. Als naechstes werden nur noch die finalen Kontaktdaten hinterlegt.</p>
-        <div class="contact-actions">
-          <a class="btn btn-primary" href="#top">Demo ansehen</a>
-          <a class="btn btn-ghost" href="#leistungen">Leistungen</a>
-        </div>
-        <div class="contact-footnote">
-          Sobald Telefonnummer oder WhatsApp feststehen, wird die Demo in Minuten zur echten Live-Seite fuer direkte Kundenanfragen.
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <footer>
-    <div class="footer-brand">
-      <strong>Vladimir</strong>
-      <span>Hamburg Installation & Sanierung</span>
-    </div>
-    <div>Premium-Demo fuer Wasserleitungen, Abwasser, Fussbodenheizung und Haussanierung.</div>
-  </footer>
-
-  <div class="sticky-cta" aria-label="Schnellnavigation">
-    <a class="sticky-phone" href="#kontakt">Kontakt</a>
-    <a class="sticky-form" href="#leistungen">Info</a>
+    <a href="#kontakt" class="btn-nav">Anfragen</a>
   </div>
+</nav>
+
+<!-- ─── HERO ─── -->
+<section id="hero">
+  <div class="hero-bg-grid"></div>
+
+  <div class="hero-content">
+    <div class="hero-badge reveal">Vladimir · Hamburg</div>
+    <div class="hero-logo reveal" style="transition-delay:.05s">
+      <strong>Vladimir</strong>
+      <span>Qualitaet. Garantie. Langlebige Ausfuehrung.</span>
+    </div>
+    <h1 class="hero-headline reveal" style="transition-delay:.1s">
+      Installationen, die halten.<br><em>Sanierung, die Vertrauen schafft.</em>
+    </h1>
+    <p class="hero-sub reveal" style="transition-delay:.2s">
+      Wasserleitungen, Abwasser, Fussbodenheizung, Klempnerarbeiten und Haussanierung fuer Kunden, die nicht nur einen Preis wollen, sondern saubere, sichere und dauerhafte Arbeit.
+    </p>
+    <div class="hero-actions reveal" style="transition-delay:.3s">
+      <a href="#kontakt" class="btn-primary">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.5 2 2 0 0 1 3.6 1.34h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 9a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        Projekt anfragen
+      </a>
+      <a href="#leistungen" class="btn-ghost">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+        Leistungen ansehen
+      </a>
+    </div>
+  </div>
+
+  <div class="hero-visual">
+    <div class="hero-card reveal reveal-right" style="transition-delay:.2s">
+      <div class="hero-accent-line"></div>
+      <div class="hero-img-box">
+        <svg class="hero-lines" viewBox="0 0 300 400" xmlns="http://www.w3.org/2000/svg">
+          <line x1="0" y1="0" x2="300" y2="400"/>
+          <line x1="60" y1="0" x2="300" y2="280"/>
+          <line x1="120" y1="0" x2="300" y2="160"/>
+          <line x1="0" y1="80" x2="180" y2="400"/>
+          <line x1="0" y1="180" x2="120" y2="400"/>
+          <line x1="150" y1="0" x2="300" y2="100"/>
+        </svg>
+        <div class="hero-img-inner">
+          <div class="hero-brand-card">
+            <strong>Vladimir</strong>
+            <span>Hamburg</span>
+            <div class="hero-brand-note">Wasser, Abwasser, Fussbodenheizung und Sanierung aus einer Hand</div>
+          </div>
+        </div>
+      </div>
+      <div class="hero-stats">
+        <div class="stat-item">
+          <div class="stat-num">HQ</div>
+          <div class="stat-label">hohe Qualitaet</div>
+        </div>
+        <div class="stat-sep"></div>
+        <div class="stat-item">
+          <div class="stat-num">GAR</div>
+          <div class="stat-label">Garantie auf Installationen</div>
+        </div>
+        <div class="stat-sep"></div>
+        <div class="stat-item">
+          <div class="stat-num">HH</div>
+          <div class="stat-label">Hamburg & Umgebung</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="hero-scroll">Scrollen</div>
+</section>
+
+<!-- ─── LEISTUNGEN ─── -->
+<section id="leistungen">
+  <div class="section-inner">
+    <div class="section-label reveal">Leistungen</div>
+    <h2 class="section-title reveal">Installation und Sanierung –<br><em>sauber umgesetzt.</em></h2>
+    <p class="section-lead reveal">Von Wasserleitungen bis Fussbodenheizung. Vladimir positioniert sich fuer Kunden, die Wert auf Qualitaet, saubere Ausfuehrung und dauerhafte Ergebnisse legen.</p>
+
+    <div class="services-grid">
+
+      <div class="service-card reveal">
+        <span class="service-num">01</span>
+        <svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="1"/><path d="M3 9h18M9 21V9"/></svg>
+        <div class="service-title">Wasserleitungen<br>installieren</div>
+        <p class="service-desc">Saubere Installation und Erneuerung von Wasserleitungen fuer Wohnhaeuser, Wohnungen und Sanierungsprojekte.</p>
+        <span class="service-tag">Sicher · Dauerhaft</span>
+      </div>
+
+      <div class="service-card reveal" style="transition-delay:.08s">
+        <span class="service-num">02</span>
+        <svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+        <div class="service-title">Abwasser<br>fachgerecht loesen</div>
+        <p class="service-desc">Abwasserinstallationen und passende Anschluesse so umgesetzt, dass sie sauber funktionieren und spaeter keinen Stress machen.</p>
+        <span class="service-tag">Sauber · Zuverlaessig</span>
+      </div>
+
+      <div class="service-card reveal" style="transition-delay:.16s">
+        <span class="service-num">03</span>
+        <svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
+        <div class="service-title">Fussbodenheizung<br>einbauen</div>
+        <p class="service-desc">Fuer Projekte, bei denen Komfort, Energieeffizienz und saubere technische Umsetzung zusammenpassen muessen.</p>
+        <span class="service-tag">Komfort · Effizienz</span>
+      </div>
+
+      <div class="service-card reveal" style="transition-delay:.24s">
+        <span class="service-num">04</span>
+        <svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+        <div class="service-title">Klempnerarbeiten<br>& Anschluesse</div>
+        <p class="service-desc">Klassische Klempner- und Installationsarbeiten mit sauberer Ausfuehrung, klarer Abstimmung und professionellem Auftreten.</p>
+        <span class="service-tag">Praezise · Klar</span>
+      </div>
+
+      <div class="service-card reveal" style="transition-delay:.32s">
+        <span class="service-num">05</span>
+        <svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22V12m0 0V2m0 10H2m10 0h10"/><circle cx="12" cy="12" r="3"/></svg>
+        <div class="service-title">Haussanierung<br>mit Anspruch</div>
+        <p class="service-desc">Fuer Kunden, die nicht improvisieren wollen, sondern eine Sanierung suchen, die professionell wirkt und ueber Jahre Bestand hat.</p>
+        <span class="service-tag">Qualitaet · Bestand</span>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ─── VORTEILE ─── -->
+<section id="vorteile">
+  <div class="section-inner">
+    <div class="section-label reveal">Warum Vladimir</div>
+    <h2 class="section-title reveal">Bei diesem Gewerk entscheidet Vertrauen –<br><em>nicht nur der Preis.</em></h2>
+
+    <div class="why-layout">
+      <div class="why-visual reveal reveal-left">
+        <div class="why-big-box">
+          <div class="why-quote">
+            <div class="why-quote-mark">"</div>
+            <div class="why-quote-text">Wenn Wasser, Abwasser oder Fussbodenheizung gemacht werden, will der Kunde vor allem eins: sicher sein, dass es sauber und dauerhaft geloest wird.</div>
+            <div class="why-quote-author">Vladimir</div>
+          </div>
+        </div>
+        <div class="why-small-box">
+          <div class="why-small-text">VH</div>
+          <div class="why-small-sub">Hamburg Installation & Sanierung</div>
+        </div>
+      </div>
+
+      <div class="why-points">
+        <div class="why-point reveal" style="transition-delay:.05s">
+          <div class="why-point-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+          </div>
+          <div>
+            <div class="why-point-title">Hohe Qualitaet</div>
+            <p class="why-point-desc">Der Auftritt stellt direkt klar, dass hier nicht schnell und billig, sondern ordentlich, fachgerecht und professionell gearbeitet wird.</p>
+          </div>
+        </div>
+
+        <div class="why-point reveal" style="transition-delay:.1s">
+          <div class="why-point-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+          </div>
+          <div>
+            <div class="why-point-title">Garantie auf Installationen</div>
+            <p class="why-point-desc">Das ist ein starkes Vertrauenssignal und hebt Vladimir online direkt von vielen austauschbaren Betrieben ab.</p>
+          </div>
+        </div>
+
+        <div class="why-point reveal" style="transition-delay:.15s">
+          <div class="why-point-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          </div>
+          <div>
+            <div class="why-point-title">Langlebige Ausfuehrung</div>
+            <p class="why-point-desc">Gerade bei Leitungen, Abwasser und Sanierung wirkt die Botschaft stark, dass die Arbeit ueber Jahrzehnte Bestand haben soll.</p>
+          </div>
+        </div>
+
+        <div class="why-point reveal" style="transition-delay:.2s">
+          <div class="why-point-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          </div>
+          <div>
+            <div class="why-point-title">Lokal in Hamburg</div>
+            <p class="why-point-desc">Hamburg und Umgebung machen den Betrieb greifbarer und schaffen direkt mehr Naehe und Vertrauen fuer die Anfrage.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── QUALITÄTSVERSPRECHEN ─── -->
+<section id="qualitaet">
+  <div class="section-inner">
+    <div class="section-label reveal">Qualitätsversprechen</div>
+    <h2 class="section-title reveal">Drei Versprechen.<br><em>Gehalten.</em></h2>
+    <p class="section-lead reveal">Drei Punkte, die hier online sofort verkaufen: Qualitaet, Sicherheit und dauerhafte Ausfuehrung.</p>
+
+    <div class="quality-grid">
+      <div class="quality-item reveal">
+        <div class="quality-num">01</div>
+        <div class="quality-title">Installationen, die nicht spaeter Probleme machen</div>
+        <p class="quality-desc">Wasserleitungen und Anschluesse muessen sauber sitzen, weil Fehler hier spaeter teuer, nervig und vertrauenszerstoerend werden.</p>
+      </div>
+      <div class="quality-item reveal" style="transition-delay:.1s">
+        <div class="quality-num">02</div>
+        <div class="quality-title">Sanierung mit System statt Flickwerk</div>
+        <p class="quality-desc">Wenn mehrere Arbeiten ineinandergreifen, braucht es Struktur, klare Ausfuehrung und einen Betrieb, der das professionell vermittelt.</p>
+      </div>
+      <div class="quality-item reveal" style="transition-delay:.2s">
+        <div class="quality-num">03</div>
+        <div class="quality-title">Ein Auftritt, der Sicherheit verkauft</div>
+        <p class="quality-desc">Diese Seite ist genau darauf gebaut: Besucher sollen direkt denken, dass Vladimir fuer saubere, sichere und langlebige Arbeit steht.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── ABLAUF ─── -->
+<section id="ablauf">
+  <div class="section-inner">
+    <div class="section-label reveal">So läuft's ab</div>
+    <h2 class="section-title reveal">Einfach. Klar. <em>Ohne Umwege.</em></h2>
+    <p class="section-lead reveal">Vom ersten Kontakt bis zur Ausfuehrung klar organisiert, damit Sie schnell wissen, wie es weitergeht.</p>
+
+    <div class="process-steps">
+      <div class="process-step reveal">
+        <div class="process-dot">01</div>
+        <div class="process-title">Erstkontakt</div>
+        <p class="process-desc">Der Besucher erkennt sofort, ob Wasserleitung, Abwasser, Fussbodenheizung oder Sanierung zum eigenen Projekt passt.</p>
+      </div>
+      <div class="process-step reveal" style="transition-delay:.1s">
+        <div class="process-dot">02</div>
+        <div class="process-title">Besichtigung</div>
+        <p class="process-desc">Durch Qualitaet, Garantie und klare Positionierung entsteht in Sekunden ein deutlich staerkeres Vertrauen.</p>
+      </div>
+      <div class="process-step reveal" style="transition-delay:.2s">
+        <div class="process-dot">03</div>
+        <div class="process-title">Angebot</div>
+        <p class="process-desc">Im letzten Schritt wird daraus ein faires Angebot oder die direkte Kontaktstrecke fuer echte Anfragen.</p>
+      </div>
+      <div class="process-step reveal" style="transition-delay:.3s">
+        <div class="process-dot">04</div>
+        <div class="process-title">Ausführung</div>
+        <p class="process-desc">So arbeitet die Seite fuer Vladimir: mehr Vertrauen, besserer Eindruck und ein klarerer Weg zur Anfrage.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── KONTAKT ─── -->
+<section id="kontakt">
+  <div class="section-inner">
+    <div class="section-label reveal">Kontakt</div>
+    <h2 class="section-title reveal">Bereit für Ihr nächstes<br><em>Projekt?</em></h2>
+
+    <div class="contact-layout">
+      <div class="contact-left reveal reveal-left">
+        <p class="section-lead">Die Premium-Demo steht. Fuer den finalen Livegang werden jetzt nur noch die echten Kontaktdaten oder der gewuenschte Anfrageweg ergänzt.</p>
+
+        <div class="contact-info-block">
+          <div class="contact-info-item">
+            <div class="contact-info-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.5 2 2 0 0 1 3.6 1.34h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 9a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            </div>
+            <div>
+              <div class="contact-info-label">Status</div>
+              <div class="contact-info-value" style="color:var(--text);cursor:default">Premium-Demo vorbereitet</div>
+            </div>
+          </div>
+
+          <div class="contact-info-item">
+            <div class="contact-info-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+            </div>
+            <div>
+              <div class="contact-info-label">Positionierung</div>
+              <div class="contact-info-value" style="color:var(--text);cursor:default">Qualitaet · Garantie · langlebige Ausfuehrung</div>
+            </div>
+          </div>
+
+          <div class="contact-info-item">
+            <div class="contact-info-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>
+            </div>
+            <div>
+              <div class="contact-info-label">Einsatzgebiet</div>
+              <div class="contact-info-value" style="color:var(--text);cursor:default">Vladimir · Hamburg & Umgebung</div>
+            </div>
+          </div>
+        </div>
+
+        <div style="margin-top:40px; display:flex; gap:14px; flex-wrap:wrap;">
+          <a href="#top" class="btn-primary">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.5 2 2 0 0 1 3.6 1.34h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 9a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            Zur Demo
+          </a>
+          <a href="#leistungen" class="btn-ghost">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+            Leistungen
+          </a>
+        </div>
+      </div>
+
+      <div class="contact-right reveal reveal-right">
+        <div class="contact-form-title">Unverbindliche Anfrage</div>
+        <p class="contact-form-sub">Kurze Beschreibung genuegt - daraus laesst sich direkt der finale Anfrageweg bauen.</p>
+
+        <form onsubmit="handleSubmit(event)">
+          <div class="form-row">
+            <div class="form-group">
+              <label>Vorname</label>
+              <input type="text" placeholder="Max" required />
+            </div>
+            <div class="form-group">
+              <label>Nachname</label>
+              <input type="text" placeholder="Mustermann" required />
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Telefon</label>
+            <input type="tel" placeholder="0151 12345678" />
+          </div>
+          <div class="form-group">
+            <label>Leistung</label>
+            <select>
+              <option value="">Bitte wählen …</option>
+              <option>Wasserleitungen</option>
+              <option>Abwasser</option>
+              <option>Fussbodenheizung</option>
+              <option>Klempnerarbeiten</option>
+              <option>Haussanierung</option>
+              <option>Mehrere Arbeiten</option>
+              <option>Mehrere Leistungen</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Kurze Projektbeschreibung</label>
+            <textarea placeholder="z.B. Wasserleitungen erneuern, Fussbodenheizung einbauen oder Sanierung planen ..."></textarea>
+          </div>
+          <button type="submit" class="btn-submit" id="submitBtn">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+            Jetzt unverbindlich anfragen
+          </button>
+          <p class="form-note" id="formNote">Kostenlos & unverbindlich · Rueckmeldung so schnell wie moeglich</p>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── FOOTER ─── -->
+<footer>
+  <div class="footer-logo">
+    Vladimir
+    <span>Hamburg · Installation & Sanierung</span>
+  </div>
+  <div class="footer-links">
+    <a href="#leistungen">Leistungen</a>
+    <a href="#vorteile">Über uns</a>
+    <a href="#qualitaet">Qualität</a>
+    <a href="#ablauf">Ablauf</a>
+    <a href="#kontakt">Kontakt</a>
+  </div>
+  <p class="footer-copy">© 2026 Vladimir Hamburg · Alle Rechte vorbehalten</p>
+</footer>
+
+<!-- ─── STICKY CTA ─── -->
+<div class="sticky-cta" id="stickyCta">
+  <a href="#kontakt" class="sticky-btn sticky-wa" title="Kontakt">
+    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+  </a>
+  <a href="#leistungen" class="sticky-btn sticky-call" title="Leistungen">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.5 2 2 0 0 1 3.6 1.34h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 9a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+  </a>
+</div>
+
+<script>
+  /* ── Scroll Reveal ── */
+  const revealEls = document.querySelectorAll('.reveal');
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); } });
+  }, { threshold: .12 });
+  revealEls.forEach(el => io.observe(el));
+
+  /* ── Nav scroll ── */
+  const nav = document.getElementById('nav');
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('scrolled', window.scrollY > 60);
+  });
+
+  /* ── Sticky CTA ── */
+  const stickyCta = document.getElementById('stickyCta');
+  window.addEventListener('scroll', () => {
+    stickyCta.classList.toggle('show', window.scrollY > 400);
+  });
+
+  /* ── Counter animation ── */
+  function animateCounter(el, target, duration = 1600) {
+    let start = null;
+    const step = (ts) => {
+      if (!start) start = ts;
+      const progress = Math.min((ts - start) / duration, 1);
+      const ease = 1 - Math.pow(1 - progress, 3);
+      el.textContent = Math.floor(ease * target) + '+';
+      if (progress < 1) requestAnimationFrame(step);
+    };
+    requestAnimationFrame(step);
+  }
+  const counterEls = document.querySelectorAll('[data-count]');
+  const counterIo = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        animateCounter(e.target, parseInt(e.target.dataset.count));
+        counterIo.unobserve(e.target);
+      }
+    });
+  }, { threshold: .5 });
+  counterEls.forEach(el => counterIo.observe(el));
+
+  /* ── Form ── */
+  function handleSubmit(e) {
+    e.preventDefault();
+    const btn = document.getElementById('submitBtn');
+    const note = document.getElementById('formNote');
+    btn.textContent = '✓ Anfrage gesendet';
+    btn.style.background = 'var(--gold)';
+    note.textContent = 'Wir melden uns bald bei Ihnen – vielen Dank!';
+    btn.disabled = true;
+  }
+</script>
 </body>
 </html>
