@@ -8,6 +8,14 @@
       name="description"
       content="Saubere Übersicht lokaler Lead-Landingpages für verschiedene Branchen und Städte."
     />
+    <script>
+      (function () {
+        var customDomainHosts = ['martin-bedachung.de', 'www.martin-bedachung.de'];
+        if (customDomainHosts.indexOf(window.location.hostname) !== -1) {
+          window.location.replace('./martin-bedachung-neuss/');
+        }
+      })();
+    </script>
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
