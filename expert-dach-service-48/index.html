@@ -1,0 +1,740 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Expert Dach Service 48 | Dacharbeiten in Wiehl</title>
+  <meta name="description" content="Professionelle Dacharbeiten in Wiehl: Neueindeckung, Dachreparaturen, Abdichtungen, Dachrinnen, Isolierung und Wartung. Zuverlaessig, sauber und preiswert." />
+  <meta name="theme-color" content="#1b1916" />
+  <meta name="robots" content="index,follow" />
+  <meta property="og:locale" content="de_DE" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Expert Dach Service 48 | Dacharbeiten in Wiehl" />
+  <meta property="og:description" content="Professionelle Dacharbeiten zu fairen Preisen: sauber, zuverlaessig und schnell umgesetzt." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #f4f1eb;
+      --surface: rgba(255,255,255,.82);
+      --surface-strong: #ffffff;
+      --text: #1b1916;
+      --text-soft: #625b53;
+      --line: rgba(27,25,22,.1);
+      --gold: #a77d47;
+      --gold-strong: #8f6736;
+      --charcoal: #1b1916;
+      --charcoal-soft: #2a261f;
+      --radius: 4px;
+      --shadow: 0 24px 60px rgba(0,0,0,.08);
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Outfit', sans-serif;
+      background:
+        radial-gradient(circle at top left, rgba(167,125,71,.12), transparent 30%),
+        linear-gradient(180deg, #f7f4ee 0%, #f4f1eb 48%, #efe9df 100%);
+      color: var(--text);
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+
+    a { color: inherit; }
+
+    .container {
+      width: min(1180px, calc(100% - 48px));
+      margin: 0 auto;
+    }
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      backdrop-filter: blur(14px);
+      background: rgba(244,241,235,.88);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .topbar-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+      padding: 18px 0;
+    }
+
+    .brand {
+      text-decoration: none;
+      display: inline-flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .brand strong {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(1.7rem, 2.5vw, 2.25rem);
+      font-weight: 600;
+      letter-spacing: .05em;
+    }
+
+    .brand span {
+      font-size: .72rem;
+      text-transform: uppercase;
+      letter-spacing: .22em;
+      color: var(--gold);
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+
+    .nav a {
+      text-decoration: none;
+      font-size: .9rem;
+      color: var(--text-soft);
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      text-decoration: none;
+      border-radius: var(--radius);
+      padding: 14px 22px;
+      font-size: .86rem;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      font-weight: 600;
+      border: 1px solid transparent;
+      transition: transform .25s ease, background .25s ease, color .25s ease, border-color .25s ease;
+    }
+
+    .btn:hover { transform: translateY(-1px); }
+
+    .btn-primary {
+      background: var(--charcoal);
+      color: #fff;
+    }
+
+    .btn-primary:hover { background: var(--gold-strong); }
+
+    .btn-secondary {
+      border-color: rgba(27,25,22,.14);
+      background: rgba(255,255,255,.5);
+      color: var(--text);
+    }
+
+    .hero {
+      position: relative;
+      padding: 88px 0 48px;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 40px auto auto calc(50% - 120px);
+      width: 420px;
+      height: 420px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(167,125,71,.2) 0%, rgba(167,125,71,0) 72%);
+      pointer-events: none;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.1fr) minmax(320px, .9fr);
+      gap: 34px;
+      align-items: stretch;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-size: .75rem;
+      letter-spacing: .22em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 22px;
+    }
+
+    .eyebrow::before {
+      content: "";
+      width: 30px;
+      height: 1px;
+      background: currentColor;
+    }
+
+    h1, h2, h3 {
+      font-family: 'Cormorant Garamond', serif;
+      line-height: 1.08;
+      font-weight: 600;
+      color: var(--text);
+    }
+
+    h1 {
+      font-size: clamp(3rem, 7vw, 5.4rem);
+      max-width: 11ch;
+      margin-bottom: 24px;
+    }
+
+    .hero-copy p {
+      max-width: 680px;
+      color: var(--text-soft);
+      font-size: 1.05rem;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+      margin: 34px 0;
+    }
+
+    .trust-row {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 14px;
+      margin-top: 30px;
+    }
+
+    .trust-box,
+    .glass-card,
+    .service-card,
+    .why-card,
+    .process-card,
+    .contact-card,
+    .legal-card {
+      background: var(--surface);
+      border: 1px solid rgba(255,255,255,.6);
+      box-shadow: var(--shadow);
+      border-radius: var(--radius);
+      backdrop-filter: blur(12px);
+    }
+
+    .trust-box {
+      padding: 18px 18px 20px;
+    }
+
+    .trust-box strong {
+      display: block;
+      font-size: 1rem;
+      margin-bottom: 8px;
+    }
+
+    .trust-box span {
+      color: var(--text-soft);
+      font-size: .93rem;
+    }
+
+    .glass-card {
+      padding: 28px;
+      position: relative;
+      overflow: hidden;
+      display: grid;
+      gap: 22px;
+    }
+
+    .glass-card::before {
+      content: "";
+      position: absolute;
+      inset: auto -60px -60px auto;
+      width: 180px;
+      height: 180px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(167,125,71,.18) 0%, rgba(167,125,71,0) 68%);
+    }
+
+    .roof-graphic {
+      min-height: 280px;
+      border-radius: 3px;
+      background:
+        linear-gradient(135deg, rgba(27,25,22,.96), rgba(42,38,31,.9)),
+        #1b1916;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .roof-graphic svg {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+    }
+
+    .glass-card h2 {
+      font-size: clamp(2rem, 4vw, 3rem);
+      max-width: 10ch;
+    }
+
+    .glass-card p,
+    .glass-card li {
+      color: #e6dfd4;
+    }
+
+    .check-list {
+      list-style: none;
+      display: grid;
+      gap: 10px;
+    }
+
+    .check-list li {
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+    }
+
+    .check-list li::before {
+      content: "✓";
+      color: var(--gold);
+      font-weight: 700;
+      line-height: 1;
+      margin-top: 4px;
+    }
+
+    section {
+      padding: 46px 0;
+    }
+
+    .section-head {
+      display: grid;
+      gap: 12px;
+      max-width: 760px;
+      margin-bottom: 26px;
+    }
+
+    .section-head h2 {
+      font-size: clamp(2.2rem, 4.5vw, 3.5rem);
+    }
+
+    .section-head p {
+      color: var(--text-soft);
+    }
+
+    .service-grid,
+    .why-grid,
+    .process-grid,
+    .contact-grid,
+    .legal-grid {
+      display: grid;
+      gap: 18px;
+    }
+
+    .service-grid {
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+    }
+
+    .service-card {
+      padding: 24px 20px;
+      min-height: 220px;
+      display: grid;
+      align-content: start;
+      gap: 14px;
+    }
+
+    .service-card span {
+      font-size: .76rem;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      color: var(--gold);
+    }
+
+    .service-card h3 {
+      font-size: 1.7rem;
+    }
+
+    .service-card p {
+      color: var(--text-soft);
+      font-size: .95rem;
+    }
+
+    .why-grid {
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+
+    .why-card,
+    .process-card,
+    .contact-card,
+    .legal-card {
+      padding: 24px;
+    }
+
+    .why-card h3,
+    .process-card h3,
+    .contact-card h3,
+    .legal-card h3 {
+      font-size: 1.7rem;
+      margin-bottom: 12px;
+    }
+
+    .why-card p,
+    .process-card p,
+    .contact-card p,
+    .legal-card p {
+      color: var(--text-soft);
+    }
+
+    .process-grid {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .process-step {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: rgba(167,125,71,.14);
+      color: var(--gold-strong);
+      font-size: .95rem;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      margin-bottom: 18px;
+    }
+
+    .contact-grid {
+      grid-template-columns: 1.15fr .85fr;
+    }
+
+    .contact-card strong {
+      display: block;
+      font-size: .88rem;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 14px;
+    }
+
+    .contact-list {
+      list-style: none;
+      display: grid;
+      gap: 10px;
+      margin-top: 18px;
+    }
+
+    .contact-list li {
+      color: var(--text-soft);
+    }
+
+    .legal-grid {
+      grid-template-columns: 1fr 1fr;
+    }
+
+    .legal-link {
+      display: inline-flex;
+      text-decoration: none;
+      margin-top: 18px;
+      color: var(--text);
+      font-weight: 500;
+    }
+
+    footer {
+      padding: 26px 0 42px;
+      color: var(--text-soft);
+      font-size: .9rem;
+    }
+
+    .footer-row {
+      display: flex;
+      justify-content: space-between;
+      gap: 18px;
+      flex-wrap: wrap;
+      border-top: 1px solid var(--line);
+      padding-top: 22px;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .footer-links a {
+      text-decoration: none;
+    }
+
+    @media (max-width: 1100px) {
+      .service-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+      .why-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .trust-row { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    }
+
+    @media (max-width: 820px) {
+      .topbar-inner,
+      .hero-grid,
+      .contact-grid,
+      .legal-grid,
+      .process-grid,
+      .service-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .topbar-inner {
+        display: grid;
+        justify-items: start;
+      }
+
+      .nav { justify-content: flex-start; }
+      .hero { padding-top: 54px; }
+      h1 { max-width: 12ch; }
+    }
+
+    @media (max-width: 620px) {
+      .container { width: min(100% - 28px, 1180px); }
+      .trust-row,
+      .why-grid {
+        grid-template-columns: 1fr;
+      }
+      .hero-actions { flex-direction: column; align-items: stretch; }
+      .btn { width: 100%; }
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="container topbar-inner">
+      <a class="brand" href="#top">
+        <strong>Expert Dach Service 48</strong>
+        <span>Dachdecker Ioan Gabor</span>
+      </a>
+      <nav class="nav" aria-label="Hauptnavigation">
+        <a href="#leistungen">Leistungen</a>
+        <a href="#warum-wir">Warum wir</a>
+        <a href="#ablauf">Ablauf</a>
+        <a href="#kontakt">Kontakt</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="top">
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <div class="eyebrow">Professionelle Dacharbeiten</div>
+          <h1>Zuverlaessig, sauber und preiswert rund ums Dach.</h1>
+          <p>
+            Expert Dach Service 48 aus Wiehl uebernimmt hochwertige Dacharbeiten mit
+            Erfahrung, Sorgfalt und fairer Preisgestaltung. Ob Neueindeckung,
+            Reparatur, Abdichtung oder Daemmung: Die Arbeiten werden schnell,
+            ordentlich und verlaesslich umgesetzt.
+          </p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#kontakt">Projekt besprechen</a>
+            <a class="btn btn-secondary" href="#leistungen">Leistungen ansehen</a>
+          </div>
+          <div class="trust-row">
+            <div class="trust-box">
+              <strong>Saubere Ausfuehrung</strong>
+              <span>Ordentliche Arbeit mit Blick auf Haltbarkeit und ein sauberes Ergebnis.</span>
+            </div>
+            <div class="trust-box">
+              <strong>Schnelle Termine</strong>
+              <span>Kurze Reaktionszeiten und klare Absprachen ohne lange Umwege.</span>
+            </div>
+            <div class="trust-box">
+              <strong>Faire Preise</strong>
+              <span>Leistung und Preis muessen zusammenpassen und nachvollziehbar bleiben.</span>
+            </div>
+            <div class="trust-box">
+              <strong>Flexibel vor Ort</strong>
+              <span>Von Reparatur bis Neueindeckung wird pragmatisch und zuverlaessig gearbeitet.</span>
+            </div>
+          </div>
+        </div>
+
+        <aside class="glass-card" aria-label="Uebersicht der Kernpunkte">
+          <div class="roof-graphic">
+            <svg viewBox="0 0 640 420" aria-hidden="true" focusable="false">
+              <rect width="640" height="420" fill="transparent"></rect>
+              <path d="M110 214L320 78l210 136" fill="none" stroke="#b2874f" stroke-width="22" stroke-linecap="round" stroke-linejoin="round"></path>
+              <path d="M154 214h332v108H154z" fill="#efe7da"></path>
+              <path d="M176 214l144-96l144 96" fill="#8f6736"></path>
+              <rect x="264" y="252" width="70" height="70" rx="4" fill="#c6d2da"></rect>
+              <rect x="374" y="244" width="62" height="40" rx="4" fill="#c6d2da"></rect>
+              <path d="M146 322h348" stroke="#d6cab8" stroke-width="16" stroke-linecap="round"></path>
+              <path d="M100 356h438" stroke="rgba(255,255,255,.16)" stroke-width="2" stroke-dasharray="8 10"></path>
+            </svg>
+          </div>
+          <div>
+            <h2>Unsere Leistungen rund ums Dach.</h2>
+            <ul class="check-list">
+              <li>Neueindeckung von Daechern</li>
+              <li>Dachreparaturen und Wartung</li>
+              <li>Abdichtungen und Dachrinnenarbeiten</li>
+              <li>Isolierung und Waermedaemmung</li>
+            </ul>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section id="leistungen">
+      <div class="container">
+        <div class="section-head">
+          <div class="eyebrow">Leistungen</div>
+          <h2>Vom kleinen Schaden bis zur kompletten Dacharbeit sauber umgesetzt.</h2>
+          <p>
+            Die Seite konzentriert sich bewusst auf die Leistungen, die Kunden
+            wirklich suchen: klar beschrieben, ohne Umwege und mit einem ruhigen,
+            vertrauenswuerdigen Auftritt.
+          </p>
+        </div>
+        <div class="service-grid">
+          <article class="service-card">
+            <span>01</span>
+            <h3>Neueindeckung</h3>
+            <p>Fuer Daecher, die fachgerecht neu aufgebaut oder langfristig erneuert werden sollen.</p>
+          </article>
+          <article class="service-card">
+            <span>02</span>
+            <h3>Reparaturen</h3>
+            <p>Schnelle Hilfe bei Beschaedigungen, undichten Stellen und typischen Schaeden am Dach.</p>
+          </article>
+          <article class="service-card">
+            <span>03</span>
+            <h3>Abdichtungen</h3>
+            <p>Zuverlaessige Abdichtung fuer empfindliche Bereiche und Schutz vor Feuchtigkeit.</p>
+          </article>
+          <article class="service-card">
+            <span>04</span>
+            <h3>Dachrinnen</h3>
+            <p>Montage, Reinigung und Pflege, damit Wasser sauber abgefuehrt werden kann.</p>
+          </article>
+          <article class="service-card">
+            <span>05</span>
+            <h3>Daemmung</h3>
+            <p>Isolierung und Waermedaemmung fuer mehr Effizienz und ein dauerhaft gutes Dachsystem.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="warum-wir">
+      <div class="container">
+        <div class="section-head">
+          <div class="eyebrow">Warum wir</div>
+          <h2>Klare Leistung, faire Preise und ein Betrieb, der einfach verlaesslich wirkt.</h2>
+          <p>
+            Gerade bei Dacharbeiten zaehlen saubere Arbeit, ein realistischer Preis
+            und ein Anbieter, der Termine einhaelt und flexibel reagiert.
+          </p>
+        </div>
+        <div class="why-grid">
+          <article class="why-card">
+            <h3>Sauber gearbeitet</h3>
+            <p>Arbeiten werden ordentlich ausgefuehrt, damit das Ergebnis fachlich und optisch stimmt.</p>
+          </article>
+          <article class="why-card">
+            <h3>Schnell verfuegbar</h3>
+            <p>Kurze Terminabstimmung und eine zuegige Umsetzung helfen besonders bei dringenden Themen.</p>
+          </article>
+          <article class="why-card">
+            <h3>Preiswert gedacht</h3>
+            <p>Faire Preise stehen im Vordergrund, ohne an Qualitaet und Sorgfalt zu sparen.</p>
+          </article>
+          <article class="why-card">
+            <h3>Flexibel vor Ort</h3>
+            <p>Ob einzelne Reparatur oder groessere Massnahme: die Ausfuehrung bleibt pragmatisch und direkt.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="ablauf">
+      <div class="container">
+        <div class="section-head">
+          <div class="eyebrow">Ablauf</div>
+          <h2>So ist die Seite auf schnelle Orientierung und direkte Kontaktaufnahme ausgelegt.</h2>
+        </div>
+        <div class="process-grid">
+          <article class="process-card">
+            <div class="process-step">01</div>
+            <h3>Leistung verstehen</h3>
+            <p>Besucher sehen sofort, welche Dacharbeiten angeboten werden und ob der Betrieb fuer ihr Anliegen passt.</p>
+          </article>
+          <article class="process-card">
+            <div class="process-step">02</div>
+            <h3>Vertrauen aufbauen</h3>
+            <p>Klare Sprache, ruhiges Design und nachvollziehbare Schwerpunkte schaffen einen professionellen Eindruck.</p>
+          </article>
+          <article class="process-card">
+            <div class="process-step">03</div>
+            <h3>Kontakt vorbereiten</h3>
+            <p>Im Kontaktbereich stehen die Unternehmensdaten bereit. Telefon, WhatsApp oder Formular koennen spaeter direkt ergaenzt werden.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="kontakt">
+      <div class="container contact-grid">
+        <article class="contact-card">
+          <strong>Standort</strong>
+          <h3>Dachdecker Ioan Gabor</h3>
+          <p>
+            Expert Dach Service 48 arbeitet von Wiehl aus und bietet
+            professionelle Dacharbeiten mit Fokus auf saubere Ausfuehrung und
+            faire Preisgestaltung.
+          </p>
+          <ul class="contact-list">
+            <li>Finkenweg 2</li>
+            <li>51674 Wiehl</li>
+            <li>Registergericht: Amtsgericht Koeln</li>
+            <li>Umsatzsteuer-ID: DE 67/313/02172</li>
+          </ul>
+        </article>
+        <article class="contact-card">
+          <strong>Naechster Schritt</strong>
+          <h3>Kontaktkanal wird als Nächstes ergänzt.</h3>
+          <p>
+            Die Seite ist inhaltlich aufgebaut. Fuer eine vollstaendig
+            conversionstarke Live-Version fehlen jetzt nur noch direkte
+            Kontaktwege wie Telefonnummer, WhatsApp, E-Mail oder Formular.
+          </p>
+          <a class="legal-link" href="./impressum.html">Zum Impressum</a>
+        </article>
+      </div>
+    </section>
+
+    <section>
+      <div class="container legal-grid">
+        <article class="legal-card">
+          <strong class="eyebrow">Rechtliches</strong>
+          <h3>Impressum</h3>
+          <p>Die bereitgestellten Unternehmensdaten sind bereits als eigene Impressumsseite eingebunden.</p>
+          <a class="legal-link" href="./impressum.html">Impressum ansehen</a>
+        </article>
+        <article class="legal-card">
+          <strong class="eyebrow">Datenschutz</strong>
+          <h3>Datenschutzerklaerung</h3>
+          <p>Eine schlanke Datenschutzerklaerung fuer diese Projektversion ist ebenfalls angelegt.</p>
+          <a class="legal-link" href="./datenschutz.html">Datenschutz ansehen</a>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-row">
+      <p>Expert Dach Service 48 · Dachdecker Ioan Gabor · Finkenweg 2 · 51674 Wiehl</p>
+      <div class="footer-links">
+        <a href="./impressum.html">Impressum</a>
+        <a href="./datenschutz.html">Datenschutz</a>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
