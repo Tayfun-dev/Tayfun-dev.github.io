@@ -10,12 +10,13 @@
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet" />
   <style>
     :root {
-      --bg: #f4f1eb;
-      --text: #1b1916;
-      --text-soft: #625b53;
-      --gold: #a77d47;
-      --line: rgba(27,25,22,.1);
-      --card: #ffffff;
+      --bg: #f5f3ef;
+      --text: #1c1a17;
+      --text-mid: #5a5750;
+      --line: rgba(28,26,23,.1);
+      --gold: #9c7e50;
+      --white: #fff;
+      --radius: 3px;
     }
     * { box-sizing: border-box; margin: 0; padding: 0; }
     body {
@@ -30,13 +31,13 @@
       flex-direction: column;
     }
     .topbar {
+      background: rgba(245,243,239,.96);
+      border-bottom: 1px solid var(--line);
+      padding: 20px 6vw;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      gap: 18px;
-      padding: 20px 6vw;
-      border-bottom: 1px solid var(--line);
-      background: rgba(244,241,235,.92);
+      gap: 20px;
     }
     .brand {
       text-decoration: none;
@@ -46,77 +47,76 @@
     .brand strong {
       display: block;
       font-family: 'Cormorant Garamond', serif;
-      font-size: 2rem;
-      letter-spacing: .05em;
+      font-size: 1.9rem;
+      letter-spacing: .06em;
     }
     .brand span {
       display: block;
       margin-top: 4px;
-      font-size: .72rem;
-      text-transform: uppercase;
+      font-size: .68rem;
       letter-spacing: .18em;
+      text-transform: uppercase;
       color: var(--gold);
     }
-    .links {
+    .toplinks {
       display: flex;
       gap: 12px;
       flex-wrap: wrap;
     }
-    .links a {
+    .toplinks a {
       text-decoration: none;
       color: var(--text);
-      border: 1px solid var(--line);
+      border: 1px solid rgba(28,26,23,.14);
       padding: 10px 16px;
-      border-radius: 4px;
-      font-size: .85rem;
+      border-radius: var(--radius);
+      font-size: .82rem;
     }
     .wrap {
-      width: min(920px, calc(100% - 48px));
+      width: min(860px, 100%);
       margin: 0 auto;
-      padding: 64px 0 92px;
+      padding: 72px 6vw 96px;
     }
     .eyebrow {
-      font-size: .74rem;
-      letter-spacing: .2em;
+      font-size: .72rem;
+      letter-spacing: .18em;
       text-transform: uppercase;
       color: var(--gold);
-      margin-bottom: 14px;
-    }
-    h1, h2 {
-      font-family: 'Cormorant Garamond', serif;
-      font-weight: 600;
-      line-height: 1.1;
+      margin-bottom: 18px;
     }
     h1 {
-      font-size: clamp(2.5rem, 5vw, 3.8rem);
-      margin-bottom: 20px;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2.2rem, 5vw, 3.4rem);
+      font-weight: 500;
+      line-height: 1.1;
+      margin-bottom: 18px;
     }
     h2 {
-      font-size: 1.8rem;
-      margin-bottom: 14px;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.7rem;
+      font-weight: 500;
+      margin: 40px 0 12px;
+    }
+    p {
+      font-size: 1rem;
+      color: var(--text-mid);
     }
     .card {
-      background: var(--card);
+      background: var(--white);
       border: 1px solid var(--line);
       border-radius: 4px;
-      padding: 30px 28px;
-      margin-top: 24px;
+      padding: 32px 28px;
+      margin-top: 28px;
     }
-    .card > * + * { margin-top: 10px; }
-    p {
-      color: var(--text-soft);
-    }
-    a { color: inherit; }
+    .stack > * + * { margin-top: 8px; }
     footer {
       margin-top: auto;
-      padding: 24px 6vw 34px;
+      padding: 26px 6vw 34px;
       border-top: 1px solid var(--line);
-      color: var(--text-soft);
-      font-size: .88rem;
+      color: var(--text-mid);
+      font-size: .82rem;
     }
     @media (max-width: 640px) {
-      .topbar { flex-direction: column; align-items: flex-start; }
-      .wrap { width: min(100% - 28px, 920px); }
+      .topbar { align-items: flex-start; flex-direction: column; }
       .card { padding: 24px 20px; }
     }
   </style>
@@ -124,11 +124,11 @@
 <body>
   <div class="page">
     <header class="topbar">
-      <a class="brand" href="./">
+      <a href="./" class="brand">
         <strong>Expert Dach Service 48</strong>
-        <span>Dachdecker Ioan Gabor</span>
+        <span>Dachdecker in Wiehl</span>
       </a>
-      <nav class="links" aria-label="Navigation">
+      <nav class="toplinks" aria-label="Rechtliches">
         <a href="./">Zur Website</a>
         <a href="./datenschutz.html">Datenschutz</a>
       </nav>
@@ -138,7 +138,7 @@
       <div class="eyebrow">Rechtliches</div>
       <h1>Impressum</h1>
 
-      <section class="card">
+      <section class="card stack">
         <h2>Angaben gemaess § 5 TMG</h2>
         <p>Dachdecker Ioan Gabor</p>
         <p>Expert Dach Service 48</p>
@@ -147,39 +147,16 @@
         <p>Registergericht: Amtsgericht Koeln</p>
       </section>
 
-      <section class="card">
+      <section class="card stack">
         <h2>Umsatzsteuer-ID</h2>
         <p>Umsatzsteuer-Identifikationsnummer gemaess § 27 a Umsatzsteuergesetz:</p>
         <p>DE 67/313/02172</p>
       </section>
 
-      <section class="card">
+      <section class="card stack">
         <h2>Streitschlichtung</h2>
-        <p>Die Europaeische Kommission stellt eine Plattform zur Online-Streitbeilegung (OS) bereit:</p>
-        <p><a href="https://ec.europa.eu/consumers/odr" target="_blank" rel="noreferrer">https://ec.europa.eu/consumers/odr</a></p>
-        <p>Unsere E-Mail-Adresse finden Sie oben im Impressum.</p>
+        <p>Die Europaeische Kommission stellt eine Plattform zur Online-Streitbeilegung bereit: <a href="https://ec.europa.eu/consumers/odr" target="_blank" rel="noreferrer">ec.europa.eu/consumers/odr</a>.</p>
         <p>Wir sind nicht bereit oder verpflichtet, an Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle teilzunehmen.</p>
-      </section>
-
-      <section class="card">
-        <h2>Haftung fuer Inhalte</h2>
-        <p>Als Diensteanbieter sind wir gemaess § 7 Abs. 1 TMG fuer eigene Inhalte auf diesen Seiten nach den allgemeinen Gesetzen verantwortlich.</p>
-        <p>Nach §§ 8 bis 10 TMG sind wir als Diensteanbieter jedoch nicht verpflichtet, uebermittelte oder gespeicherte fremde Informationen zu ueberwachen oder nach Umstaenden zu forschen, die auf eine rechtswidrige Taetigkeit hinweisen.</p>
-        <p>Verpflichtungen zur Entfernung oder Sperrung der Nutzung von Informationen nach den allgemeinen Gesetzen bleiben hiervon unberuehrt. Eine diesbezuegliche Haftung ist jedoch erst ab dem Zeitpunkt der Kenntnis einer konkreten Rechtsverletzung moeglich. Bei Bekanntwerden von entsprechenden Rechtsverletzungen werden wir diese Inhalte umgehend entfernen.</p>
-      </section>
-
-      <section class="card">
-        <h2>Haftung fuer Links</h2>
-        <p>Unser Angebot enthaelt Links zu externen Websites Dritter, auf deren Inhalte wir keinen Einfluss haben. Deshalb koennen wir fuer diese fremden Inhalte auch keine Gewaehr uebernehmen.</p>
-        <p>Fuer die Inhalte der verlinkten Seiten ist stets der jeweilige Anbieter oder Betreiber der Seiten verantwortlich. Die verlinkten Seiten wurden zum Zeitpunkt der Verlinkung auf moegliche Rechtsverstoesse ueberprueft. Rechtswidrige Inhalte waren zum Zeitpunkt der Verlinkung nicht erkennbar.</p>
-        <p>Eine permanente inhaltliche Kontrolle der verlinkten Seiten ist jedoch ohne konkrete Anhaltspunkte einer Rechtsverletzung nicht zumutbar. Bei Bekanntwerden von Rechtsverletzungen werden wir derartige Links umgehend entfernen.</p>
-      </section>
-
-      <section class="card">
-        <h2>Urheberrecht</h2>
-        <p>Die durch die Seitenbetreiber erstellten Inhalte und Werke auf diesen Seiten unterliegen dem deutschen Urheberrecht. Die Vervielfaeltigung, Bearbeitung, Verbreitung und jede Art der Verwertung ausserhalb der Grenzen des Urheberrechtes beduerfen der schriftlichen Zustimmung des jeweiligen Autors bzw. Erstellers.</p>
-        <p>Downloads und Kopien dieser Seite sind nur fuer den privaten, nicht kommerziellen Gebrauch gestattet.</p>
-        <p>Soweit die Inhalte auf dieser Seite nicht vom Betreiber erstellt wurden, werden die Urheberrechte Dritter beachtet. Insbesondere werden Inhalte Dritter als solche gekennzeichnet. Sollten Sie trotzdem auf eine Urheberrechtsverletzung aufmerksam werden, bitten wir um einen entsprechenden Hinweis. Bei Bekanntwerden von Rechtsverletzungen werden wir derartige Inhalte umgehend entfernen.</p>
       </section>
     </main>
 
