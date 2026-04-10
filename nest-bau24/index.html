@@ -1,0 +1,1430 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nest Bau24 | Sanierung, Renovierung & Trockenbau</title>
+  <meta name="description" content="Nest Bau24 für Trockenbau, Innen- und Außenputz, Fassaden, Sanierung, Renovierung, Verputzen sowie Abriss und Demontage. Fachgerecht, fair und termingerecht." />
+  <meta name="theme-color" content="#181714" />
+  <meta name="robots" content="index,follow" />
+  <meta property="og:locale" content="de_DE" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Nest Bau24" />
+  <meta property="og:title" content="Nest Bau24 | Sanierung, Renovierung & Trockenbau" />
+  <meta property="og:description" content="Zuverlässiger Partner für Trockenbau, Putz, Fassade, Sanierung, Renovierung und Demontage." />
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "GeneralContractor",
+      "name": "Nest Bau24",
+      "description": "Fachgerechte Arbeiten in den Bereichen Trockenbau, Putz, Fassade, Sanierung, Renovierung sowie Abriss und Demontage.",
+      "employee": {
+        "@type": "Person",
+        "name": "Rauf Babayev"
+      }
+    }
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --bg: #f5f3ef;
+      --bg-dark: #181714;
+      --text: #1c1a17;
+      --text-mid: #5a5750;
+      --text-light: #8a8680;
+      --gold: #9c7e50;
+      --gold-lt: #c4a97a;
+      --line: rgba(28,26,23,.1);
+      --white: #ffffff;
+      --radius: 3px;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Outfit', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      font-size: 16px;
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity .75s cubic-bezier(.22,1,.36,1), transform .75s cubic-bezier(.22,1,.36,1);
+    }
+    .reveal.visible { opacity: 1; transform: none; }
+    .reveal-left  { transform: translateX(-32px); }
+    .reveal-right { transform: translateX(32px); }
+    .reveal-left.visible, .reveal-right.visible { transform: none; }
+
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 22px 6vw;
+      transition: background .4s, box-shadow .4s, padding .4s;
+    }
+    nav.scrolled {
+      background: rgba(245,243,239,.96);
+      backdrop-filter: blur(12px);
+      box-shadow: 0 1px 0 var(--line);
+      padding: 14px 6vw;
+    }
+
+    .nav-logo {
+      display: inline-flex;
+      align-items: center;
+      text-decoration: none;
+      line-height: 1.1;
+    }
+    .nav-logo strong {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(1.4rem, 2.4vw, 2rem);
+      letter-spacing: .08em;
+      color: var(--text);
+      display: block;
+    }
+    .nav-logo span {
+      display: block;
+      margin-top: 4px;
+      font-size: .62rem;
+      font-weight: 500;
+      letter-spacing: .24em;
+      text-transform: uppercase;
+      color: var(--gold);
+    }
+
+    .nav-cta {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .btn-nav {
+      background: var(--text);
+      color: var(--white);
+      font-family: 'Outfit', sans-serif;
+      font-size: .75rem;
+      font-weight: 500;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      text-decoration: none;
+      padding: 10px 20px;
+      border-radius: var(--radius);
+      white-space: nowrap;
+      transition: background .25s, color .25s;
+    }
+    .btn-nav:hover { background: var(--gold); }
+
+    #hero {
+      min-height: 100svh;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+      gap: 0;
+      padding: 0 6vw;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-bg-grid {
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(var(--line) 1px, transparent 1px),
+        linear-gradient(90deg, var(--line) 1px, transparent 1px);
+      background-size: 60px 60px;
+      pointer-events: none;
+      opacity: .45;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      padding-top: 100px;
+      padding-bottom: 80px;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: .7rem;
+      font-weight: 500;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 32px;
+    }
+    .hero-badge::before {
+      content: '';
+      width: 28px;
+      height: 1px;
+      background: var(--gold);
+    }
+
+    .hero-logo {
+      display: inline-flex;
+      flex-direction: column;
+      gap: 8px;
+      margin-bottom: 32px;
+      padding: 18px 22px;
+      background: rgba(255,255,255,.72);
+      border: 1px solid rgba(28,26,23,.08);
+      border-radius: 2px;
+      backdrop-filter: blur(10px);
+      box-shadow: 0 18px 40px rgba(0,0,0,.08);
+    }
+    .hero-logo strong {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(1.8rem, 4vw, 2.6rem);
+      line-height: .95;
+      letter-spacing: .08em;
+      color: var(--text);
+    }
+    .hero-logo span {
+      font-size: .7rem;
+      font-weight: 500;
+      letter-spacing: .22em;
+      text-transform: uppercase;
+      color: var(--gold);
+    }
+
+    .hero-headline {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 400;
+      font-size: clamp(2.8rem, 5.5vw, 5rem);
+      line-height: 1.08;
+      letter-spacing: -.01em;
+      color: var(--text);
+      margin-bottom: 28px;
+    }
+    .hero-headline em {
+      font-style: italic;
+      color: var(--gold);
+    }
+
+    .hero-sub {
+      font-size: 1.05rem;
+      font-weight: 300;
+      color: var(--text-mid);
+      max-width: 460px;
+      line-height: 1.75;
+      margin-bottom: 40px;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+      margin-bottom: 30px;
+    }
+
+    .btn-primary,
+    .btn-ghost {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-family: 'Outfit', sans-serif;
+      font-size: .82rem;
+      font-weight: 500;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      text-decoration: none;
+      border-radius: var(--radius);
+      transition: transform .2s, background .25s, border-color .25s;
+    }
+    .btn-primary {
+      background: var(--text);
+      color: var(--white);
+      padding: 16px 30px;
+    }
+    .btn-primary:hover {
+      background: var(--gold);
+      transform: translateY(-1px);
+    }
+    .btn-ghost {
+      color: var(--text);
+      border: 1px solid rgba(28,26,23,.2);
+      padding: 15px 28px;
+      background: transparent;
+    }
+    .btn-ghost:hover {
+      border-color: var(--gold);
+      background: rgba(156,126,80,.06);
+      transform: translateY(-1px);
+    }
+
+    .trust-list {
+      list-style: none;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      max-width: 500px;
+    }
+    .trust-list li {
+      padding: 9px 14px;
+      border: 1px solid rgba(28,26,23,.1);
+      background: rgba(255,255,255,.56);
+      font-size: .8rem;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      color: var(--text-mid);
+    }
+
+    .hero-visual {
+      position: relative;
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      min-height: 100svh;
+    }
+
+    .hero-card {
+      position: relative;
+      width: min(460px, 100%);
+      background: rgba(255,255,255,.72);
+      border: 1px solid rgba(28,26,23,.08);
+      box-shadow: 0 26px 70px rgba(0,0,0,.12);
+      backdrop-filter: blur(10px);
+      overflow: hidden;
+    }
+    .hero-accent-line {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 4px;
+      background: linear-gradient(90deg, transparent, var(--gold), transparent);
+    }
+    .hero-img-box {
+      position: relative;
+      aspect-ratio: 3 / 4;
+      overflow: hidden;
+      background:
+        radial-gradient(circle at top left, rgba(196,169,122,.24), transparent 28%),
+        linear-gradient(180deg, #d8d3ca 0%, #c7beb1 100%);
+    }
+    .hero-graphic {
+      width: 100%;
+      height: 100%;
+      display: block;
+    }
+    .hero-lines {
+      position: absolute;
+      inset: 0;
+      stroke: rgba(255,255,255,.3);
+      stroke-width: 1;
+      fill: none;
+      pointer-events: none;
+    }
+    .hero-img-inner {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: flex-end;
+      justify-content: flex-end;
+      padding: 26px;
+    }
+    .hero-brand-card {
+      max-width: 230px;
+      padding: 18px 18px 20px;
+      background: rgba(255,255,255,.88);
+      border: 1px solid rgba(28,26,23,.08);
+      box-shadow: 0 14px 30px rgba(0,0,0,.08);
+    }
+    .hero-brand-card strong {
+      display: block;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2rem;
+      line-height: 1;
+      letter-spacing: .06em;
+      margin-bottom: 8px;
+    }
+    .hero-brand-card span {
+      display: block;
+      font-size: .66rem;
+      font-weight: 500;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 14px;
+    }
+    .hero-brand-note {
+      font-size: .84rem;
+      line-height: 1.65;
+      color: var(--text-mid);
+    }
+    .hero-stats {
+      display: grid;
+      grid-template-columns: 1fr auto 1fr auto 1fr;
+      align-items: center;
+      padding: 18px 22px;
+      background: rgba(24,23,20,.96);
+      color: var(--white);
+    }
+    .stat-item { text-align: center; }
+    .stat-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.35rem;
+      letter-spacing: .06em;
+    }
+    .stat-label {
+      font-size: .68rem;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,.7);
+      margin-top: 4px;
+    }
+    .stat-sep {
+      width: 1px;
+      height: 26px;
+      background: rgba(255,255,255,.16);
+    }
+    .hero-scroll {
+      position: absolute;
+      left: 6vw;
+      bottom: 28px;
+      font-size: .72rem;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      color: var(--text-light);
+    }
+
+    section {
+      padding: 110px 6vw;
+      position: relative;
+    }
+    .section-inner {
+      max-width: 1240px;
+      margin: 0 auto;
+    }
+    .section-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-size: .7rem;
+      font-weight: 500;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 24px;
+    }
+    .section-label::before {
+      content: '';
+      width: 26px;
+      height: 1px;
+      background: var(--gold);
+    }
+    .section-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 400;
+      font-size: clamp(2.4rem, 5vw, 4rem);
+      line-height: 1.1;
+      margin-bottom: 18px;
+      color: var(--text);
+    }
+    .section-title em {
+      font-style: italic;
+      color: var(--gold);
+    }
+    .section-lead {
+      color: var(--text-mid);
+      font-size: 1.03rem;
+      max-width: 740px;
+      line-height: 1.85;
+    }
+
+    .services-grid {
+      margin-top: 44px;
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 18px;
+    }
+    .service-card {
+      background: rgba(255,255,255,.72);
+      border: 1px solid rgba(28,26,23,.08);
+      padding: 28px 24px;
+      box-shadow: 0 12px 30px rgba(0,0,0,.04);
+      min-height: 260px;
+    }
+    .service-num {
+      display: inline-block;
+      margin-bottom: 18px;
+      color: var(--gold);
+      font-size: .78rem;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+    }
+    .service-icon {
+      width: 22px;
+      height: 22px;
+      display: block;
+      margin-bottom: 18px;
+      color: var(--text);
+    }
+    .service-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.7rem;
+      line-height: 1.08;
+      margin-bottom: 14px;
+    }
+    .service-desc {
+      color: var(--text-mid);
+      font-size: .96rem;
+      line-height: 1.8;
+      margin-bottom: 18px;
+    }
+    .service-tag {
+      display: inline-block;
+      font-size: .68rem;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      color: var(--gold);
+    }
+
+    #vorteile {
+      background: linear-gradient(180deg, rgba(24,23,20,.96), rgba(24,23,20,.92));
+      color: var(--white);
+      overflow: hidden;
+    }
+    #vorteile .section-title,
+    #vorteile .section-lead {
+      color: var(--white);
+    }
+    #vorteile .section-lead { color: rgba(255,255,255,.72); }
+    .why-layout {
+      margin-top: 46px;
+      display: grid;
+      grid-template-columns: .95fr 1.05fr;
+      gap: 28px;
+      align-items: start;
+    }
+    .why-visual {
+      display: grid;
+      gap: 18px;
+    }
+    .why-big-box,
+    .why-small-box {
+      border: 1px solid rgba(255,255,255,.1);
+      background: rgba(255,255,255,.04);
+      backdrop-filter: blur(8px);
+    }
+    .why-big-box { padding: 30px; min-height: 320px; display: flex; align-items: flex-end; }
+    .why-small-box { padding: 26px 30px; }
+    .why-quote-mark {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 4rem;
+      line-height: .7;
+      color: var(--gold-lt);
+      margin-bottom: 10px;
+    }
+    .why-quote-text {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2rem;
+      line-height: 1.1;
+      margin-bottom: 18px;
+    }
+    .why-quote-author,
+    .why-small-sub {
+      font-size: .72rem;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,.62);
+    }
+    .why-small-text {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2rem;
+      letter-spacing: .08em;
+      margin-bottom: 8px;
+      color: var(--gold-lt);
+    }
+    .why-points {
+      display: grid;
+      gap: 18px;
+    }
+    .why-point {
+      display: grid;
+      grid-template-columns: 54px 1fr;
+      gap: 18px;
+      align-items: start;
+      padding: 22px 22px 24px;
+      border: 1px solid rgba(255,255,255,.1);
+      background: rgba(255,255,255,.03);
+    }
+    .why-point-icon {
+      width: 54px;
+      height: 54px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid rgba(255,255,255,.12);
+      color: var(--gold-lt);
+    }
+    .why-point-icon svg {
+      width: 22px;
+      height: 22px;
+    }
+    .why-point-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.6rem;
+      line-height: 1.05;
+      margin-bottom: 8px;
+    }
+    .why-point-desc {
+      color: rgba(255,255,255,.72);
+      line-height: 1.8;
+    }
+
+    .gallery-grid {
+      margin-top: 46px;
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0,1fr));
+      gap: 18px;
+    }
+    .gallery-card {
+      background: rgba(255,255,255,.72);
+      border: 1px solid rgba(28,26,23,.08);
+      overflow: hidden;
+      box-shadow: 0 12px 30px rgba(0,0,0,.04);
+    }
+    .gallery-media {
+      aspect-ratio: 4 / 3;
+      position: relative;
+      overflow: hidden;
+      background: linear-gradient(180deg, #d7d1c5 0%, #bbb0a0 100%);
+    }
+    .gallery-media svg {
+      width: 100%;
+      height: 100%;
+      display: block;
+    }
+    .gallery-caption {
+      padding: 18px 18px 20px;
+      color: var(--text-mid);
+      font-size: .95rem;
+      line-height: 1.7;
+    }
+
+    .quality-grid {
+      margin-top: 40px;
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0,1fr));
+      gap: 18px;
+    }
+    .quality-item {
+      padding: 24px 0 0;
+      border-top: 1px solid rgba(28,26,23,.12);
+    }
+    .quality-num {
+      display: inline-block;
+      margin-bottom: 16px;
+      color: var(--gold);
+      font-size: .78rem;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+    }
+    .quality-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2rem;
+      line-height: 1.08;
+      margin-bottom: 10px;
+    }
+    .quality-desc {
+      color: var(--text-mid);
+      line-height: 1.8;
+    }
+
+    .process-steps {
+      margin-top: 42px;
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0,1fr));
+      gap: 18px;
+    }
+    .process-step {
+      padding-top: 20px;
+      border-top: 1px solid rgba(28,26,23,.12);
+    }
+    .process-dot {
+      display: inline-block;
+      margin-bottom: 18px;
+      color: var(--gold);
+      font-size: .78rem;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+    }
+    .process-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.8rem;
+      line-height: 1.08;
+      margin-bottom: 10px;
+    }
+    .process-desc {
+      color: var(--text-mid);
+      line-height: 1.8;
+    }
+
+    .contact-layout {
+      margin-top: 44px;
+      display: grid;
+      grid-template-columns: .92fr 1.08fr;
+      gap: 24px;
+      align-items: start;
+    }
+    .contact-left,
+    .contact-right {
+      background: rgba(255,255,255,.76);
+      border: 1px solid rgba(28,26,23,.08);
+      padding: 30px;
+      box-shadow: 0 18px 44px rgba(0,0,0,.05);
+    }
+    .contact-right {
+      background: linear-gradient(180deg, rgba(24,23,20,.98), rgba(24,23,20,.93));
+      color: var(--white);
+    }
+    .contact-form-title,
+    .contact-left .section-lead,
+    .contact-primary-copy strong,
+    .contact-info-value,
+    .contact-summary-title {
+      color: inherit;
+    }
+    .contact-form-title,
+    .contact-summary-title,
+    .contact-section-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2rem;
+      line-height: 1.08;
+      margin-bottom: 14px;
+    }
+    .contact-form-sub,
+    .contact-note,
+    .contact-right p {
+      color: rgba(255,255,255,.72);
+      line-height: 1.8;
+    }
+    .contact-info-block,
+    .contact-summary-grid {
+      margin-top: 26px;
+      display: grid;
+      gap: 16px;
+    }
+    .contact-info-item,
+    .contact-summary-item {
+      display: grid;
+      grid-template-columns: 54px 1fr;
+      gap: 16px;
+      align-items: start;
+      padding-bottom: 16px;
+      border-bottom: 1px solid rgba(28,26,23,.08);
+    }
+    .contact-right .contact-summary-item {
+      border-bottom-color: rgba(255,255,255,.08);
+    }
+    .contact-info-item:last-child,
+    .contact-summary-item:last-child {
+      border-bottom: none;
+      padding-bottom: 0;
+    }
+    .contact-info-icon {
+      width: 54px;
+      height: 54px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid rgba(28,26,23,.12);
+      color: var(--gold);
+    }
+    .contact-right .contact-info-icon {
+      border-color: rgba(255,255,255,.12);
+      color: var(--gold-lt);
+    }
+    .contact-info-icon svg { width: 22px; height: 22px; }
+    .contact-info-label {
+      display: block;
+      margin-bottom: 6px;
+      color: var(--gold);
+      font-size: .72rem;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+    }
+    .contact-right .contact-info-label {
+      color: var(--gold-lt);
+    }
+    .contact-info-value,
+    .contact-summary-value {
+      color: var(--text);
+      font-size: .98rem;
+      line-height: 1.7;
+      text-decoration: none;
+    }
+    .contact-primary-cta {
+      margin-top: 28px;
+      padding-top: 22px;
+      border-top: 1px solid rgba(28,26,23,.1);
+    }
+    .contact-right .contact-primary-cta {
+      border-top-color: rgba(255,255,255,.08);
+    }
+    .contact-primary-copy {
+      color: var(--text-mid);
+      line-height: 1.8;
+    }
+    .contact-primary-copy strong {
+      display: block;
+      font-size: .72rem;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 6px;
+    }
+    .contact-right .contact-primary-copy strong { color: var(--gold-lt); }
+    .contact-action-row {
+      margin-top: 18px;
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    footer {
+      padding: 0 6vw 36px;
+    }
+    .footer-logo {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2rem;
+      letter-spacing: .08em;
+      margin-bottom: 20px;
+      color: var(--text);
+    }
+    .footer-logo span {
+      display: block;
+      margin-top: 6px;
+      font-family: 'Outfit', sans-serif;
+      font-size: .66rem;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+      color: var(--gold);
+    }
+    .footer-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 18px;
+      margin-bottom: 18px;
+    }
+    .footer-links a {
+      color: var(--text-mid);
+      font-size: .82rem;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      text-decoration: none;
+    }
+    .footer-copy {
+      color: var(--text-mid);
+      font-size: .84rem;
+    }
+    .footer-inner {
+      max-width: 1240px;
+      margin: 0 auto;
+      border-top: 1px solid var(--line);
+      padding-top: 26px;
+    }
+
+    @media (max-width: 1180px) {
+      #hero,
+      .why-layout,
+      .contact-layout {
+        grid-template-columns: 1fr;
+      }
+      .hero-visual {
+        min-height: auto;
+        padding-bottom: 80px;
+        justify-content: flex-start;
+      }
+      .hero-card {
+        width: min(560px, 100%);
+      }
+      .services-grid {
+        grid-template-columns: repeat(2, minmax(0,1fr));
+      }
+      .gallery-grid {
+        grid-template-columns: repeat(2, minmax(0,1fr));
+      }
+      .process-steps {
+        grid-template-columns: repeat(2, minmax(0,1fr));
+      }
+    }
+
+    @media (max-width: 760px) {
+      nav { padding: 18px 5vw; }
+      section { padding: 90px 5vw; }
+      #hero { padding: 0 5vw; }
+      .services-grid,
+      .gallery-grid,
+      .quality-grid,
+      .process-steps {
+        grid-template-columns: 1fr;
+      }
+      .hero-scroll { left: 5vw; }
+      .hero-actions,
+      .contact-action-row {
+        flex-direction: column;
+      }
+      .btn-primary,
+      .btn-ghost,
+      .btn-nav {
+        width: 100%;
+        justify-content: center;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<nav id="nav">
+  <a href="#" class="nav-logo">
+    <div>
+      <strong>Nest Bau24</strong>
+      <span>Sanierung · Renovierung · Trockenbau</span>
+    </div>
+  </a>
+  <div class="nav-cta">
+    <a href="#kontakt" class="btn-nav">Kontakt</a>
+  </div>
+</nav>
+
+<section id="hero">
+  <div class="hero-bg-grid"></div>
+
+  <div class="hero-content">
+    <div class="hero-badge reveal">Sanierung & Renovierung</div>
+    <div class="hero-logo reveal" style="transition-delay:.05s">
+      <strong>Nest Bau24</strong>
+      <span>Trockenbau, Putz und Fassade</span>
+    </div>
+    <h1 class="hero-headline reveal" style="transition-delay:.1s">
+      Zuverlässiger Partner für Renovierung und Sanierung -<br><em>fachgerecht, fair und termingerecht.</em>
+    </h1>
+    <p class="hero-sub reveal" style="transition-delay:.2s">
+      Sie planen eine Renovierung oder Sanierung und suchen einen zuverlässigen Partner? Bei Nest Bau24 sind Sie richtig. Private und gewerbliche Aufträge übernehmen wir gern, auch kurzfristig.
+    </p>
+    <div class="hero-actions reveal" style="transition-delay:.3s">
+      <a href="#leistungen" class="btn-primary">Leistungen ansehen</a>
+      <a href="#kontakt" class="btn-ghost">Kontaktbereich</a>
+    </div>
+    <ul class="trust-list reveal" style="transition-delay:.35s" aria-label="Vorteile">
+      <li>fachgerechte Arbeiten</li>
+      <li>faire Preise</li>
+      <li>termingerechte Ausführung</li>
+      <li>private & gewerbliche Aufträge</li>
+      <li>auch kurzfristig</li>
+    </ul>
+  </div>
+
+  <div class="hero-visual">
+    <div class="hero-card reveal reveal-right" style="transition-delay:.2s">
+      <div class="hero-accent-line"></div>
+      <div class="hero-img-box">
+        <svg class="hero-graphic" viewBox="0 0 800 1000" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <rect width="800" height="1000" fill="#d9d2c7"/>
+          <rect x="90" y="130" width="620" height="720" fill="#f4f1eb"/>
+          <rect x="130" y="180" width="230" height="600" fill="#e9e3d9"/>
+          <rect x="390" y="180" width="280" height="230" fill="#c6b9a5"/>
+          <rect x="390" y="440" width="280" height="340" fill="#d7ccbb"/>
+          <rect x="175" y="260" width="140" height="12" fill="#bda47f"/>
+          <rect x="175" y="302" width="110" height="12" fill="#bda47f"/>
+          <rect x="430" y="220" width="190" height="18" fill="#8e7e66"/>
+          <rect x="430" y="255" width="120" height="18" fill="#8e7e66"/>
+          <rect x="430" y="520" width="200" height="22" fill="#a89472"/>
+          <rect x="430" y="560" width="160" height="22" fill="#a89472"/>
+          <rect x="430" y="600" width="130" height="22" fill="#a89472"/>
+          <rect x="140" y="820" width="520" height="26" fill="#8f806b"/>
+          <rect x="110" y="846" width="580" height="12" fill="#6a6155"/>
+        </svg>
+        <svg class="hero-lines" viewBox="0 0 300 400" xmlns="http://www.w3.org/2000/svg">
+          <line x1="0" y1="0" x2="300" y2="400"/>
+          <line x1="60" y1="0" x2="300" y2="280"/>
+          <line x1="120" y1="0" x2="300" y2="160"/>
+          <line x1="0" y1="80" x2="180" y2="400"/>
+          <line x1="0" y1="180" x2="120" y2="400"/>
+          <line x1="150" y1="0" x2="300" y2="100"/>
+        </svg>
+        <div class="hero-img-inner">
+          <div class="hero-brand-card">
+            <strong>Nest Bau24</strong>
+            <span>Rauf Babayev</span>
+            <div class="hero-brand-note">Trockenbau, Innen- und Außenputz, Fassade, Sanierung, Renovierung sowie Abriss und Demontage.</div>
+          </div>
+        </div>
+      </div>
+      <div class="hero-stats">
+        <div class="stat-item">
+          <div class="stat-num">Innen</div>
+          <div class="stat-label">Trockenbau & Putz</div>
+        </div>
+        <div class="stat-sep"></div>
+        <div class="stat-item">
+          <div class="stat-num">Außen</div>
+          <div class="stat-label">Fassade & Sanierung</div>
+        </div>
+        <div class="stat-sep"></div>
+        <div class="stat-item">
+          <div class="stat-num">Kurzfristig</div>
+          <div class="stat-label">auf Anfrage</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="hero-scroll">Scrollen</div>
+</section>
+
+<section id="leistungen">
+  <div class="section-inner">
+    <div class="section-label reveal">Leistungen</div>
+    <h2 class="section-title reveal">Unsere Dienstleistungen -<br><em>sauber, ordentlich und zuverlässig.</em></h2>
+    <p class="section-lead reveal">Wir unterstützen private und gewerbliche Kunden mit fachgerechten Arbeiten, fairen Preisen und einer termingerechten Ausführung – von der Planung bis zur Fertigstellung.</p>
+
+    <div class="services-grid">
+      <div class="service-card reveal">
+        <span class="service-num">01</span>
+        <svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20h16"/><path d="M6 20V9l6-5l6 5v11"/><path d="M9 20v-4h6v4"/></svg>
+        <div class="service-title">Trockenbau</div>
+        <p class="service-desc">Saubere Innenausbauarbeiten für Wohnräume, Gewerbeflächen und Umbauten mit klarer Ausführung.</p>
+        <span class="service-tag">Innenausbau</span>
+      </div>
+
+      <div class="service-card reveal" style="transition-delay:.06s">
+        <span class="service-num">02</span>
+        <svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18"/><path d="M7 21V7h10v14"/><path d="M7 11h10"/></svg>
+        <div class="service-title">Innen- und<br>Außenputz</div>
+        <p class="service-desc">Putzarbeiten im Innen- und Außenbereich mit sauberem Finish und einer ruhigen, gleichmäßigen Oberfläche.</p>
+        <span class="service-tag">Putzarbeiten</span>
+      </div>
+
+      <div class="service-card reveal" style="transition-delay:.12s">
+        <span class="service-num">03</span>
+        <svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="16" rx="1"/><path d="M4 10h16"/><path d="M10 20V10"/></svg>
+        <div class="service-title">Fassaden</div>
+        <p class="service-desc">Fassadenarbeiten für Wohn- und Gewerbeobjekte mit einem klaren Blick auf Substanz, Wirkung und Haltbarkeit.</p>
+        <span class="service-tag">Außenbereich</span>
+      </div>
+
+      <div class="service-card reveal" style="transition-delay:.18s">
+        <span class="service-num">04</span>
+        <svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M12 5v14"/><circle cx="12" cy="12" r="9"/></svg>
+        <div class="service-title">Sanierung</div>
+        <p class="service-desc">Sanierungsarbeiten mit fachgerechter Umsetzung und nachvollziehbaren Schritten vom Bestand bis zum Ergebnis.</p>
+        <span class="service-tag">Bestand</span>
+      </div>
+
+      <div class="service-card reveal" style="transition-delay:.24s">
+        <span class="service-num">05</span>
+        <svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19l5-5"/><path d="M15 5l4 4"/><path d="M14 6l4 4"/><path d="M8 20l11-11"/></svg>
+        <div class="service-title">Renovierung</div>
+        <p class="service-desc">Renovierungsarbeiten mit Sorgfalt, sauberer Ausführung und termingerechter Abstimmung.</p>
+        <span class="service-tag">Modernisierung</span>
+      </div>
+
+      <div class="service-card reveal" style="transition-delay:.30s">
+        <span class="service-num">06</span>
+        <svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20h16"/><path d="M6 16l6-12l6 12"/><path d="M9.5 9h5"/></svg>
+        <div class="service-title">Verputzen</div>
+        <p class="service-desc">Gleichmäßige, fachgerecht ausgeführte Putzflächen für Wände und Fassaden mit sauberem Abschluss.</p>
+        <span class="service-tag">Oberflächen</span>
+      </div>
+
+      <div class="service-card reveal" style="transition-delay:.36s">
+        <span class="service-num">07</span>
+        <svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 19L19 5"/><path d="M9 5h10v10"/><path d="M5 9V5h4"/></svg>
+        <div class="service-title">Abriss und<br>Demontage</div>
+        <p class="service-desc">Saubere Rückbauarbeiten und Demontage als Vorbereitung für Sanierung, Umbau oder Neugestaltung.</p>
+        <span class="service-tag">Rückbau</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="vorteile">
+  <div class="section-inner">
+    <div class="section-label reveal">Warum wir</div>
+    <h2 class="section-title reveal">Warum Kunden mit Nest Bau24 arbeiten -<br><em>klar, zuverlässig und sauber.</em></h2>
+
+    <div class="why-layout">
+      <div class="why-visual reveal reveal-left">
+        <div class="why-big-box">
+          <div class="why-quote">
+            <div class="why-quote-mark">"</div>
+            <div class="why-quote-text">Das oberste Ziel für uns ist die Zufriedenheit der Kunden nach einem durchgeführten Auftrag.</div>
+            <div class="why-quote-author">Nest Bau24</div>
+          </div>
+        </div>
+        <div class="why-small-box">
+          <div class="why-small-text">NB24</div>
+          <div class="why-small-sub">Rauf Babayev</div>
+        </div>
+      </div>
+
+      <div class="why-points">
+        <div class="why-point reveal" style="transition-delay:.05s">
+          <div class="why-point-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+          </div>
+          <div>
+            <div class="why-point-title">Fachgerechte Arbeiten</div>
+            <p class="why-point-desc">Saubere Ausführung mit Blick auf Substanz, Oberflächen und ein ordentliches Endergebnis.</p>
+          </div>
+        </div>
+
+        <div class="why-point reveal" style="transition-delay:.1s">
+          <div class="why-point-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+          </div>
+          <div>
+            <div class="why-point-title">Termingerechte Ausführung</div>
+            <p class="why-point-desc">Klare Planung und saubere Abläufe sorgen dafür, dass Arbeiten zuverlässig umgesetzt werden.</p>
+          </div>
+        </div>
+
+        <div class="why-point reveal" style="transition-delay:.15s">
+          <div class="why-point-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          </div>
+          <div>
+            <div class="why-point-title">Faire Preise</div>
+            <p class="why-point-desc">Leistung und Preis sollen zusammenpassen und für Kunden nachvollziehbar bleiben.</p>
+          </div>
+        </div>
+
+        <div class="why-point reveal" style="transition-delay:.2s">
+          <div class="why-point-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          </div>
+          <div>
+            <div class="why-point-title">Private und gewerbliche Aufträge</div>
+            <p class="why-point-desc">Ob Wohnraum, Umbau oder Gewerbefläche: verschiedene Auftragsarten werden gern übernommen.</p>
+          </div>
+        </div>
+
+        <div class="why-point reveal" style="transition-delay:.25s">
+          <div class="why-point-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11l9-8 9 8"/><path d="M5 10v10h14V10"/><path d="M9 20v-6h6v6"/></svg>
+          </div>
+          <div>
+            <div class="why-point-title">Auch kurzfristig</div>
+            <p class="why-point-desc">Je nach Auftrag können Arbeiten auch kurzfristig übernommen und sauber eingeplant werden.</p>
+          </div>
+        </div>
+
+        <div class="why-point reveal" style="transition-delay:.3s">
+          <div class="why-point-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 8v4l3 3"/><circle cx="12" cy="12" r="10"/></svg>
+          </div>
+          <div>
+            <div class="why-point-title">Kundenzufriedenheit zuerst</div>
+            <p class="why-point-desc">Von der Planung bis zur Fertigstellung steht für Nest Bau24 die Zufriedenheit der Kunden an erster Stelle.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="referenzen">
+  <div class="section-inner">
+    <div class="section-label reveal">Einsatzbereiche</div>
+    <h2 class="section-title reveal">Bereiche, in denen Nest Bau24 unterstützt -<br><em>klar, vielseitig und professionell.</em></h2>
+    <p class="section-lead reveal">Die Seite ist bewusst so aufgebaut, dass Besucher schnell sehen, welche Arbeiten übernommen werden und wie vielseitig das Angebot ist.</p>
+
+    <div class="gallery-grid">
+      <figure class="gallery-card reveal">
+        <div class="gallery-media">
+          <svg viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <rect width="800" height="600" fill="#ddd5ca"/>
+            <rect x="110" y="80" width="580" height="420" fill="#f3efe8"/>
+            <rect x="140" y="120" width="230" height="330" fill="#e2dacd"/>
+            <rect x="410" y="120" width="250" height="330" fill="#cbbda8"/>
+            <rect x="180" y="170" width="150" height="12" fill="#ae9366"/>
+            <rect x="180" y="205" width="110" height="12" fill="#ae9366"/>
+          </svg>
+        </div>
+        <figcaption class="gallery-caption">Trockenbau und Innenausbau mit klarer Struktur und sauberem Finish.</figcaption>
+      </figure>
+
+      <figure class="gallery-card reveal" style="transition-delay:.05s">
+        <div class="gallery-media">
+          <svg viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <rect width="800" height="600" fill="#d4cec3"/>
+            <rect x="90" y="100" width="620" height="360" fill="#efeae2"/>
+            <rect x="120" y="140" width="560" height="40" fill="#b89f74"/>
+            <rect x="120" y="220" width="560" height="22" fill="#9f8d74"/>
+            <rect x="120" y="276" width="460" height="22" fill="#9f8d74"/>
+            <rect x="120" y="332" width="520" height="22" fill="#9f8d74"/>
+          </svg>
+        </div>
+        <figcaption class="gallery-caption">Putz- und Verputzarbeiten für Innen- und Außenflächen.</figcaption>
+      </figure>
+
+      <figure class="gallery-card reveal" style="transition-delay:.1s">
+        <div class="gallery-media">
+          <svg viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <rect width="800" height="600" fill="#d9d2c7"/>
+            <rect x="140" y="90" width="520" height="390" fill="#f2eee8"/>
+            <rect x="180" y="130" width="440" height="310" fill="#d2c3b0"/>
+            <path d="M180 200h440M180 270h440M180 340h440" stroke="#8f7a5e" stroke-width="18"/>
+          </svg>
+        </div>
+        <figcaption class="gallery-caption">Fassadenarbeiten mit einem klaren Blick auf Wirkung und Haltbarkeit.</figcaption>
+      </figure>
+
+      <figure class="gallery-card reveal" style="transition-delay:.15s">
+        <div class="gallery-media">
+          <svg viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <rect width="800" height="600" fill="#cec6ba"/>
+            <rect x="110" y="100" width="580" height="380" fill="#ede6dc"/>
+            <rect x="150" y="140" width="250" height="300" fill="#ddd1c1"/>
+            <rect x="430" y="140" width="220" height="120" fill="#af9c80"/>
+            <rect x="430" y="290" width="220" height="150" fill="#c3b399"/>
+          </svg>
+        </div>
+        <figcaption class="gallery-caption">Sanierung und Renovierung mit sauberer Planung bis zur Fertigstellung.</figcaption>
+      </figure>
+
+      <figure class="gallery-card reveal" style="transition-delay:.2s">
+        <div class="gallery-media">
+          <svg viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <rect width="800" height="600" fill="#d8d0c5"/>
+            <rect x="120" y="120" width="560" height="360" fill="#f5f1ea"/>
+            <path d="M180 160l120 120M300 160L180 280M430 180l170 170M600 180L430 350" stroke="#9c7e50" stroke-width="26" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <figcaption class="gallery-caption">Abriss und Demontage als sauberer Startpunkt für neue Arbeiten.</figcaption>
+      </figure>
+
+      <figure class="gallery-card reveal" style="transition-delay:.25s">
+        <div class="gallery-media">
+          <svg viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <rect width="800" height="600" fill="#d1cabf"/>
+            <rect x="100" y="90" width="600" height="400" fill="#ede7dd"/>
+            <rect x="150" y="150" width="500" height="50" fill="#baa37e"/>
+            <rect x="150" y="235" width="420" height="20" fill="#9c8c75"/>
+            <rect x="150" y="290" width="360" height="20" fill="#9c8c75"/>
+            <rect x="150" y="345" width="460" height="20" fill="#9c8c75"/>
+          </svg>
+        </div>
+        <figcaption class="gallery-caption">Arbeiten für private und gewerbliche Projekte – auch kurzfristig auf Anfrage.</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<section id="qualitaet">
+  <div class="section-inner">
+    <div class="section-label reveal">Darauf achten wir</div>
+    <h2 class="section-title reveal">Worauf es Nest Bau24 ankommt -<br><em>sauber, termingerecht und kundenorientiert.</em></h2>
+    <p class="section-lead reveal">Die Zufriedenheit der Kunden steht an erster Stelle. Genau daraus entsteht ein Auftritt, der zuverlässig, ordentlich und professionell wirkt.</p>
+
+    <div class="quality-grid">
+      <div class="quality-item reveal">
+        <div class="quality-num">01</div>
+        <div class="quality-title">Saubere Ausführung</div>
+        <p class="quality-desc">Ordentliche Ergebnisse und ein klares Finish sind bei Ausbau, Putz und Sanierung entscheidend.</p>
+      </div>
+      <div class="quality-item reveal" style="transition-delay:.1s">
+        <div class="quality-num">02</div>
+        <div class="quality-title">Faire Abwicklung</div>
+        <p class="quality-desc">Faire Preise und eine nachvollziehbare Ausführung sorgen für Vertrauen schon vor dem Auftrag.</p>
+      </div>
+      <div class="quality-item reveal" style="transition-delay:.2s">
+        <div class="quality-num">03</div>
+        <div class="quality-title">Verlässliche Termine</div>
+        <p class="quality-desc">Klare Planung und termingerechte Umsetzung machen den Unterschied im Alltag der Kunden.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="ablauf">
+  <div class="section-inner">
+    <div class="section-label reveal">So läuft's ab</div>
+    <h2 class="section-title reveal">So ist die Seite aufgebaut -<br><em>klar und ohne Umwege.</em></h2>
+    <p class="section-lead reveal">Besucher verstehen sofort, was Nest Bau24 anbietet, warum der Betrieb seriös wirkt und wie eine Zusammenarbeit aussehen kann.</p>
+
+    <div class="process-steps">
+      <div class="process-step reveal">
+        <div class="process-dot">01</div>
+        <div class="process-title">Leistungen sehen</div>
+        <p class="process-desc">Trockenbau, Putz, Fassade, Sanierung, Renovierung und Demontage sind direkt verständlich dargestellt.</p>
+      </div>
+      <div class="process-step reveal" style="transition-delay:.1s">
+        <div class="process-dot">02</div>
+        <div class="process-title">Vertrauen aufbauen</div>
+        <p class="process-desc">Klare Sprache, ruhige Gestaltung und nachvollziehbare Vorteile schaffen einen professionellen Eindruck.</p>
+      </div>
+      <div class="process-step reveal" style="transition-delay:.2s">
+        <div class="process-dot">03</div>
+        <div class="process-title">Zusammenarbeit verstehen</div>
+        <p class="process-desc">Die Seite zeigt, dass private und gewerbliche Aufträge übernommen werden – auch kurzfristig.</p>
+      </div>
+      <div class="process-step reveal" style="transition-delay:.3s">
+        <div class="process-dot">04</div>
+        <div class="process-title">Kontakt ergänzen</div>
+        <p class="process-desc">Telefon, E-Mail, WhatsApp und Adresse können für die finale Live-Version direkt ergänzt werden.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="kontakt">
+  <div class="section-inner">
+    <div class="section-label reveal">Kontakt</div>
+    <h2 class="section-title reveal">Direkt zum Betrieb -<br><em>klar, professionell und übersichtlich.</em></h2>
+
+    <div class="contact-layout">
+      <div class="contact-left reveal reveal-left">
+        <div class="contact-section-title">Unternehmensprofil</div>
+        <p class="section-lead">Nest Bau24 unterstützt mit fachgerechten Arbeiten, fairen Preisen und termingerechter Ausführung. Das oberste Ziel ist die Zufriedenheit der Kunden nach dem Auftrag.</p>
+
+        <div class="contact-info-block">
+          <div class="contact-info-item">
+            <div class="contact-info-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.5 2 2 0 0 1 3.6 1.34h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 9a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            </div>
+            <div>
+              <div class="contact-info-label">Betrieb</div>
+              <div class="contact-info-value">Nest Bau24</div>
+            </div>
+          </div>
+
+          <div class="contact-info-item">
+            <div class="contact-info-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>
+            </div>
+            <div>
+              <div class="contact-info-label">Ansprechpartner</div>
+              <div class="contact-info-value">Rauf Babayev</div>
+            </div>
+          </div>
+
+          <div class="contact-info-item">
+            <div class="contact-info-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11l9-8 9 8"/><path d="M5 10v10h14V10"/><path d="M9 20v-6h6v6"/></svg>
+            </div>
+            <div>
+              <div class="contact-info-label">Auftragsarten</div>
+              <div class="contact-info-value">Private und gewerbliche Projekte</div>
+            </div>
+          </div>
+
+          <div class="contact-info-item">
+            <div class="contact-info-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+            </div>
+            <div>
+              <div class="contact-info-label">Verfügbarkeit</div>
+              <div class="contact-info-value">Auch kurzfristig auf Anfrage</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="contact-primary-cta">
+          <p class="contact-primary-copy"><strong>Finale Live-Version</strong>Telefon, E-Mail, WhatsApp und rechtliche Angaben können direkt ergänzt werden, sobald die finalen Daten vorliegen.</p>
+          <div class="contact-action-row">
+            <a href="#leistungen" class="btn-primary">Leistungen</a>
+            <a href="#vorteile" class="btn-ghost">Warum wir</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="contact-right reveal reveal-right">
+        <div class="contact-form-title">Kurzer Überblick</div>
+        <p class="contact-form-sub">Die Seite zeigt auf einen Blick, wie stark das Angebot von Nest Bau24 wirkt, wenn es sauber präsentiert wird.</p>
+
+        <div class="contact-summary-grid">
+          <div class="contact-summary-item">
+            <div class="contact-info-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            </div>
+            <div>
+              <div class="contact-info-label">Leistungen</div>
+              <div class="contact-summary-value">Trockenbau, Innen- und Außenputz, Fassaden, Sanierung, Renovierung, Verputzen, Abriss und Demontage.</div>
+            </div>
+          </div>
+
+          <div class="contact-summary-item">
+            <div class="contact-info-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            </div>
+            <div>
+              <div class="contact-info-label">Wirkung</div>
+              <div class="contact-summary-value">Ruhige Gestaltung, klare Aussagen und eine wertige Struktur schaffen direkt mehr Vertrauen.</div>
+            </div>
+          </div>
+
+          <div class="contact-summary-item">
+            <div class="contact-info-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 8v4l3 3"/><circle cx="12" cy="12" r="10"/></svg>
+            </div>
+            <div>
+              <div class="contact-info-label">Nächster Schritt</div>
+              <div class="contact-summary-value">Kontaktdaten ergänzen, Domain verbinden und die Seite als echte Kundenversion veröffentlichen.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-logo">
+      Nest Bau24
+      <span>Sanierung · Renovierung · Trockenbau</span>
+    </div>
+    <div class="footer-links">
+      <a href="#leistungen">Leistungen</a>
+      <a href="#vorteile">Warum wir</a>
+      <a href="#referenzen">Einsatzbereiche</a>
+      <a href="#qualitaet">Qualität</a>
+      <a href="#ablauf">Ablauf</a>
+      <a href="#kontakt">Kontakt</a>
+    </div>
+    <p class="footer-copy">© 2026 Nest Bau24 · Demo-Vorschau für den Betrieb von Rauf Babayev</p>
+  </div>
+</footer>
+
+<script>
+  const revealEls = document.querySelectorAll('.reveal');
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        io.unobserve(entry.target);
+      }
+    });
+  }, { threshold: .12 });
+  revealEls.forEach((el) => io.observe(el));
+
+  const nav = document.getElementById('nav');
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('scrolled', window.scrollY > 60);
+  });
+</script>
+</body>
+</html>
